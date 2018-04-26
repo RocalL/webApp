@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+  <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Informations de candidature</h2>
+
+<div class="row" id="projet">
+  <div class="col-lg-4" id="img1">
+    <div class="box">
+      <div class="row">
+        <img src="img/webprojet1.png" alt="projet 1">
+      </div>
+      <div class="row">
+        <p>Test</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4" id="img2">
+    <div class="box">
+      <div class="row">
+        <img src="img/webprojet1.png" alt="projet 1">
+      </div>
+      <div class="row">
+        <p>test</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4" id="img3">
+    <div class="box">
+      <div class="row">
+        <img src="img/webprojet1.png" alt="projet 1">
+      </div>
+      <div class="row">
+        <p>test</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class = "row" id="candidature">
+  <div class="col-lg-12" id="form">
+    <form>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-4" id="panneauGauche">
+            <label for="nomDuCandidat">Nom</label>
+            <input type="text" class="form-control" id="nomDuCandidat" placeholder="Nom">
+            <label for="prenomDuCandidat">Prénom</label>
+            <input type="text" class="form-control" id="prenomDuCandidat" placeholder="Prénom">
+            <label for="numTel">Numéro de téléphone</label>
+            <input type="number" class="form-control" id="numTel" placeholder="0123456789">
+            <label for="mail">Mail</label>
+            <input type="email" class="form-control" id="mail" aria-describedby="emailWarn" placeholder="Mail">
+            <small id="emailWarn" class="form-text text-muted">Nous nous engageons à vendre cet e-mail au plus offrant</small>
+          </div>
+          <div class="col-lg-4" id="panneaumilieu">
+            <label for="raisonSocial">Raison sociale</label>
+            <input type="text" class="form-control" id="raisonSocial" placeholder="Raison sociale">
+            <label for="siret">Siret</label>
+            <input type="number" class="form-control" id="prenomDuCandidat" placeholder="Votre numéro de siret à 14 chiffres">
+            <label for="ca">Chiffre d'affaire</label>
+            <input type="number" class="form-control" id="ca" placeholder="Chiffre d'affaire annuel en €">
+            <label for="url">Site internet</label>
+            <input type="text" class="form-control" id="url" placeholder="Adresse de votre site internet">
+          </div>
+          <div class="col-lg-4" id="panneauDroite">
+            <label for="devis">Devis</label>
+            <div class="input-group mb-2" id="devis">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="toSend">
+                  <label class="custom-file-label" for="toSend">Importer votre devis</label>
+                </div>
+            </div>
+            <label for="fichierComplementaires">Fichiers complémentaires</label>
+            <div class="input-group mb-2" id="fichierComplementaires">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="toSend">
+                  <label class="custom-file-label" for="toSend">Fichiers</label>
+                </div>
+            </div>
+          </div>
+          </div>
+    <div id="sendButton">
+        <button type="submit" class="btn btn-primary">Envoyer ma candidature</button>
+    </div>
+  </div>
+</form>
+
+</div>
+
+</body>

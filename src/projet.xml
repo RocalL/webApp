@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projet 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="projet.xsd">
+  <idProjet>1</idProjet>
+  <image>http://monServeur/projet/img1</image>
+  <nom>Gestion d'appel d'offres</nom>
+  <descriptif>Projet web service M1 MIAGE Bordeaux</descriptif>
+  <deadLineCandidature>30/04/2018</deadLineCandidature>
+  <deadLineProjet>30/05/2018</deadLineProjet>
+
+  <idProjet>2</idProjet>
+  <image>http://monServeur/projet/img2</image>
+  <nom>Recolte de données personnelles</nom>
+  <descriptif>Projet qui mène devant le congrès américain</descriptif>
+  <deadLineCandidature>30/04/2018</deadLineCandidature>
+  <deadLineProjet>30/05/2018</deadLineProjet>
+</projet>
