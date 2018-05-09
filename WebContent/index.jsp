@@ -1,6 +1,6 @@
 <%@include file="../WEB-INF/views/header.jspf"%>
 
-<%@include file="../WEB-INF/views/navigation-common.jspf"%>
+<%@include file="../WEB-INF/views/navigation.jspf"%>
 
 <div class="container">
 

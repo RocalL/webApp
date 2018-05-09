@@ -1,6 +1,6 @@
 <%@include file="./header.jspf"%>
 
-<%@include file="./navigation-common.jspf"%>
+<%@include file="./navigation.jspf"%>
 
 <div class="container">
 	<p>Vous êtes connecté(e) avec l'adresse

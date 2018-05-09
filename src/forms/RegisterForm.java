@@ -1,4 +1,4 @@
-package service;
+package forms;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +44,7 @@ public class RegisterForm {
 			setErreur(CHAMP_PASS, e.getMessage());
 			setErreur(CHAMP_CONF, null);
 		}
-		utilisateur.setMotDePasse(motDePasse);
+		utilisateur.setPassword(motDePasse);
 
 		try {
 			validationNom(nom);

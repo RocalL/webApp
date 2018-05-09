@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import forms.LoginForm;
 import model.Utilisateur;
-import service.LoginForm;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {

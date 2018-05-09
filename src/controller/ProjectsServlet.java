@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet(urlPatterns = "/restricted")
-public class RestrictedServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/projects")
+public class ProjectsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String ACCES_LOGIN = "/login";
-	public static final String ACCES_RESTREINT = "/WEB-INF/views/restricted.jsp";
+	public static final String ACCES_RESTREINT = "/WEB-INF/views/projects.jsp";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

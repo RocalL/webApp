@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="./header.jspf"%>
 
-<%@include file="./navigation-common.jspf"%>
+<%@include file="./navigation.jspf"%>
 
 <div class="container">
 	<form method="post" action="register">

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<utilisateurs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="utilisateurs.xsd">
+	<utilisateur>
+		<id>1</id>
+		<email>d.jacky@iopmail.com</email>
+		<password>123</password>
+		<nom>Durand</nom>
+		<prenom>Jacques-yves</prenom>
+		<tel>0612345678</tel>
+	</utilisateur>
+	<utilisateur>
+		<id>2</id>
+		<email>matthieu.lev@gmail.com</email>
+		<password>root</password>
+		<nom>
+			LEVEQUE
+		</nom>
+		<prenom>Matthieu</prenom>
+		<tel>0612345678</tel>
+	</utilisateur>
+</utilisateurs>

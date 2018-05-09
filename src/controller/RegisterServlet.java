@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import forms.RegisterForm;
 import model.Utilisateur;
-import service.RegisterForm;
 
 /**
  * Servlet implementation class Register
