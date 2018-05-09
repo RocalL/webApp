@@ -1,0 +1,44 @@
+.copyright {
+	background-color: #1a252f;
+}
+
+.text-white {
+	color: #fff;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.navbar {
+	background-color: #2c3e50 !important;
+}
+
+.navbar-nav {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	line-height: 60px;
+}
+
+.requis {
+	color: #c00;
+	display: block;
+}
+
+.erreur {
+	color: #900;
+	display: block;
+}
+
+.succes {
+	color: #090;
+	display: block;
+}
