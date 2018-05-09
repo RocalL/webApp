@@ -24,6 +24,7 @@
                 
                 
                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+                <span class="erreur">${form.erreurs['wrongCredentials']}</span>
                 
                 <%-- Vérification de la présence d'un objet utilisateur en session --%>
                 <c:if test="${!empty sessionScope.sessionUtilisateur}">

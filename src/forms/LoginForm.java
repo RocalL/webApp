@@ -1,15 +1,21 @@
 package forms;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 import model.Utilisateur;
+import services.Utilisateurs;
 
 public final class LoginForm {
 	private static final String CHAMP_EMAIL = "email";
 	private static final String CHAMP_PASS = "motdepasse";
+	private static final String USERS_PATH = "/WEB-INF/database/utilisateurs.xml";
 
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
@@ -47,12 +53,30 @@ public final class LoginForm {
 
 		/* Initialisation du résultat global de la validation. */
 		if (erreurs.isEmpty()) {
-			resultat = "Succès de la connexion.";
+			try {
+				utilisateur = verifierLogins(email, motDePasse, request);
+				resultat = "Succès de la connexion.";
+			} catch (Exception e) {
+				setErreur("wrongCredentials", e.getMessage());
+				resultat = "Échec de la connexion.";
+			}
 		} else {
 			resultat = "Échec de la connexion.";
 		}
 
 		return utilisateur;
+	}
+
+	private Utilisateur verifierLogins(String email, String motDePasse, HttpServletRequest request) throws Exception {
+		JAXBContext jaxbContext = JAXBContext.newInstance(Utilisateurs.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		Utilisateurs listUtilisateur = (Utilisateurs) jaxbUnmarshaller
+				.unmarshal(new File(request.getServletContext().getRealPath(USERS_PATH)));
+		for (Utilisateur u : listUtilisateur.getUtilisateur()) {
+			if (u.getEmail().equals(email) && u.getPassword().equals(motDePasse))
+				return u;
+		}
+		throw new Exception("Aucun utilisateur n'est enregistré avec cet email et ce mot de passe");
 	}
 
 	/**
