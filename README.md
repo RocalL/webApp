@@ -23,8 +23,4 @@ L'application est basée sur le modèle MVC
 
 Dans notre projet, ces fichiers sont rangés de la manière suivante :
 
-![alt text](https://image.noelshack.com/fichiers/2018/19/3/1525883571-screenshot-1.jpg)
-
-Nos données XMl sont rangés de la manière suivante :
-
-![alt text](https://image.noelshack.com/fichiers/2018/19/3/1525884271-screenshot-2.jpg)
+![alt text](https://image.noelshack.com/fichiers/2018/19/4/1525915028-screenshot-1.jpg)

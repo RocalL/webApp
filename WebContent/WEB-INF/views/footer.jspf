@@ -1,11 +1,3 @@
-<footer class="footer">
-	<div class="copyright text-center text-white">
-      <div class="container">
-        <small>Copyright © Our Website 2018</small>
-      </div>
-    </div>
-</footer>
-
 <script src="../webApp/resources/js/jquery.min.js"></script>
 <script src="../webApp/resources/js/bootstrap.min.js"></script>
 <script src="../webApp/resources/js/cutsom.js"></script>

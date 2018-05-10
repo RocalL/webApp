@@ -11,11 +11,9 @@
 	</utilisateur>
 	<utilisateur>
 		<id>2</id>
-		<email>matthieu.lev@gmail.com</email>
+		<email>admin@root.fr</email>
 		<password>root</password>
-		<nom>
-			LEVEQUE
-		</nom>
+		<nom>LEVEQUE</nom>
 		<prenom>Matthieu</prenom>
 		<tel>0612345678</tel>
 	</utilisateur>

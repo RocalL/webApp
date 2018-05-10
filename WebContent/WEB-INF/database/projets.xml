@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="projets.xsd">
+	<projet>
+		<idProjet>1</idProjet>
+		<image>http://monServeur/projet/img2</image>
+		<nom>Gestion d'appel d'offres</nom>
+		<descriptif>Projet web service M1 MIAGE Bordeaux</descriptif>
+		<deadLineCandidature>30/04/2018</deadLineCandidature>
+		<deadLineProjet>30/05/2018</deadLineProjet>
+		<candidatures />
+	</projet>
+	<projet>
+		<idProjet>
+			2
+		</idProjet>
+		<image>http://monServeur/projet/img1</image>
+		<nom>Gestion des vcub</nom>
+		<descriptif>Projet tbm</descriptif>
+		<deadLineCandidature>30/07/2018</deadLineCandidature>
+		<deadLineProjet>30/08/2018</deadLineProjet>
+		<candidatures>
+			<candidature>
+				<idCandidature>1</idCandidature>
+				<dateCandidature>12/04/2018</dateCandidature>
+				<identiteCandidat>
+					<nom>Durand</nom>
+					<prenom>Jacques-yves</prenom>
+					<tel>0612345678</tel>
+					<mail>d.jacky@iopmail.com</mail>
+				</identiteCandidat>
+				<structure>
+					<raisonSocial>Jacky la bidouille</raisonSocial>
+					<siret>73282932000074</siret>
+					<ca>20</ca>
+				</structure>
+				<repProjet>
+					<delais>15</delais>
+					<devis>http://monServeur/devis/1</devis>
+					<liens>http://www.JackyBidouille.com</liens>
+					<fichiers>
+						<fichier>http://monServeur/fichiers/1-1</fichier>
+						<fichier>http://monServeur/fichiers/1-2</fichier>
+					</fichiers>
+				</repProjet>
+			</candidature>
+		</candidatures>
+	</projet>
+		<projet>
+		<idProjet>3</idProjet>
+		<image>http://monServeur/projet/img3</image>
+		<nom>Application mobile des pompiers de Bordeaux</nom>
+		<descriptif>Gestion des incendies et des bobos</descriptif>
+		<deadLineCandidature>30/04/2018</deadLineCandidature>
+		<deadLineProjet>30/05/2018</deadLineProjet>
+		<candidatures />
+	</projet>
+		<projet>
+		<idProjet>4</idProjet>
+		<image>http://monServeur/projet/img4</image>
+		<nom>Site web pompiers de Bordeaux</nom>
+		<descriptif>Administration des dossiers sinistres</descriptif>
+		<deadLineCandidature>30/04/2018</deadLineCandidature>
+		<deadLineProjet>30/05/2018</deadLineProjet>
+		<candidatures />
+	</projet>
+</projets>
