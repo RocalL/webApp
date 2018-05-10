@@ -15,19 +15,35 @@
 	<c:import url="../database/projets.xml" var="documentXML" />
 	<%-- Analyse du document XML récupéré. --%>
 	<x:parse var="doc" doc="${documentXML}" />
-	
-	<p>
+	<h1>
 		<b>Liste de tous les projets :</b>
-	</p>
+	</h1>
 	<div>
-		<ul>
-			<%-- Parcours du document parsé pour y récupérer chaque nœud "projet". --%>
+		<div class="row">
 			<x:forEach var="projet" select="$doc/projets/projet">
-				<%-- Affichage du descriptif du projet récupéré. --%>
-				<li><x:out select="$projet/nom" /></li>
-				<ul><li><x:out select="$projet/descriptif" /></li></ul>
+				<div class="col-sm-3">
+					<div class="card">
+						<img class="card-img-top"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg"
+							alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">
+								<x:out select="$projet/nom" />
+							</h5>
+							<div class="line"></div>
+							<p class="card-text">
+								<x:out select="$projet/descriptif" />
+							</p>
+							<a href="#" class="btn btn-primary">Postuler</a>
+						</div>
+						<div class="card-footer">
+							<small class="text-muted"><x:out
+									select="$projet/deadLineProjet" /></small>
+						</div>
+					</div>
+				</div>
 			</x:forEach>
-		</ul>
+		</div>
 	</div>
 </div>
 

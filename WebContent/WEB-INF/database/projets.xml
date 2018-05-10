@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:noNamespaceSchemaLocation="projets.xsd">
+	xsi:noNamespaceSchemaLocation="projets.xsd">
 	<projet>
 		<idProjet>1</idProjet>
 		<image>http://monServeur/projet/img2</image>
 		<nom>Gestion d'appel d'offres</nom>
 		<descriptif>Projet web service M1 MIAGE Bordeaux</descriptif>
-		<deadLineCandidature>30/04/2018</deadLineCandidature>
-		<deadLineProjet>30/05/2018</deadLineProjet>
+		<deadLineCandidature>22/01/2018</deadLineCandidature>
+		<deadLineProjet>10/07/2018</deadLineProjet>
 		<candidatures />
 	</projet>
 	<projet>
-		<idProjet>
-			2
-		</idProjet>
+		<idProjet>2</idProjet>
 		<image>http://monServeur/projet/img1</image>
 		<nom>Gestion des vcub</nom>
 		<descriptif>Projet tbm</descriptif>
@@ -46,22 +44,40 @@ xsi:noNamespaceSchemaLocation="projets.xsd">
 			</candidature>
 		</candidatures>
 	</projet>
-		<projet>
+	<projet>
 		<idProjet>3</idProjet>
 		<image>http://monServeur/projet/img3</image>
 		<nom>Application mobile des pompiers de Bordeaux</nom>
 		<descriptif>Gestion des incendies et des bobos</descriptif>
+		<deadLineCandidature>30/06/2018</deadLineCandidature>
+		<deadLineProjet>03/09/2018</deadLineProjet>
+		<candidatures />
+	</projet>
+	<projet>
+		<idProjet>4</idProjet>
+		<image>http://monServeur/projet/img4</image>
+		<nom>Dev Talend BI</nom>
+		<descriptif>Développement en talend data integration d'un outil de génération de jeu de données</descriptif>
 		<deadLineCandidature>30/04/2018</deadLineCandidature>
 		<deadLineProjet>30/05/2018</deadLineProjet>
 		<candidatures />
 	</projet>
 		<projet>
-		<idProjet>4</idProjet>
-		<image>http://monServeur/projet/img4</image>
-		<nom>Site web pompiers de Bordeaux</nom>
-		<descriptif>Administration des dossiers sinistres</descriptif>
-		<deadLineCandidature>30/04/2018</deadLineCandidature>
-		<deadLineProjet>30/05/2018</deadLineProjet>
+		<idProjet>5</idProjet>
+		<image>http://monServeur/projet/img5</image>
+		<nom>Dev android</nom>
+		<descriptif>Développement sur android d'un logiciel de gestion de médicaments grâce à lecture </descriptif>
+		<deadLineCandidature>30/08/2018</deadLineCandidature>
+		<deadLineProjet>06/11/2018</deadLineProjet>
+		<candidatures />
+	</projet>
+		<projet>
+		<idProjet>6</idProjet>
+		<image>http://monServeur/projet/img6</image>
+		<nom>Organisation du Gala</nom>
+		<descriptif>Organisation du Gala MIAGE</descriptif>
+		<deadLineCandidature>02/01/2018</deadLineCandidature>
+		<deadLineProjet>30/01/2018</deadLineProjet>
 		<candidatures />
 	</projet>
 </projets>

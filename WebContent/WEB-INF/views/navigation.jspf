@@ -10,8 +10,6 @@
 			</li>
 			<li class="nav-item"><a class="nav-link" href="projets">Liste
 					des projets</a></li>
-
-
 			<%
 				Object user = session.getAttribute("sessionUtilisateur");
 				if (user == null) {
@@ -24,9 +22,6 @@
 			%>
 			<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
 			</li>
-			<li class="nav-item">Hello, <%=user.getClass().getMethod("getEmail").invoke(user)%>
-			</li>
-
 			<%
 				}
 			%>
