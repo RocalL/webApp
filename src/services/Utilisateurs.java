@@ -7,21 +7,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Utilisateurs {
-	private Utilisateur[] utilisateur;
+	private Utilisateur[] utilisateurs;
 
 	public Utilisateur[] getUtilisateur() {
-		return utilisateur;
+		return utilisateurs;
 	}
 
 	public void setUtilisateur(Utilisateur[] utilisateur) {
-		this.utilisateur = utilisateur;
+		this.utilisateurs = utilisateur;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Arrays.hashCode(utilisateur);
+		result = prime * result + Arrays.hashCode(utilisateurs);
 		return result;
 	}
 
@@ -34,14 +34,14 @@ public class Utilisateurs {
 		if (getClass() != obj.getClass())
 			return false;
 		Utilisateurs other = (Utilisateurs) obj;
-		if (!Arrays.equals(utilisateur, other.utilisateur))
+		if (!Arrays.equals(utilisateurs, other.utilisateurs))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Utilisateurs [utilisateur=" + Arrays.toString(utilisateur) + "]";
+		return "Utilisateurs [utilisateur=" + Arrays.toString(utilisateurs) + "]";
 	}
 
 }

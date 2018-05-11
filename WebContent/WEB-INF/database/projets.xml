@@ -8,6 +8,7 @@
 		<descriptif>Projet web service M1 MIAGE Bordeaux</descriptif>
 		<deadLineCandidature>22/01/2018</deadLineCandidature>
 		<deadLineProjet>10/07/2018</deadLineProjet>
+		<nbMaxCandidatures>4</nbMaxCandidatures>
 		<candidatures />
 	</projet>
 	<projet>
@@ -17,16 +18,20 @@
 		<descriptif>Projet tbm</descriptif>
 		<deadLineCandidature>30/07/2018</deadLineCandidature>
 		<deadLineProjet>30/08/2018</deadLineProjet>
+		<nbMaxCandidatures>10</nbMaxCandidatures>
 		<candidatures>
 			<candidature>
 				<idCandidature>1</idCandidature>
 				<dateCandidature>12/04/2018</dateCandidature>
-				<identiteCandidat>
-					<nom>Durand</nom>
-					<prenom>Jacques-yves</prenom>
+				<utilisateur>
+					<id>2</id>
+					<role>admin</role>
+					<email>admin@root.fr</email>
+					<password>root</password>
+					<nom>LEVEQUE</nom>
+					<prenom>Matthieu</prenom>
 					<tel>0612345678</tel>
-					<mail>d.jacky@iopmail.com</mail>
-				</identiteCandidat>
+				</utilisateur>
 				<structure>
 					<raisonSocial>Jacky la bidouille</raisonSocial>
 					<siret>73282932000074</siret>
@@ -36,10 +41,7 @@
 					<delais>15</delais>
 					<devis>http://monServeur/devis/1</devis>
 					<liens>http://www.JackyBidouille.com</liens>
-					<fichiers>
-						<fichier>http://monServeur/fichiers/1-1</fichier>
-						<fichier>http://monServeur/fichiers/1-2</fichier>
-					</fichiers>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
 				</repProjet>
 			</candidature>
 		</candidatures>
@@ -51,6 +53,7 @@
 		<descriptif>Gestion des incendies et des bobos</descriptif>
 		<deadLineCandidature>30/06/2018</deadLineCandidature>
 		<deadLineProjet>03/09/2018</deadLineProjet>
+		<nbMaxCandidatures>4</nbMaxCandidatures>
 		<candidatures />
 	</projet>
 	<projet>
@@ -60,24 +63,27 @@
 		<descriptif>Développement en talend data integration d'un outil de génération de jeu de données</descriptif>
 		<deadLineCandidature>30/04/2018</deadLineCandidature>
 		<deadLineProjet>30/05/2018</deadLineProjet>
+		<nbMaxCandidatures>2</nbMaxCandidatures>
 		<candidatures />
 	</projet>
-		<projet>
+	<projet>
 		<idProjet>5</idProjet>
 		<image>http://monServeur/projet/img5</image>
 		<nom>Dev android</nom>
 		<descriptif>Développement sur android d'un logiciel de gestion de médicaments grâce à lecture </descriptif>
 		<deadLineCandidature>30/08/2018</deadLineCandidature>
 		<deadLineProjet>06/11/2018</deadLineProjet>
+		<nbMaxCandidatures>8</nbMaxCandidatures>
 		<candidatures />
 	</projet>
-		<projet>
+	<projet>
 		<idProjet>6</idProjet>
 		<image>http://monServeur/projet/img6</image>
 		<nom>Organisation du Gala</nom>
 		<descriptif>Organisation du Gala MIAGE</descriptif>
 		<deadLineCandidature>02/01/2018</deadLineCandidature>
 		<deadLineProjet>30/01/2018</deadLineProjet>
+		<nbMaxCandidatures>4</nbMaxCandidatures>
 		<candidatures />
 	</projet>
 </projets>

@@ -1,4 +1,5 @@
-<%@ page pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
 
@@ -15,9 +16,11 @@
 	<c:import url="../database/projets.xml" var="documentXML" />
 	<%-- Analyse du document XML récupéré. --%>
 	<x:parse var="doc" doc="${documentXML}" />
-	<h1>
-		<b>Liste de tous les projets :</b>
+	<h1 class="projet-title">
+		<b>Liste de tous les projets</b>
 	</h1>
+	<a href="creationProjet" class="btn btn-primary">Créer un nouveau
+		projet</a>
 	<div>
 		<div class="row">
 			<x:forEach var="projet" select="$doc/projets/projet">
@@ -34,14 +37,15 @@
 							<p class="card-text">
 								<x:out select="$projet/descriptif" />
 							</p>
-							<a href="#" class="btn btn-primary">Postuler</a>
 						</div>
 						<div class="card-footer">
 							<small class="text-muted"><x:out
-									select="$projet/deadLineProjet" /></small>
+									select="$projet/deadLineProjet" /></small> <a href="#"
+								class="btn btn-primary">Détails</a>
 						</div>
 					</div>
 				</div>
+
 			</x:forEach>
 		</div>
 	</div>
