@@ -8,9 +8,6 @@
 <%@include file="./navigation.jspf"%>
 
 <div class="container">
-	<p>Vous êtes connecté(e) avec l'adresse
-		${sessionScope.sessionUtilisateur.email}, vous avez bien accès à
-		l'espace restreint.</p>
 
 	<%-- Récupération du document XML. --%>
 	<c:import url="../database/projets.xml" var="documentXML" />
@@ -19,15 +16,20 @@
 	<h1 class="projet-title">
 		<b>Liste de tous les projets</b>
 	</h1>
-	<a href="creationProjet" class="btn btn-primary">Créer un nouveau
-		projet</a>
+	<div class="addProjet">
+		<button onclick='location.href=
+			"creationProjet"' class="btn btn-primary">
+			<span class="glyphicon glyphicon-plus"></span>
+		</button>
+	</div>
 	<div>
 		<div class="row">
 			<x:forEach var="projet" select="$doc/projets/projet">
 				<div class="col-sm-3">
 					<div class="card">
 						<img class="card-img-top"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg"
+							src="<x:out
+									select="$projet/image"/>"
 							alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title">
@@ -39,9 +41,9 @@
 							</p>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted"><x:out
+							<small class="text-muted">Date limite de candidature : <x:out
 									select="$projet/deadLineProjet" /></small> <a href="#"
-								class="btn btn-primary">Détails</a>
+								class="btn btn-primary card-btn">Consulter</a>
 						</div>
 					</div>
 				</div>

@@ -3,7 +3,7 @@
 	xsi:noNamespaceSchemaLocation="projets.xsd">
 	<projet>
 		<idProjet>1</idProjet>
-		<image>http://monServeur/projet/img2</image>
+		<image>./resources/img/1.jpg</image>
 		<nom>Gestion d'appel d'offres</nom>
 		<descriptif>Projet web service M1 MIAGE Bordeaux</descriptif>
 		<deadLineCandidature>22/01/2018</deadLineCandidature>
@@ -13,7 +13,7 @@
 	</projet>
 	<projet>
 		<idProjet>2</idProjet>
-		<image>http://monServeur/projet/img1</image>
+		<image>./resources/img/2.jpg</image>
 		<nom>Gestion des vcub</nom>
 		<descriptif>Projet tbm</descriptif>
 		<deadLineCandidature>30/07/2018</deadLineCandidature>
@@ -48,7 +48,7 @@
 	</projet>
 	<projet>
 		<idProjet>3</idProjet>
-		<image>http://monServeur/projet/img3</image>
+		<image>./resources/img/3.jpg</image>
 		<nom>Application mobile des pompiers de Bordeaux</nom>
 		<descriptif>Gestion des incendies et des bobos</descriptif>
 		<deadLineCandidature>30/06/2018</deadLineCandidature>
@@ -58,9 +58,9 @@
 	</projet>
 	<projet>
 		<idProjet>4</idProjet>
-		<image>http://monServeur/projet/img4</image>
+		<image>./resources/img/4.jpg</image>
 		<nom>Dev Talend BI</nom>
-		<descriptif>Développement en talend data integration d'un outil de génération de jeu de données</descriptif>
+		<descriptif>Développement en talend data integration d'un outil de génération de jeu de données. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis in nunc quis lobortis. Cras eget tincidunt eros. Donec vel condimentum elit. In quis ex sed tellus dapibus efficitur non nec arcu. Sed eget elit quis eros vulputate convallis. In dapibus eu ex ac lacinia. Donec rutrum blandit tortor nec consequat.</descriptif>
 		<deadLineCandidature>30/04/2018</deadLineCandidature>
 		<deadLineProjet>30/05/2018</deadLineProjet>
 		<nbMaxCandidatures>2</nbMaxCandidatures>
@@ -68,9 +68,9 @@
 	</projet>
 	<projet>
 		<idProjet>5</idProjet>
-		<image>http://monServeur/projet/img5</image>
+		<image>./resources/img/5.jpg</image>
 		<nom>Dev android</nom>
-		<descriptif>Développement sur android d'un logiciel de gestion de médicaments grâce à lecture </descriptif>
+		<descriptif>Développement sur android d'un logiciel de gestion de médicaments grâce à lecture. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis in nunc quis lobortis. Cras eget tincidunt eros. Donec vel condimentum elit. In quis ex sed tellus dapibus efficitur non nec arcu. Sed eget elit quis eros vulputate convallis. In dapibus eu ex ac lacinia. Donec rutrum blandit tortor nec consequat. </descriptif>
 		<deadLineCandidature>30/08/2018</deadLineCandidature>
 		<deadLineProjet>06/11/2018</deadLineProjet>
 		<nbMaxCandidatures>8</nbMaxCandidatures>
@@ -78,9 +78,9 @@
 	</projet>
 	<projet>
 		<idProjet>6</idProjet>
-		<image>http://monServeur/projet/img6</image>
+		<image>./resources/img/6.jpg</image>
 		<nom>Organisation du Gala</nom>
-		<descriptif>Organisation du Gala MIAGE</descriptif>
+		<descriptif>Organisation du Gala MIAGE. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis in nunc quis lobortis. Cras eget tincidunt eros. Donec vel condimentum elit. In quis ex sed tellus dapibus efficitur non nec arcu. Sed eget elit quis eros vulputate convallis. In dapibus eu ex ac lacinia. Donec rutrum blandit tortor nec consequat.</descriptif>
 		<deadLineCandidature>02/01/2018</deadLineCandidature>
 		<deadLineProjet>30/01/2018</deadLineProjet>
 		<nbMaxCandidatures>4</nbMaxCandidatures>

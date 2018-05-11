@@ -28,3 +28,10 @@
 		</ul>
 	</div>
 </nav>
+<%
+	if (user != null) {
+%>
+<p class="displayUser">Bienvenue ${sessionScope.sessionUtilisateur.email}</p>
+<%
+	}
+%>
