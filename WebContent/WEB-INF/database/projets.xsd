@@ -48,9 +48,8 @@
 													<xs:element name="repProjet">
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element type="xs:byte" name="delais" />
 																<xs:element type="xs:anyURI" name="devis" />
-																<xs:element type="xs:anyURI" name="liens" />
+																<xs:element type="xs:anyURI" name="website" />
 																<xs:element type="xs:anyURI" name="fichier" />
 															</xs:sequence>
 														</xs:complexType>

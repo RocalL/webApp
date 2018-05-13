@@ -12,14 +12,14 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class CreationProjet
  */
 @WebServlet(urlPatterns = "/creationProjet")
-public class CreationProjet extends HttpServlet {
+public class CreationProjetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String VUE_SUCCES = "/WEB-INF/projets.jsp";
 	public static final String VUE_FORM = "/WEB-INF/views/creationProjet.jsp";
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 
-	public CreationProjet() {
+	public CreationProjetServlet() {
 		super();
 	}
 

@@ -1,11 +1,11 @@
 package model;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import services.Candidatures;
-
+@XmlRootElement
 public class Projet {
-	private static final AtomicInteger idProjet = new AtomicInteger(0);
+	private int idProjet;
 	private int nbMaxCandidatures;
 	private String deadLineProjet;
 	private String image;
@@ -13,9 +13,11 @@ public class Projet {
 	private String deadLineCandidature;
 	private String nom;
 	private Candidatures candidatures;
+	private static int idCounter = 0;
 
 	public Projet(int nbMaxCandidatures, String deadLineProjet, String image, String descriptif,
 			String deadLineCandidature, String nom, Candidatures candidatures) {
+		this.idProjet = idCounter++;
 		this.nbMaxCandidatures = nbMaxCandidatures;
 		this.deadLineProjet = deadLineProjet;
 		this.image = image;
@@ -85,7 +87,7 @@ public class Projet {
 		this.candidatures = candidatures;
 	}
 
-	public static AtomicInteger getIdprojet() {
+	public int getIdprojet() {
 		return idProjet;
 	}
 

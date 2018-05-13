@@ -1,27 +1,17 @@
 package model;
 
 public class RepProjet {
-	private int delais;
 	private String fichier;
-	private String liens;
+	private String website;
 	private String devis;
 
-	public RepProjet(int delais, String fichier, String liens, String devis) {
-		this.delais = delais;
+	public RepProjet(String fichier, String website, String devis) {
 		this.fichier = fichier;
-		this.liens = liens;
+		this.website = website;
 		this.devis = devis;
 	}
 
 	public RepProjet() {
-	}
-
-	public int getDelais() {
-		return delais;
-	}
-
-	public void setDelais(int delais) {
-		this.delais = delais;
 	}
 
 	public String getFichier() {
@@ -32,12 +22,12 @@ public class RepProjet {
 		this.fichier = fichier;
 	}
 
-	public String getLiens() {
-		return liens;
+	public String getWebsite() {
+		return website;
 	}
 
-	public void setLiens(String liens) {
-		this.liens = liens;
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 
 	public String getDevis() {
@@ -52,10 +42,9 @@ public class RepProjet {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + delais;
 		result = prime * result + ((devis == null) ? 0 : devis.hashCode());
 		result = prime * result + ((fichier == null) ? 0 : fichier.hashCode());
-		result = prime * result + ((liens == null) ? 0 : liens.hashCode());
+		result = prime * result + ((website == null) ? 0 : website.hashCode());
 		return result;
 	}
 
@@ -68,8 +57,6 @@ public class RepProjet {
 		if (getClass() != obj.getClass())
 			return false;
 		RepProjet other = (RepProjet) obj;
-		if (delais != other.delais)
-			return false;
 		if (devis == null) {
 			if (other.devis != null)
 				return false;
@@ -80,17 +67,17 @@ public class RepProjet {
 				return false;
 		} else if (!fichier.equals(other.fichier))
 			return false;
-		if (liens == null) {
-			if (other.liens != null)
+		if (website == null) {
+			if (other.website != null)
 				return false;
-		} else if (!liens.equals(other.liens))
+		} else if (!website.equals(other.website))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "RepProjet [delais=" + delais + ", fichier=" + fichier + ", liens=" + liens + ", devis=" + devis + "]";
+		return "RepProjet [fichier=" + fichier + ", website=" + website + ", devis=" + devis + "]";
 	}
 
 }

@@ -1,7 +1,7 @@
 <script src="../webApp/resources/js/jquery.min.js"></script>
 <script src="../webApp/resources/js/bootstrap.min.js"></script>
 <script src="../webApp/resources/js/cutsom.js"></script>
-
+<script src="../webApp/resources/js/fontawesome-all.min.js"></script>
 </body>
 
 </html>

@@ -38,9 +38,8 @@
 					<ca>20</ca>
 				</structure>
 				<repProjet>
-					<delais>15</delais>
 					<devis>http://monServeur/devis/1</devis>
-					<liens>http://www.JackyBidouille.com</liens>
+					<website>http://www.JackyBidouille.com</website>
 					<fichier>http://monServeur/fichiers/1-1</fichier>
 				</repProjet>
 			</candidature>
@@ -68,7 +67,7 @@
 	</projet>
 	<projet>
 		<idProjet>5</idProjet>
-		<image>./resources/img/5.jpg</image>
+		<image>./resources/img/default.jpg</image>
 		<nom>Dev android</nom>
 		<descriptif>Développement sur android d'un logiciel de gestion de médicaments grâce à lecture. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis in nunc quis lobortis. Cras eget tincidunt eros. Donec vel condimentum elit. In quis ex sed tellus dapibus efficitur non nec arcu. Sed eget elit quis eros vulputate convallis. In dapibus eu ex ac lacinia. Donec rutrum blandit tortor nec consequat. </descriptif>
 		<deadLineCandidature>30/08/2018</deadLineCandidature>
@@ -78,7 +77,7 @@
 	</projet>
 	<projet>
 		<idProjet>6</idProjet>
-		<image>./resources/img/6.jpg</image>
+		<image>./resources/img/default.jpg</image>
 		<nom>Organisation du Gala</nom>
 		<descriptif>Organisation du Gala MIAGE. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis in nunc quis lobortis. Cras eget tincidunt eros. Donec vel condimentum elit. In quis ex sed tellus dapibus efficitur non nec arcu. Sed eget elit quis eros vulputate convallis. In dapibus eu ex ac lacinia. Donec rutrum blandit tortor nec consequat.</descriptif>
 		<deadLineCandidature>02/01/2018</deadLineCandidature>

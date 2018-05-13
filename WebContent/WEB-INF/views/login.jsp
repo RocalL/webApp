@@ -20,7 +20,7 @@
                 <span class="erreur">${form.erreurs['motdepasse']}</span>
 
 
-                <input type="submit" value="Connexion" class="sansLabel" />
+                <input type="submit" value="Connexion" class="sansLabel btn" />
                 
                 
                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
@@ -33,6 +33,7 @@
                 </c:if>
             </fieldset>
         </form>
+        <a href="register">S'enregistrer</a>
 </div>
 
 <%@include file="./footer.jspf"%>
