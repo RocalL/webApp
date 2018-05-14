@@ -11,42 +11,22 @@
 <%-- Analyse du document XML récupéré. --%>
 <x:parse var="doc" doc="${documentXML}" />
 
-<%-- Enregistre le résultat de l'expression XPath, spécifiée dans l'attribut select, 
-dans une variable de session nommée 'auteur' --%>
-<x:set var="projet" scope="page"
-	select="$doc/projets/projet[idProjet=$param:projet]"></x:set>
-
-
-
 <div class="container">
-	<div class="row">
-		<h1 class="custom-title">
-			<x:out select="$pageScope:projet/nom" />
-		</h1>
+	<x:forEach var="candidat" select="$doc/projets/projet[idProjet=$param:projet]/candidatures">
+		<div class="row">
+			<div class="col-sm">
+					<p>
+					Soumis le :
+					<x:out select="$pageScope:candidat/candidature/dateCandidature" />
+					</p>		
+		
+					<p>
+					Raison social du candidat :
+					<x:out select="$pageScope:candidat/candidature/structure/raisonSocial" />
+					</p>
+			</div>
+		</div>			
+	</x:forEach>
 
-	</div>
-	<div class="row">
-		<div class="col-sm">
-			<h2>Liste des candidatures</h2>
-			<p>
-				Date de fin des dépôt de candidature :
-				<x:out select="$pageScope:projet/deadLineCandidature" />
-			</p>
-			<p>
-				Date de fin du projet :
-				<x:out select="$pageScope:projet/deadLineProjet" />
-			</p>
-			<p>
-				Nombre de candidat maximum :
-				<x:out select="$pageScope:projet/nbMaxCandidatures" />
-			</p>
-			<form name="postuler" method="get" action="creationCandidature">
-				<input type="hidden" name="projet"
-					value="<x:out select='$projet/idProjet'/>"> <input
-					type="submit" class="btn postuler-btn" value="Postuler" />
-			</form>
-
-		</div>
-	</div>
 </div>
 <%@include file="./footer.jspf"%>
