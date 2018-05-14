@@ -82,9 +82,9 @@ public class CreationCandidatureForm {
 
 
 		if (erreurs.isEmpty()) {
-			resultat = "Succès de la création de la candidature le " + date.toString();
+			resultat = "Succï¿½s de la crï¿½ation de la candidature le " + date.toString();
 		} else {
-			resultat = "Échec de la création de la candidature.";
+			resultat = "ï¿½chec de la crï¿½ation de la candidature.";
 		}
 
 		return candidature;
@@ -93,7 +93,7 @@ public class CreationCandidatureForm {
 	private void validationRaisonSociale(String raisonSociale) throws Exception {
 		if (raisonSociale != null) {
 			if (raisonSociale.length() < 2) {
-				throw new Exception("Le champ raison sociale doit contenir au moins 2 caractères.");
+				throw new Exception("Le champ raison sociale doit contenir au moins 2 caractï¿½res.");
 			}
 		} else {
 			throw new Exception("Merci d'entrer une raison sociale.");
@@ -106,11 +106,11 @@ public class CreationCandidatureForm {
 			try {
 				temp = Long.parseLong(siret);
 				if (siret.length() < 14) {
-					throw new Exception("Le siret doit contenir au moins 14 caractères.");
+					throw new Exception("Le siret doit contenir au moins 14 caractÃ¨res.");
 				}
 			} catch (NumberFormatException e) {
 				temp = -1;
-				throw new Exception("Le siret doit être un nombre.");
+				throw new Exception("Le siret doit Ãªtre un nombre.");
 			}
 		} else {
 			temp = -1;
@@ -125,11 +125,11 @@ public class CreationCandidatureForm {
 			try {
 				temp = Integer.parseInt(ca);
 				if (temp < 0) {
-					throw new Exception("Le chiffre d'affaire doit être un nombre positif.");
+					throw new Exception("Le chiffre d'affaire doit Ãªtre un nombre positif.");
 				}
 			} catch (NumberFormatException e) {
 				temp = -1;
-				throw new Exception("Le chiffre d'affaire doit être un nombre.");
+				throw new Exception("Le chiffre d'affaire doit Ãªtre un nombre.");
 			}
 		} else {
 			temp = -1;
@@ -139,14 +139,14 @@ public class CreationCandidatureForm {
 	}
 
 	/*
-	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
+	 * Ajoute un message correspondant au champ spï¿½cifiï¿½ ï¿½ la map des erreurs.
 	 */
 	private void setErreur(String champ, String message) {
 		erreurs.put(champ, message);
 	}
 
 	/*
-	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * Mï¿½thode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {

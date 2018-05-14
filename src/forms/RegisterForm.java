@@ -12,6 +12,8 @@ public class RegisterForm {
 	private static final String CHAMP_PASS = "motdepasse";
 	private static final String CHAMP_CONF = "confirmation";
 	private static final String CHAMP_NOM = "nom";
+	private static final String CHAMP_PRENOM = "prenom";
+	private static final String CHAMP_TEL = "tel";
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
 
@@ -28,8 +30,17 @@ public class RegisterForm {
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 		String confirmation = getValeurChamp(request, CHAMP_CONF);
 		String nom = getValeurChamp(request, CHAMP_NOM);
+		String prenom = getValeurChamp(request, CHAMP_PRENOM);
+		String tel = getValeurChamp(request, CHAMP_TEL);
 
 		Utilisateur utilisateur = new Utilisateur();
+		
+		try {
+			validationTel(tel);
+		} catch(Exception e) {
+			setErreur(CHAMP_TEL, e.getMessage());
+		}
+		utilisateur.setTel(tel);
 
 		try {
 			validationEmail(email);
@@ -54,14 +65,40 @@ public class RegisterForm {
 		utilisateur.setNom(nom);
 
 		if (erreurs.isEmpty()) {
-			resultat = "SuccËs de l'inscription.";
+			resultat = "Succ√®s de l'inscription.";
 		} else {
-			resultat = "…chec de l'inscription.";
+			resultat = "√©chec de l'inscription.";
 		}
+		
+		try {
+			validationPrenom(prenom);
+		} catch (Exception e) {
+			setErreur(CHAMP_PRENOM, e.getMessage());
+			}
+		utilisateur.setPrenom(prenom);
+		
+		try {
+			validationTel(tel);
+		} catch (Exception e) {
+			setErreur(CHAMP_TEL, e.getMessage());
+		}
+		
+		utilisateur.setTel(tel);
 
 		return utilisateur;
 	}
 
+	private void validationTel(String tel) throws Exception {
+		if(tel != null) {
+			if (!tel.matches("^(?:(?:\\+|00)33[\\s.-]{0,3}(?:\\(0\\)[\\s.-]{0,3})?|0)[1-9](?:(?:[\\s.-]?\\d{2}){4}|\\d{2}(?:[\\s.-]?\\d{3}){2})$")) {
+				throw new Exception("Veuillez saisir un num√©ro de t√©l√©phone valide");
+			}
+		} else {
+			throw new Exception("Veuillez saisir un num√©ro de t√©l√©phone.");
+		}
+
+	}
+	
 	private void validationEmail(String email) throws Exception {
 		if (email != null) {
 			if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
@@ -75,9 +112,9 @@ public class RegisterForm {
 	private void validationMotsDePasse(String motDePasse, String confirmation) throws Exception {
 		if (motDePasse != null && confirmation != null) {
 			if (!motDePasse.equals(confirmation)) {
-				throw new Exception("Les mots de passe entrÈs sont diffÈrents, merci de les saisir ‡ nouveau.");
+				throw new Exception("Les mots de passe entr√©s sont diff√©rents, merci de les saisir √† nouveau.");
 			} else if (motDePasse.length() < 3) {
-				throw new Exception("Les mots de passe doivent contenir au moins 3 caractËres.");
+				throw new Exception("Les mots de passe doivent contenir au moins 3 caract√®res.");
 			}
 		} else {
 			throw new Exception("Merci de saisir et confirmer votre mot de passe.");
@@ -85,20 +122,31 @@ public class RegisterForm {
 	}
 
 	private void validationNom(String nom) throws Exception {
-		if (nom != null && nom.length() < 3) {
-			throw new Exception("Le nom d'utilisateur doit contenir au moins 3 caractËres.");
+		if (nom == null) {
+			throw new Exception("Veuillez saisir un nom");
+		}
+		else if(nom.length() < 3) {
+			throw new Exception("Le nom d'utilisateur doit contenir au moins 3 caract√®res.");
+		}
+	}
+	private void validationPrenom(String prenom) throws Exception {
+		if (prenom == null) {
+			throw new Exception("Veuillez saisir un pr√©nom");
+		}
+		else if(prenom.length() < 3) {
+			throw new Exception("Le pr√©nom d'utilisateur doit contenir au moins 3 caract√®res.");
 		}
 	}
 
 	/*
-	 * Ajoute un message correspondant au champ spÈcifiÈ ‡ la map des erreurs.
+	 * Ajoute un message correspondant au champ sp√©cifi√© √† la map des erreurs.
 	 */
 	private void setErreur(String champ, String message) {
 		erreurs.put(champ, message);
 	}
 
 	/*
-	 * MÈthode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * M√©thode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
