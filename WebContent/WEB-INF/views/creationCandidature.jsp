@@ -51,6 +51,10 @@
 							<span class="erreur">${form.erreurs['website']}</span>
 						</div>
 						<div class="col-lg-4" id="panneauDroite">
+							<label for="url">Délai proposé <span class="requis">*</span></label>
+							<input type="text" class="form-control" id="delai" name="delais" placeholder="En nombre de journées">
+							<span class="erreur">${form.erreurs['delai']}</span>
+							
 							<label for="devis">Devis <span class="requis">*</span></label> 
 							<div class="input-group mb-2" id="devis">
 								<div class="custom-file">

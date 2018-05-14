@@ -12,7 +12,7 @@
 							<xs:element type="xs:string" name="descriptif" />
 							<xs:element type="xs:string" name="deadLineCandidature" />
 							<xs:element type="xs:string" name="deadLineProjet" />
-							<xs:element type="xs:byte" name="nbMaxCandidatures" />
+							<xs:element type="xs:integer" name="nbMaxCandidatures" />
 							<xs:element name="candidatures">
 								<xs:complexType>
 									<xs:sequence>
@@ -24,13 +24,12 @@
 													<xs:element name="utilisateur">
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="id" type="xs:int"></xs:element>
 																<xs:element name="role" type="xs:string"></xs:element>
 																<xs:element name="email" type="xs:string"></xs:element>
 																<xs:element name="password"></xs:element>
 																<xs:element name="nom" type="xs:string"></xs:element>
 																<xs:element name="prenom" type="xs:string"></xs:element>
-																<xs:element name="tel" type="xs:int"></xs:element>
+																<xs:element name="tel" type="xs:string"></xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -39,13 +38,14 @@
 															<xs:sequence>
 																<xs:element type="xs:string" name="raisonSocial" />
 																<xs:element type="xs:long" name="siret" />
-																<xs:element type="xs:byte" name="ca" />
+																<xs:element type="xs:integer" name="ca" />
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
 													<xs:element name="repProjet">
 														<xs:complexType>
 															<xs:sequence>
+																<xs:element type="xs:integer" name="delaisPropose" />
 																<xs:element type="xs:anyURI" name="devis" />
 																<xs:element type="xs:anyURI" name="website" />
 																<xs:element type="xs:anyURI" name="fichier" />

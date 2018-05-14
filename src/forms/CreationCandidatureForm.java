@@ -22,6 +22,7 @@ public class CreationCandidatureForm {
 	private static final String CHAMP_WEBSITE = "website";
 	private static final String CHAMP_DEVIS = "devis";
 	private static final String CHAMP_FICHIERS = "fichiers";
+	private static final String CHAMP_DELAI = "delai";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 
 	private String resultat;
@@ -43,6 +44,7 @@ public class CreationCandidatureForm {
 		String siret = getValeurChamp(request, CHAMP_SIRET);
 		String ca = getValeurChamp(request, CHAMP_CA);
 
+		String delai = getValeurChamp(request, CHAMP_DELAI);
 		String website = getValeurChamp(request, CHAMP_WEBSITE);
 		String devis = getValeurChamp(request, CHAMP_DEVIS);
 		String fichiers = getValeurChamp(request, CHAMP_FICHIERS);
@@ -76,6 +78,14 @@ public class CreationCandidatureForm {
 			setErreur(CHAMP_CA, e.getMessage());
 		}
 		structure.setCa(caInt);
+		
+		int delaiInt = -1;
+		try {
+			delaiInt = validationDelai(delai);
+		} catch (Exception e) {
+			setErreur(CHAMP_DELAI, e.getMessage());
+		}
+		repProjet.setDelaisPropose(delaiInt);
 
 		candidature.setUtilisateur(utilisateur);
 		candidature.setStructure(structure);
@@ -137,15 +147,33 @@ public class CreationCandidatureForm {
 			try {
 				temp = Integer.parseInt(ca);
 				if (temp < 0) {
-					throw new Exception("Le chiffre d'affaire doit �tre un nombre positif.");
+					throw new Exception("Le chiffre d'affaire doit être un nombre positif.");
 				}
 			} catch (NumberFormatException e) {
 				temp = -1;
-				throw new Exception("Le chiffre d'affaire doit �tre un nombre.");
+				throw new Exception("Le chiffre d'affaire doit être un nombre.");
 			}
 		} else {
 			temp = -1;
 			throw new Exception("Merci d'entrer un chiffre d'affaire.");
+		}
+		return temp;
+	}
+	private int validationDelai(String delai) throws Exception {
+		int temp;
+		if (delai != null) {
+			try {
+				temp = Integer.parseInt(delai);
+				if (temp < 0) {
+					throw new Exception("Le délai doit être un nombre positif.");
+				}
+			} catch (NumberFormatException e) {
+				temp = -1;
+				throw new Exception("Le délai doit être un nombre.");
+			}
+		} else {
+			temp = -1;
+			throw new Exception("Merci d'entrer un délai.");
 		}
 		return temp;
 	}

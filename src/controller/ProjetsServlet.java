@@ -22,7 +22,7 @@ public class ProjetsServlet extends HttpServlet {
 	public static final String CHEMIN = "/WEB-INF/database/projets.xml";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/* R�cup�ration de la session depuis la requête */
+		/* Récupération de la session depuis la requête */
 		HttpSession session = request.getSession();
 
 		/*

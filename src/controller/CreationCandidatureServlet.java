@@ -30,11 +30,11 @@ public class CreationCandidatureServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/* Récupération de la session depuis la requête */
+		/* Rï¿½cupï¿½ration de la session depuis la requÃªte */
 		HttpSession session = request.getSession();
 		/*
 		 * Si l'objet utilisateur n'existe pas dans la session en cours, alors
-		 * l'utilisateur n'est pas connecté.
+		 * l'utilisateur n'est pas connectï¿½.
 		 */
 		if (session.getAttribute(ATT_SESSION_USER) == null) {
 			/* Redirection vers la page publique */
@@ -47,18 +47,14 @@ public class CreationCandidatureServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			/* Préparation de l'objet formulaire */
+			/* PrÃ©paration de l'objet formulaire */
 			CreationCandidatureForm form = new CreationCandidatureForm();
 
-			/* Traitement de la requête et récupération du bean en résultant */
+			/* Traitement de la requÃªte et rÃ©cupÃ©ration du bean en rÃ©sultant */
 			Candidature candidature = form.creerCandidature(request, CHEMIN);
 			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_CANDIDATURE, candidature);
 
 			this.getServletContext().getRequestDispatcher(VUE_FORM).forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 }

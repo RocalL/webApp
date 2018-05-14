@@ -8,7 +8,118 @@
 		<deadLineCandidature>22/01/2018</deadLineCandidature>
 		<deadLineProjet>10/07/2018</deadLineProjet>
 		<nbMaxCandidatures>4</nbMaxCandidatures>
-		<candidatures />
+		<candidatures>
+			<candidature>
+				<dateCandidature>09/15/2017</dateCandidature>
+				<utilisateur>
+					<role>user</role>
+					<email>magna.Nam.ligula@quamdignissimpharetra.edu</email>
+					<password>root</password>
+					<nom>Lionel</nom>
+					<prenom>Flowers</prenom>
+					<tel>09 95 18 37 72</tel>
+				</utilisateur>
+				<structure>
+					<raisonSocial>Integer Ltd</raisonSocial>
+					<siret>396952152</siret>
+					<ca>48523836</ca>
+				</structure>
+				<repProjet>
+					<delaisPropose>288</delaisPropose>
+					<devis>http://monServeur/devis/1</devis>
+					<website>http://www.Integer.com</website>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
+				</repProjet>
+			</candidature>
+			<candidature>
+				<dateCandidature>12/02/2017</dateCandidature>
+				<utilisateur>
+					<role>user</role>
+					<email>ac.nulla.In@senectus.com</email>
+					<password>root</password>
+					<nom>Jamal</nom>
+					<prenom>Sweet</prenom>
+					<tel>02 19 70 66 70</tel>
+				</utilisateur>
+				<structure>
+					<raisonSocial>Magna A Neque Ltd</raisonSocial>
+					<siret>068856459</siret>
+					<ca>40116063</ca>
+				</structure>
+				<repProjet>
+					<delaisPropose>43</delaisPropose>
+					<devis>http://monServeur/devis/1</devis>
+					<website>http://www.Magna.com</website>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
+				</repProjet>
+			</candidature>
+			<candidature>
+				<dateCandidature>11/15/2017</dateCandidature>
+				<utilisateur>
+					<role>user</role>
+					<email>luctus@magna.co.uk</email>
+					<password>root</password>
+					<nom>Jason</nom>
+					<prenom>Burch</prenom>
+					<tel>04 48 50 92 63</tel>
+				</utilisateur>
+				<structure>
+					<raisonSocial>Sapien Nunc Company</raisonSocial>
+					<siret>714919164</siret>
+					<ca>16945697</ca>
+				</structure>
+				<repProjet>
+					<delaisPropose>334</delaisPropose>
+					<devis>http://monServeur/devis/1</devis>
+					<website>http://www.Sapien.com</website>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
+				</repProjet>
+			</candidature>
+			<candidature>
+				<dateCandidature>12/01/2017</dateCandidature>
+				<utilisateur>
+					<role>user</role>
+					<email>in.molestie@parturientmontes.edu</email>
+					<password>root</password>
+					<nom>Harper</nom>
+					<prenom>Higgins</prenom>
+					<tel>09 06 36 29 07</tel>
+				</utilisateur>
+				<structure>
+					<raisonSocial>Mock LLP</raisonSocial>
+					<siret>277518098</siret>
+					<ca>49776050</ca>
+				</structure>
+				<repProjet>
+					<delaisPropose>272</delaisPropose>
+					<devis>http://monServeur/devis/1</devis>
+					<website>http://www.Mock.com</website>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
+				</repProjet>
+			</candidature>
+			<candidature>
+				<dateCandidature>03/08/2018</dateCandidature>
+				<utilisateur>
+					<role>user</role>
+					<email>rutrum.justo.Praesent@accumsanlaoreetipsum.co.uk</email>
+					<password>root</password>
+					<nom>Lyle</nom>
+					<prenom>Rocha</prenom>
+					<tel>09 53 19 34 67</tel>
+				</utilisateur>
+				<structure>
+					<raisonSocial>Etiam Incorporated</raisonSocial>
+					<siret>807057773</siret>
+					<ca>34025883</ca>
+				</structure>
+				<repProjet>
+					<delaisPropose>38</delaisPropose>
+					<devis>http://monServeur/devis/1</devis>
+					<website>http://www.Etiam.com</website>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
+				</repProjet>
+			</candidature>
+		</candidatures>
 	</projet>
 	<projet>
 		<image>./resources/img/2.jpg</image>
@@ -21,7 +132,6 @@
 			<candidature>
 				<dateCandidature>12/04/2018</dateCandidature>
 				<utilisateur>
-					<id>2</id>
 					<role>admin</role>
 					<email>admin@root.fr</email>
 					<password>root</password>
@@ -35,8 +145,75 @@
 					<ca>20</ca>
 				</structure>
 				<repProjet>
+					<delaisPropose>50</delaisPropose>
 					<devis>http://monServeur/devis/1</devis>
 					<website>http://www.JackyBidouille.com</website>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
+				</repProjet>
+			</candidature>
+			<candidature>
+				<dateCandidature>10/19/2018</dateCandidature>
+				<utilisateur>
+					<role>user</role>
+					<email>In.ornare@tortornibh.co.uk</email>
+					<password>root</password>
+					<nom>Hasad</nom>
+					<prenom>Clements</prenom>
+					<tel>07 42 72 20 77</tel>
+				</utilisateur>
+				<structure>
+					<raisonSocial>Ornare Egestas Ligula Incorporated</raisonSocial>
+					<siret>022238638</siret>
+					<ca>48611380</ca>
+				</structure>
+				<repProjet>
+					<delaisPropose>214</delaisPropose>
+					<devis>http://monServeur/devis/1</devis>
+					<website>http://www.Ornare.com</website>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
+				</repProjet>
+			</candidature>
+			<candidature>
+				<dateCandidature>06/03/2017</dateCandidature>
+				<utilisateur>
+					<role>user</role>
+					<email>lorem.tristique.aliquet@risusNuncac.org</email>
+					<password>root</password>
+					<nom>Quentin</nom>
+					<prenom>Roberts</prenom>
+					<tel>02 16 75 26 71</tel>
+				</utilisateur>
+				<structure>
+					<raisonSocial>Cras Corporation</raisonSocial>
+					<siret>148136732</siret>
+					<ca>40121142</ca>
+				</structure>
+				<repProjet>
+					<delaisPropose>79</delaisPropose>
+					<devis>http://monServeur/devis/1</devis>
+					<website>http://www.Cras.com</website>
+					<fichier>http://monServeur/fichiers/1-1</fichier>
+				</repProjet>
+			</candidature>
+			<candidature>
+				<dateCandidature>02/20/2018</dateCandidature>
+				<utilisateur>
+					<role>user</role>
+					<email>Donec.est@metus.net</email>
+					<password>root</password>
+					<nom>Herrod</nom>
+					<prenom>Aguilar</prenom>
+					<tel>04 84 34 59 17</tel>
+				</utilisateur>
+				<structure>
+					<raisonSocial>Tincidunt Dui Inc.</raisonSocial>
+					<siret>789550258</siret>
+					<ca>15140761</ca>
+				</structure>
+				<repProjet>
+					<delaisPropose>29</delaisPropose>
+					<devis>http://monServeur/devis/1</devis>
+					<website>http://www.Tincidunt.com</website>
 					<fichier>http://monServeur/fichiers/1-1</fichier>
 				</repProjet>
 			</candidature>

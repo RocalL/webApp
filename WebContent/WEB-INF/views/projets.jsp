@@ -13,12 +13,14 @@
 	<div class="row">
 		<h1 class="custom-title">Liste de tous les projets</h1>
 	</div>
+	<c:if test = "${sessionScope.sessionUtilisateur.role == 'admin'}">
 	<div class="addProjet">
 		<button onclick='location.href=
 			"creationProjet"' class="btn">
-			<i class="fas fa-plus-square"></i>
+			<i class="fas fa-plus"></i>
 		</button>
 	</div>
+	</c:if>
 	<div class="row">
 		<div>
 			<div class="row">
@@ -26,13 +28,13 @@
 					<div class="col-sm-3">
 						<div class="card">
 							<img class="card-img-top"
-								src="<c:out
-									value="${projet.image}"/>"
-								alt="Card image cap">
+								src="<c:out value="${projet.image}"/>" alt="Card image cap">
+								<c:if test = "${sessionScope.sessionUtilisateur.role == 'admin'}">
 							<form name="details" method="get" action="affichageCandidatures">
-								<input type="hidden" name="projet" value="${projet}"> <input
-									type="submit" class="btn card-btn" value="Candidatures" />
+								<input type="hidden" name="projet" value="${projet.nom}"> <input
+									type="submit" class="btn btn-custom card-btn" value="Candidatures" />
 							</form>
+							</c:if>
 							<div class="card-body">
 								<h5 class="card-title">
 									<c:out value="${projet.nom}" />
@@ -47,7 +49,7 @@
 										value="${projet.deadLineProjet}" /></small>
 								<form name="details" method="get" action="affichageProjet">
 									<input type="hidden" name="projet"
-										value="<c:out value='${projet}'/>"> <input
+										value="<c:out value='${projet.nom}'/>"> <input
 										type="submit" class="btn card-btn" value="Consulter" />
 								</form>
 							</div>

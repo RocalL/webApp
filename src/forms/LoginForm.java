@@ -28,7 +28,7 @@ public final class LoginForm {
 	}
 
 	public Utilisateur connecterUtilisateur(HttpServletRequest request) {
-		/* Récupération des champs du formulaire */
+		/* Rï¿½cupï¿½ration des champs du formulaire */
 		String email = getValeurChamp(request, CHAMP_EMAIL);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 
@@ -50,17 +50,17 @@ public final class LoginForm {
 		}
 		utilisateur.setPassword(motDePasse);
 
-		/* Initialisation du résultat global de la validation. */
+		/* Initialisation du rï¿½sultat global de la validation. */
 		if (erreurs.isEmpty()) {
 			try {
 				utilisateur = verifierLogins(email, motDePasse, request);
-				resultat = "Succès de la connexion.";
+				resultat = "SuccÃ¨s de la connexion.";
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
-				resultat = "Échec de la connexion.";
+				resultat = "Ã©chec de la connexion.";
 			}
 		} else {
-			resultat = "Échec de la connexion.";
+			resultat = "Ã©chec de la connexion.";
 		}
 
 		return utilisateur;
@@ -75,7 +75,7 @@ public final class LoginForm {
 			if (u.getEmail().equals(email) && u.getPassword().equals(motDePasse))
 				return u;
 		}
-		throw new Exception("Aucun utilisateur n'est enregistré avec cet email et ce mot de passe");
+		throw new Exception("Aucun utilisateur n'est enregistrï¿½ avec cet email et ce mot de passe");
 	}
 
 	/**
@@ -93,7 +93,7 @@ public final class LoginForm {
 	private void validationMotDePasse(String motDePasse) throws Exception {
 		if (motDePasse != null) {
 			if (motDePasse.length() < 3) {
-				throw new Exception("Le mot de passe doit contenir au moins 3 caractères.");
+				throw new Exception("Le mot de passe doit contenir au moins 3 caractï¿½res.");
 			}
 		} else {
 			throw new Exception("Merci de saisir votre mot de passe.");
@@ -101,14 +101,14 @@ public final class LoginForm {
 	}
 
 	/*
-	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
+	 * Ajoute un message correspondant au champ spï¿½cifiï¿½ ï¿½ la map des erreurs.
 	 */
 	private void setErreur(String champ, String message) {
 		erreurs.put(champ, message);
 	}
 
 	/*
-	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * Mï¿½thode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {

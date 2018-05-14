@@ -23,4 +23,11 @@ public class Projets {
 		return "Projets [projet=" + projet + "]";
 	}
 
+	public Projet getProjetByNom(String nom) {
+		for (Projet p : projet) {
+			if (p.getNom().equals(nom))
+				return p;
+		}
+		return null;
+	}
 }

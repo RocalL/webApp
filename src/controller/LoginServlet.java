@@ -25,13 +25,13 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/* Préparation de l'objet formulaire */
+		/* PrÃ©paration de l'objet formulaire */
 		LoginForm form = new LoginForm();
 
-		/* Traitement de la requête et récupération du bean en résultant */
+		/* Traitement de la requÃªte et rÃ©cupÃ©ration du bean en rÃ©sultant */
 		Utilisateur utilisateur = form.connecterUtilisateur(request);
 
-		/* Récupération de la session depuis la requête */
+		/* Rï¿½cupï¿½ration de la session depuis la requÃªte */
 		HttpSession session = request.getSession();
 		/* Stockage du formulaire et du bean dans l'objet request */
 		
@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute(ATT_USER, utilisateur);
 		
 		/**
-		 * Si aucune erreur de validation n'a eu lieu, alors ajout du bean Utilisateur à
+		 * Si aucune erreur de validation n'a eu lieu, alors ajout du bean Utilisateur ï¿½
 		 * la session, sinon suppression du bean de la session.
 		 */
 		if (form.getErreurs().isEmpty()) {
