@@ -26,7 +26,7 @@ public class RegisterForm {
 	}
 
 	public Utilisateur inscrireUtilisateur(HttpServletRequest request) {
-		String email = getValeurChamp(request, CHAMP_EMAIL);
+		String email = getValeurChamp(request, CHAMP_EMAIL);//toto
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 		String confirmation = getValeurChamp(request, CHAMP_CONF);
 		String nom = getValeurChamp(request, CHAMP_NOM);
