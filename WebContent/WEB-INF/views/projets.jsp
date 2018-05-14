@@ -5,12 +5,12 @@
 <%@include file="./header.jspf"%>
 
 <%@include file="./navigation.jspf"%>
-<%@ page import="services.Projets" %>
-<%@ page import="model.Projet" %>
+<%@ page import="services.Projets"%>
+<%@ page import="model.Projet"%>
 
 <div class="container">
-            <c:set var="projets" value="${requestScope['projets']}" scope="page" />
- 	<div class="row">
+	<c:set var="projets" value="${requestScope['projets']}" scope="page" />
+	<div class="row">
 		<h1 class="custom-title">Liste de tous les projets</h1>
 	</div>
 	<div class="addProjet">
@@ -29,6 +29,10 @@
 								src="<c:out
 									value="${projet.image}"/>"
 								alt="Card image cap">
+							<form name="details" method="get" action="affichageCandidatures">
+								<input type="hidden" name="projet" value="${projet}"> <input
+									type="submit" class="btn card-btn" value="Candidatures" />
+							</form>
 							<div class="card-body">
 								<h5 class="card-title">
 									<c:out value="${projet.nom}" />
@@ -43,7 +47,7 @@
 										value="${projet.deadLineProjet}" /></small>
 								<form name="details" method="get" action="affichageProjet">
 									<input type="hidden" name="projet"
-										value="<c:out value='${projet.nom}'/>"> <input
+										value="<c:out value='${projet}'/>"> <input
 										type="submit" class="btn card-btn" value="Consulter" />
 								</form>
 							</div>
@@ -55,5 +59,4 @@
 		</div>
 	</div>
 </div>
-
 <%@include file="./footer.jspf"%>

@@ -12,6 +12,8 @@ public class RegisterForm {
 	private static final String CHAMP_PASS = "motdepasse";
 	private static final String CHAMP_CONF = "confirmation";
 	private static final String CHAMP_NOM = "nom";
+	private static final String CHAMP_PRENOM = "prenom";
+	private static final String CHAMP_TEL = "tel";
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
 
@@ -24,12 +26,21 @@ public class RegisterForm {
 	}
 
 	public Utilisateur inscrireUtilisateur(HttpServletRequest request) {
-		String email = getValeurChamp(request, CHAMP_EMAIL);
+		String email = getValeurChamp(request, CHAMP_EMAIL);//toto
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 		String confirmation = getValeurChamp(request, CHAMP_CONF);
 		String nom = getValeurChamp(request, CHAMP_NOM);
+		String prenom = getValeurChamp(request, CHAMP_PRENOM);
+		String tel = getValeurChamp(request, CHAMP_TEL);
 
 		Utilisateur utilisateur = new Utilisateur();
+		
+		try {
+			validationTel(tel);
+		} catch(Exception e) {
+			setErreur(CHAMP_TEL, e.getMessage());
+		}
+		utilisateur.setTel(tel);
 
 		try {
 			validationEmail(email);
@@ -54,14 +65,40 @@ public class RegisterForm {
 		utilisateur.setNom(nom);
 
 		if (erreurs.isEmpty()) {
-			resultat = "Succ�s de l'inscription.";
+			resultat = "Succès de l'inscription.";
 		} else {
 			resultat = "échec de l'inscription.";
 		}
+		
+		try {
+			validationPrenom(prenom);
+		} catch (Exception e) {
+			setErreur(CHAMP_PRENOM, e.getMessage());
+			}
+		utilisateur.setPrenom(prenom);
+		
+		try {
+			validationTel(tel);
+		} catch (Exception e) {
+			setErreur(CHAMP_TEL, e.getMessage());
+		}
+		
+		utilisateur.setTel(tel);
 
 		return utilisateur;
 	}
 
+	private void validationTel(String tel) throws Exception {
+		if(tel != null) {
+			if (!tel.matches("^(?:(?:\\+|00)33[\\s.-]{0,3}(?:\\(0\\)[\\s.-]{0,3})?|0)[1-9](?:(?:[\\s.-]?\\d{2}){4}|\\d{2}(?:[\\s.-]?\\d{3}){2})$")) {
+				throw new Exception("Veuillez saisir un numéro de téléphone valide");
+			}
+		} else {
+			throw new Exception("Veuillez saisir un numéro de téléphone.");
+		}
+
+	}
+	
 	private void validationEmail(String email) throws Exception {
 		if (email != null) {
 			if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
@@ -75,7 +112,7 @@ public class RegisterForm {
 	private void validationMotsDePasse(String motDePasse, String confirmation) throws Exception {
 		if (motDePasse != null && confirmation != null) {
 			if (!motDePasse.equals(confirmation)) {
-				throw new Exception("Les mots de passe entrés sont diff�rents, merci de les saisir à nouveau.");
+				throw new Exception("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
 			} else if (motDePasse.length() < 3) {
 				throw new Exception("Les mots de passe doivent contenir au moins 3 caractères.");
 			}
@@ -85,20 +122,31 @@ public class RegisterForm {
 	}
 
 	private void validationNom(String nom) throws Exception {
-		if (nom != null && nom.length() < 3) {
+		if (nom == null) {
+			throw new Exception("Veuillez saisir un nom");
+		}
+		else if(nom.length() < 3) {
 			throw new Exception("Le nom d'utilisateur doit contenir au moins 3 caractères.");
+		}
+	}
+	private void validationPrenom(String prenom) throws Exception {
+		if (prenom == null) {
+			throw new Exception("Veuillez saisir un prénom");
+		}
+		else if(prenom.length() < 3) {
+			throw new Exception("Le prénom d'utilisateur doit contenir au moins 3 caractères.");
 		}
 	}
 
 	/*
-	 * Ajoute un message correspondant au champ sp�cifi� � la map des erreurs.
+	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
 	 */
 	private void setErreur(String champ, String message) {
 		erreurs.put(champ, message);
 	}
 
 	/*
-	 * M�thode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {

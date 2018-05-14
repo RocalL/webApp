@@ -130,6 +130,4 @@ public class Utilisateur {
 		return "Utilisateur [role=" + role + ", email=" + email + ", password=" + password + ", nom=" + nom
 				+ ", prenom=" + prenom + ", tel=" + tel + "]";
 	}
-
-
 }
