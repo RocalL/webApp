@@ -32,6 +32,12 @@
 								src="<x:out
 									select="$projet/image"/>"
 								alt="Card image cap">
+								<form name="details" method="get" action="affichageCandidatures">
+									<input type="hidden" name="projet"
+										value="<x:out select='$projet/idProjet'/>"> <input
+										type="submit" class="btn card-btn" value="Candidatures" />
+								</form>
+								
 							<div class="card-body">
 								<h5 class="card-title">
 									<x:out select="$projet/nom" />
