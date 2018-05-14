@@ -2,17 +2,10 @@ package model;
 
 public class Structure {
 	private int ca;
+
 	private Long siret;
+
 	private String raisonSocial;
-
-	public Structure(int ca, Long siret, String raisonSocial) {
-		this.ca = ca;
-		this.siret = siret;
-		this.raisonSocial = raisonSocial;
-	}
-
-	public Structure() {
-	}
 
 	public int getCa() {
 		return ca;

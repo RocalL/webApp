@@ -1,23 +1,14 @@
 package controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
 import forms.CreationCandidatureForm;
 import model.Candidature;
-import model.Projet;
-import services.Projets;
 
 /**
  * Servlet implementation class CreationCandidature
@@ -65,16 +56,8 @@ public class CreationCandidatureServlet extends HttpServlet {
 			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_CANDIDATURE, candidature);
 
-			// Read
-			JAXBContext jaxbContext = JAXBContext.newInstance(Projets.class);
-			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-			System.out.println(unmarshaller.unmarshal(new File(request.getServletContext().getRealPath(CHEMIN))));
-			//System.out.println(request.getServletContext().getRealPath(CHEMIN));
-			//System.out.println(projets.getProjets());
-			//System.out.println(projets.getProjetById(Integer.parseInt(request.getParameter("projet"))));
-
 			this.getServletContext().getRequestDispatcher(VUE_FORM).forward(request, response);
-		} catch (JAXBException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

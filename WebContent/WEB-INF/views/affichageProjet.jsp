@@ -14,7 +14,7 @@
 <%-- Enregistre le résultat de l'expression XPath, spécifiée dans l'attribut select, 
 dans une variable de session nommée 'auteur' --%>
 <x:set var="projet" scope="page"
-	select="$doc/projets/projet[idProjet=$param:projet]"></x:set>
+	select="$doc/projets/projet[nom=$param:projet]"></x:set>
 
 
 
@@ -51,7 +51,7 @@ dans une variable de session nommée 'auteur' --%>
 			</p>
 			<form name="postuler" method="get" action="creationCandidature">
 				<input type="hidden" name="projet"
-					value="<x:out select='$projet/idProjet'/>"> <input
+					value="<x:out select='$projet/nom'/>"> <input
 					type="submit" class="btn postuler-btn" value="Postuler" />
 			</form>
 

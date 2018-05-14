@@ -2,7 +2,6 @@
 <utilisateurs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="utilisateurs.xsd">
 	<utilisateur>
-		<id>1</id>
 		<role>user</role>
 		<email>d.jacky@iopmail.com</email>
 		<password>123</password>
@@ -11,7 +10,6 @@
 		<tel>0612345678</tel>
 	</utilisateur>
 	<utilisateur>
-		<id>2</id>
 		<role>admin</role>
 		<email>admin@root.fr</email>
 		<password>root</password>

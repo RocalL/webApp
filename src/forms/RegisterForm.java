@@ -54,9 +54,9 @@ public class RegisterForm {
 		utilisateur.setNom(nom);
 
 		if (erreurs.isEmpty()) {
-			resultat = "Succès de l'inscription.";
+			resultat = "Succï¿½s de l'inscription.";
 		} else {
-			resultat = "Échec de l'inscription.";
+			resultat = "Ã©chec de l'inscription.";
 		}
 
 		return utilisateur;
@@ -75,9 +75,9 @@ public class RegisterForm {
 	private void validationMotsDePasse(String motDePasse, String confirmation) throws Exception {
 		if (motDePasse != null && confirmation != null) {
 			if (!motDePasse.equals(confirmation)) {
-				throw new Exception("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
+				throw new Exception("Les mots de passe entrÃ©s sont diffï¿½rents, merci de les saisir Ã  nouveau.");
 			} else if (motDePasse.length() < 3) {
-				throw new Exception("Les mots de passe doivent contenir au moins 3 caractères.");
+				throw new Exception("Les mots de passe doivent contenir au moins 3 caractÃ¨res.");
 			}
 		} else {
 			throw new Exception("Merci de saisir et confirmer votre mot de passe.");
@@ -86,19 +86,19 @@ public class RegisterForm {
 
 	private void validationNom(String nom) throws Exception {
 		if (nom != null && nom.length() < 3) {
-			throw new Exception("Le nom d'utilisateur doit contenir au moins 3 caractères.");
+			throw new Exception("Le nom d'utilisateur doit contenir au moins 3 caractÃ¨res.");
 		}
 	}
 
 	/*
-	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
+	 * Ajoute un message correspondant au champ spï¿½cifiï¿½ ï¿½ la map des erreurs.
 	 */
 	private void setErreur(String champ, String message) {
 		erreurs.put(champ, message);
 	}
 
 	/*
-	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * Mï¿½thode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {

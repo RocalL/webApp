@@ -1,35 +1,26 @@
 package services;
 
 import model.Projet;
+
+import java.util.ArrayList;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Projets
-{
-    private Projet[] projets;
+public class Projets {
+	private ArrayList<Projet> projet;
 
-    public Projet[] getProjets ()
-    {
-        return projets;
-    }
+	public ArrayList<Projet> getProjet() {
+		return projet;
+	}
 
-    public void setProjets (Projet[] projets)
-    {
-        this.projets = projets;
-    }
+	public void setProjet(ArrayList<Projet> projet) {
+		this.projet = projet;
+	}
 
-    @Override
-    public String toString()
-    {
-        return "Projets [projets = "+projets+"]";
-    }
-    public Projet getProjetById(int id) {
-    	for(int i=0;i<projets.length;i++) {
-    		if (projets[i].getIdprojet() == id) {
-    			return projets[i];
-    		}
-    	}
-		return null;
-    }
+	@Override
+	public String toString() {
+		return "Projets [projet=" + projet + "]";
+	}
+
 }
-	

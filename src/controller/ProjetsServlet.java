@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,26 +10,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import services.Projets;
+import util.JaxParser;
+
 @WebServlet(urlPatterns = "/projets")
 public class ProjetsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ACCES_PROJET = "/WEB-INF/views/projets.jsp";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
+	public static final String CHEMIN = "/WEB-INF/database/projets.xml";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/* Récupération de la session depuis la requête */
+		/* Rï¿½cupï¿½ration de la session depuis la requÃªte */
 		HttpSession session = request.getSession();
 
 		/*
 		 * Si l'objet utilisateur n'existe pas dans la session en cours, alors
-		 * l'utilisateur n'est pas connecté.
+		 * l'utilisateur n'est pas connectï¿½.
 		 */
 		if (session.getAttribute(ATT_SESSION_USER) == null) {
 			/* Redirection vers la page publique */
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
 		} else {
-			/* Affichage de la page restreinte */
+			try {
+				Projets listProjets = JaxParser.unmarshal(Projets.class,
+						new File(request.getServletContext().getRealPath(CHEMIN)));
+				request.setAttribute("projets", listProjets);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			this.getServletContext().getRequestDispatcher(ACCES_PROJET).forward(request, response);
 		}
 	}

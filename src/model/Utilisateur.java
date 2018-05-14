@@ -1,18 +1,15 @@
 package model;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Utilisateur {
 
-	private static final AtomicInteger id = new AtomicInteger(0);
 	String role;
 	private String email;
 	private String password;
 	private String nom;
 	private String prenom;
-	private int tel;
+	private String tel;
 
-	public Utilisateur(String role, String email, String password, String nom, String prenom, int tel) {
+	public Utilisateur(String role, String email, String password, String nom, String prenom, String tel) {
 		this.role = role;
 		this.email = email;
 		this.password = password;
@@ -65,16 +62,12 @@ public class Utilisateur {
 		this.prenom = prenom;
 	}
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
-	}
-
-	public static AtomicInteger getId() {
-		return id;
 	}
 
 	@Override
@@ -86,7 +79,7 @@ public class Utilisateur {
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
-		result = prime * result + tel;
+		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
 		return result;
 	}
 
@@ -124,7 +117,10 @@ public class Utilisateur {
 				return false;
 		} else if (!role.equals(other.role))
 			return false;
-		if (tel != other.tel)
+		if (tel == null) {
+			if (other.tel != null)
+				return false;
+		} else if (!tel.equals(other.tel))
 			return false;
 		return true;
 	}
@@ -134,5 +130,6 @@ public class Utilisateur {
 		return "Utilisateur [role=" + role + ", email=" + email + ", password=" + password + ", nom=" + nom
 				+ ", prenom=" + prenom + ", tel=" + tel + "]";
 	}
+
 
 }

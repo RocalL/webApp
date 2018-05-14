@@ -1,153 +1,92 @@
 package model;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import services.Candidatures;
-@XmlRootElement
-public class Projet {
-	private int idProjet;
-	private int nbMaxCandidatures;
-	private String deadLineProjet;
-	private String image;
-	private String descriptif;
-	private String deadLineCandidature;
-	private String nom;
-	private Candidatures candidatures;
-	private static int idCounter = 0;
 
-	public Projet(int nbMaxCandidatures, String deadLineProjet, String image, String descriptif,
-			String deadLineCandidature, String nom, Candidatures candidatures) {
-		this.idProjet = idCounter++;
-		this.nbMaxCandidatures = nbMaxCandidatures;
-		this.deadLineProjet = deadLineProjet;
-		this.image = image;
-		this.descriptif = descriptif;
-		this.deadLineCandidature = deadLineCandidature;
-		this.nom = nom;
-		this.candidatures = candidatures;
-	}
+public class Projet
+{
+    private int nbMaxCandidatures;
 
-	public Projet() {
+    private String deadLineProjet;
 
-	}
+    private String image;
 
-	public int getNbMaxCandidatures() {
-		return nbMaxCandidatures;
-	}
+    private String descriptif;
 
-	public void setNbMaxCandidatures(int nbMaxCandidatures) {
-		this.nbMaxCandidatures = nbMaxCandidatures;
-	}
+    private String deadLineCandidature;
 
-	public String getDeadLineProjet() {
-		return deadLineProjet;
-	}
+    private String nom;
 
-	public void setDeadLineProjet(String deadLineProjet) {
-		this.deadLineProjet = deadLineProjet;
-	}
+    private Candidatures candidatures;
 
-	public String getImage() {
-		return image;
-	}
+    public int getNbMaxCandidatures ()
+    {
+        return nbMaxCandidatures;
+    }
 
-	public void setImage(String image) {
-		this.image = image;
-	}
+    public void setNbMaxCandidatures (int nbMaxCandidatures)
+    {
+        this.nbMaxCandidatures = nbMaxCandidatures;
+    }
 
-	public String getDescriptif() {
-		return descriptif;
-	}
+    public String getDeadLineProjet ()
+    {
+        return deadLineProjet;
+    }
 
-	public void setDescriptif(String descriptif) {
-		this.descriptif = descriptif;
-	}
+    public void setDeadLineProjet (String deadLineProjet)
+    {
+        this.deadLineProjet = deadLineProjet;
+    }
 
-	public String getDeadLineCandidature() {
-		return deadLineCandidature;
-	}
+    public String getImage ()
+    {
+        return image;
+    }
 
-	public void setDeadLineCandidature(String deadLineCandidature) {
-		this.deadLineCandidature = deadLineCandidature;
-	}
+    public void setImage (String image)
+    {
+        this.image = image;
+    }
 
-	public String getNom() {
-		return nom;
-	}
+    public String getDescriptif ()
+    {
+        return descriptif;
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void setDescriptif (String descriptif)
+    {
+        this.descriptif = descriptif;
+    }
 
-	public Candidatures getCandidatures() {
-		return candidatures;
-	}
+    public String getDeadLineCandidature ()
+    {
+        return deadLineCandidature;
+    }
 
-	public void setCandidatures(Candidatures candidatures) {
-		this.candidatures = candidatures;
-	}
+    public void setDeadLineCandidature (String deadLineCandidature)
+    {
+        this.deadLineCandidature = deadLineCandidature;
+    }
 
-	public int getIdprojet() {
-		return idProjet;
-	}
+    public String getNom ()
+    {
+        return nom;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((candidatures == null) ? 0 : candidatures.hashCode());
-		result = prime * result + ((deadLineCandidature == null) ? 0 : deadLineCandidature.hashCode());
-		result = prime * result + ((deadLineProjet == null) ? 0 : deadLineProjet.hashCode());
-		result = prime * result + ((descriptif == null) ? 0 : descriptif.hashCode());
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
-		result = prime * result + nbMaxCandidatures;
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		return result;
-	}
+    public void setNom (String nom)
+    {
+        this.nom = nom;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Projet other = (Projet) obj;
-		if (candidatures == null) {
-			if (other.candidatures != null)
-				return false;
-		} else if (!candidatures.equals(other.candidatures))
-			return false;
-		if (deadLineCandidature == null) {
-			if (other.deadLineCandidature != null)
-				return false;
-		} else if (!deadLineCandidature.equals(other.deadLineCandidature))
-			return false;
-		if (deadLineProjet == null) {
-			if (other.deadLineProjet != null)
-				return false;
-		} else if (!deadLineProjet.equals(other.deadLineProjet))
-			return false;
-		if (descriptif == null) {
-			if (other.descriptif != null)
-				return false;
-		} else if (!descriptif.equals(other.descriptif))
-			return false;
-		if (image == null) {
-			if (other.image != null)
-				return false;
-		} else if (!image.equals(other.image))
-			return false;
-		if (nbMaxCandidatures != other.nbMaxCandidatures)
-			return false;
-		if (nom == null) {
-			if (other.nom != null)
-				return false;
-		} else if (!nom.equals(other.nom))
-			return false;
-		return true;
-	}
+    public Candidatures getCandidatures ()
+    {
+        return candidatures;
+    }
+
+    public void setCandidatures (Candidatures candidatures)
+    {
+        this.candidatures = candidatures;
+    }
 
 	@Override
 	public String toString() {
@@ -155,5 +94,6 @@ public class Projet {
 				+ image + ", descriptif=" + descriptif + ", deadLineCandidature=" + deadLineCandidature + ", nom=" + nom
 				+ ", candidatures=" + candidatures + "]";
 	}
+
 
 }

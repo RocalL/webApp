@@ -7,7 +7,6 @@
 					minOccurs="0">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element type="xs:byte" name="idProjet" />
 							<xs:element type="xs:anyURI" name="image" />
 							<xs:element type="xs:string" name="nom" />
 							<xs:element type="xs:string" name="descriptif" />
@@ -21,7 +20,6 @@
 											minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element type="xs:byte" name="idCandidature" />
 													<xs:element type="xs:string" name="dateCandidature" />
 													<xs:element name="utilisateur">
 														<xs:complexType>
