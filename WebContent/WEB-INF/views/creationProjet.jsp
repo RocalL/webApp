@@ -4,7 +4,7 @@
 <%@include file="./header.jspf"%>
 
 <%@include file="./navigation.jspf"%>
-
+<!-- comment -->
 <div class="container">
 	<div class="row">
 		<h1 class="custom-title">Création d'un Projet</h1>
