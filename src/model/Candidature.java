@@ -6,6 +6,8 @@ public class Candidature {
 	private RepProjet repProjet;
 
 	private String dateCandidature;
+	
+	private String etatCandidature;
 
 	private Utilisateur utilisateur;
 
@@ -32,6 +34,14 @@ public class Candidature {
 	public void setDateCandidature(String dateCandidature) {
 		this.dateCandidature = dateCandidature;
 	}
+	
+	public String getEtatCandidature() {
+		return etatCandidature;
+	}
+
+	public void setEtatCandidature(String etatCandidature) {
+		this.etatCandidature = etatCandidature;
+	}
 
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
@@ -44,7 +54,7 @@ public class Candidature {
 	@Override
 	public String toString() {
 		return "Candidature [structure=" + structure + ", repProjet=" + repProjet + ", dateCandidature="
-				+ dateCandidature + ", utilisateur=" + utilisateur + "]";
+				+ dateCandidature + ", etatCandidature=" + etatCandidature +", utilisateur=" + utilisateur + "]";
 	}
 
 }

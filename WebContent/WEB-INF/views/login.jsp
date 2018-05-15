@@ -33,7 +33,9 @@
                 </c:if>
             </fieldset>
         </form>
-        <a href="register">S'enregistrer</a>
+        <form action="register">
+        	<input type="submit" value="S'enregistrer" class="sansLabel btn"> 
+        </form>
 </div>
 
 <%@include file="./footer.jspf"%>

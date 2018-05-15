@@ -26,7 +26,8 @@ public class JaxParser {
     {
         JAXBContext ctx = JAXBContext.newInstance(obj.getClass());
         Marshaller m = ctx.createMarshaller();
-        m.marshal(obj, f);
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        m.marshal(obj, System.out);
     }
 
 }

@@ -1,5 +1,10 @@
 package model;
 
+import java.util.ArrayList;
+
+import services.Candidatures;
+import services.Utilisateurs;
+
 public class Utilisateur {
 
 	String role;
@@ -130,4 +135,9 @@ public class Utilisateur {
 		return "Utilisateur [role=" + role + ", email=" + email + ", password=" + password + ", nom=" + nom
 				+ ", prenom=" + prenom + ", tel=" + tel + "]";
 	}
+
+	
+	
+
+	
 }

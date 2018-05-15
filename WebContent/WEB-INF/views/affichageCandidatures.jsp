@@ -37,13 +37,13 @@
 								<td><c:out value="${candidature.structure.raisonSocial}" /></td>
 								<td><c:out value="${candidature.repProjet.delaisPropose}" /></td>
 								<td>
-									<button onclick='location.href=""'class="btn">
+									<button onclick='location.href=""' class="btn" title="Valider candidature" >
 										<i class="fas fa-check"></i>
 									</button>
-									<button onclick='location.href=""'class="btn">
+									<button onclick='location.href=""'class="btn" title="Rejetter la candidature">
 										<i class="fas fa-trash"></i>
 									</button>
-									<button onclick='location.href=""'class="btn">
+									<button onclick='location.href=""'class="btn" title="Consulter la candidature">
 										<i class="far fa-eye"></i>
 									</button>
 								</td>
