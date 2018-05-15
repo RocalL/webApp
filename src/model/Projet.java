@@ -2,8 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
-import services.Candidatures;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
+import services.Candidatures;
+@XmlType(propOrder={"image", "nom", "descriptif","deadLineCandidature","deadLineProjet","nbMaxCandidatures","candidatures"})
+@XmlRootElement
 public class Projet {
 	private int nbMaxCandidatures;
 

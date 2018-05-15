@@ -1,5 +1,8 @@
 package model;
-
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+@XmlType(propOrder={"raisonSocial","siret","ca"})
+@XmlRootElement
 public class Structure {
 	private int ca;
 

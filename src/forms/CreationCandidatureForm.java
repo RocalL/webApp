@@ -104,9 +104,10 @@ public class CreationCandidatureForm {
 					}
 				}
 				// Write
-				JaxParser.marshal(listProjets, file);
-				System.out.println(candidature);
-				System.out.println("ajoutée au projet");
+				System.out.println(file);
+				//JaxParser.marshal(listProjets, file);
+				//System.out.println(candidature);
+				//System.out.println("ajoutée au projet");
 			}
 		} catch (Exception e) {
 			setErreur("ParserError", e.getMessage());
@@ -116,7 +117,7 @@ public class CreationCandidatureForm {
 		if (erreurs.isEmpty()) {
 			resultat = "Succès de la création de la candidature le " + date.toString();
 		} else {
-			resultat = "échec de la création de la candidature.";
+			resultat = "Echec de la création de la candidature.";
 		}
 
 		return candidature;
@@ -125,7 +126,7 @@ public class CreationCandidatureForm {
 	private void validationRaisonSociale(String raisonSociale) throws Exception {
 		if (raisonSociale != null) {
 			if (raisonSociale.length() < 2) {
-				throw new Exception("Le champ raison sociale doit contenir au moins 2 caract�res.");
+				throw new Exception("Le champ raison sociale doit contenir au moins 2 caractères.");
 			}
 		} else {
 			throw new Exception("Merci d'entrer une raison sociale.");
@@ -197,7 +198,7 @@ public class CreationCandidatureForm {
 	}
 
 	/*
-	 * M�thode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {

@@ -1,5 +1,10 @@
 package model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(propOrder={"delaisPropose","devis","website","fichier"})
+@XmlRootElement
 public class RepProjet {
 	private int delaisPropose;
 
