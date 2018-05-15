@@ -98,5 +98,12 @@ public class Projet {
 		}
 
 	}
-
+	
+	
+	public void deleteCandidature(String nom) {
+		/*ArrayList<Candidature> listeCandidature = this.candidatures.getCandidature();
+		if(listeCandidature.contains(candidature)) {
+			this.candidatures.deleteCandidature(candidature);
+		}*/
+	}
 }

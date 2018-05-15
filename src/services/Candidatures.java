@@ -27,5 +27,17 @@ public class Candidatures {
 		this.candidature.add(candidature);
 		
 	}
+	
+	public void deleteCandidature(Candidature candidature) {
+		this.candidature.remove(candidature);
+	}
+	
+	public Candidature getCandidatureByMail(String mail) {
+		for (Candidature c : candidature ) {
+				if (c.getUtilisateur().getEmail().equals(mail))
+					return c;
+		}
+		return null;
+	}
 
 }
