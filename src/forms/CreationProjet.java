@@ -1,6 +1,8 @@
 package forms;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,15 +19,14 @@ import services.Projets;
 import util.JaxParser;
 
 public class CreationProjet {
-	private static final String CHAMP_RAISONSOCIALE = "raisonSociale";
-	private static final String CHAMP_SIRET = "siret";
-	private static final String CHAMP_CA = "ca";
-	private static final String CHAMP_WEBSITE = "website";
-	private static final String CHAMP_DEVIS = "devis";
-	private static final String CHAMP_FICHIERS = "fichiers";
-	private static final String CHAMP_DELAI = "delai";
-	public static final String ATT_SESSION_USER = "sessionUtilisateur";
+	private static final String CHAMP_NOM = "nomProjet";
+	private static final String CHAMP_DESCRIPTION = "description";
+	private static final String CHAMP_DEADLINE_CANDIDATURE = "deadLineCandidature";
+	private static final String CHAMP_DEADLINE_PROJET = "deadLineProjet";
+	private static final String CHAMP_NOMBRE_DEV = "nombreDev";
+	private static final String CHAMP_IMAGE = "Image";
 
+	
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
 
@@ -37,76 +38,71 @@ public class CreationProjet {
 		return resultat;
 	}
 
-	public Candidature creerCandidature(HttpServletRequest request, String chemin) {
+	public Projet creerProjet(HttpServletRequest request, String chemin) {
 		HttpSession session = request.getSession();
-		Utilisateur utilisateur = (Utilisateur) session.getAttribute(ATT_SESSION_USER);
+		//Utilisateur utilisateur = (Utilisateur) session.getAttribute(ATT_SESSION_USER);
 
-		String raisonSociale = getValeurChamp(request, CHAMP_RAISONSOCIALE);
-		String siret = getValeurChamp(request, CHAMP_SIRET);
-		String ca = getValeurChamp(request, CHAMP_CA);
+		String nomProjet = getValeurChamp(request, CHAMP_NOM);
+		String description = getValeurChamp(request, CHAMP_DESCRIPTION);
+		String deadLineCandidature = getValeurChamp(request, CHAMP_DEADLINE_CANDIDATURE);
+		String deadLineProjet = getValeurChamp(request, CHAMP_DEADLINE_PROJET);
+		String nombreDev = getValeurChamp(request, CHAMP_NOMBRE_DEV);
+		String Image = getValeurChamp(request, CHAMP_IMAGE);
 
-		String delai = getValeurChamp(request, CHAMP_DELAI);
-		String website = getValeurChamp(request, CHAMP_WEBSITE);
-		String devis = getValeurChamp(request, CHAMP_DEVIS);
-		String fichiers = getValeurChamp(request, CHAMP_FICHIERS);
-
-		Candidature candidature = new Candidature();
-
-		Structure structure = new Structure();
-		RepProjet repProjet = new RepProjet();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+		Projet projet = new Projet();
 		Date date = new Date();
 
 		try {
-			validationRaisonSociale(raisonSociale);
+			validationNomProjet(nomProjet);
 		} catch (Exception e) {
-			setErreur(CHAMP_RAISONSOCIALE, e.getMessage());
+			setErreur(CHAMP_NOM, e.getMessage());
 		}
-		structure.setRaisonSocial(raisonSociale);
+		projet.setNom(nomProjet);
 
-		long siretLong = -1;
 		try {
-			siretLong = validationSiret(siret);
+			validationDescription(description);
 		} catch (Exception e) {
-			setErreur(CHAMP_SIRET, e.getMessage());
+			setErreur(CHAMP_DESCRIPTION, e.getMessage());
 		}
-		structure.setSiret(siretLong);
+		projet.setDescriptif(description);
 
-		int caInt = -1;
 		try {
-			caInt = validationCa(ca);
+			validationDeadLineCandidature(deadLineCandidature);
 		} catch (Exception e) {
-			setErreur(CHAMP_CA, e.getMessage());
+			setErreur(CHAMP_DEADLINE_CANDIDATURE, e.getMessage());
 		}
-		structure.setCa(caInt);
-
-		int delaiInt = -1;
+		projet.setDeadLineCandidature(deadLineCandidature);
+		
 		try {
-			delaiInt = validationDelai(delai);
+			validationDeadLineProjet(deadLineProjet);
 		} catch (Exception e) {
-			setErreur(CHAMP_DELAI, e.getMessage());
+			setErreur(CHAMP_DEADLINE_PROJET, e.getMessage());
 		}
-		repProjet.setDelaisPropose(delaiInt);
-
-		candidature.setUtilisateur(utilisateur);
-		candidature.setStructure(structure);
-		candidature.setRepProjet(repProjet);
-		candidature.setDateCandidature(dateFormat.format(date));
-
+		projet.setDeadLineProjet(deadLineProjet);
+		
+		try {
+			validationNombreDev(nombreDev);
+		} catch (Exception e) {
+			setErreur(CHAMP_NOMBRE_DEV, e.getMessage());
+		}
+		int nbDev = Integer.parseInt(nombreDev);
+		projet.setNbMaxCandidatures(nbDev);
+		
 		try {
 			File file = new File(request.getServletContext().getRealPath(chemin));
 			if (erreurs.isEmpty()) {
 				// Read
 				Projets listProjets = JaxParser.unmarshal(Projets.class, file);
 				for (Projet p : listProjets.getProjet()) {
-					if (p.getNom().equals(request.getParameter("projet"))) {
-						p.addCandidature(candidature);
+					if (p.getNom().equals(projet.getNom())) {
+						throw new Exception();
 					}
 				}
+				listProjets.getProjet().add(projet);
 				// Write
 				JaxParser.marshal(listProjets, file);
-				System.out.println(candidature);
-				System.out.println("ajoutée au projet");
+				System.out.println(projet);
+				System.out.println("ajoutée à la base de donnée");
 			}
 		} catch (Exception e) {
 			setErreur("ParserError", e.getMessage());
@@ -114,80 +110,76 @@ public class CreationProjet {
 		}
 
 		if (erreurs.isEmpty()) {
-			resultat = "Succès de la création de la candidature le " + date.toString();
+			resultat = "Succès de la création du projet le " + date.toString();
 		} else {
 			resultat = "échec de la création de la candidature.";
 		}
 
-		return candidature;
+		return projet;
 	}
 
-	private void validationRaisonSociale(String raisonSociale) throws Exception {
-		if (raisonSociale != null) {
-			if (raisonSociale.length() < 2) {
-				throw new Exception("Le champ raison sociale doit contenir au moins 2 caract�res.");
+
+	private void validationNomProjet(String nomProjet) throws Exception {
+		if (nomProjet != null) {
+			if (nomProjet.length() < 2) {
+				throw new Exception("Le Nom du projet doit au moins être défini par 2 caract�res.");
 			}
 		} else {
-			throw new Exception("Merci d'entrer une raison sociale.");
+			throw new Exception("Merci de donner un nom au projet.");
 		}
 	}
 
-	private long validationSiret(String siret) throws Exception {
-		long temp;
-		if (siret != null) {
-			try {
-				temp = Long.parseLong(siret);
-				if (siret.length() < 1) { // 14
-					throw new Exception("Le siret doit contenir au moins 14 caract�res.");
-				}
-			} catch (NumberFormatException e) {
-				temp = -1;
-				throw new Exception("Le siret doit �tre un nombre.");
+	private void validationDescription(String description) throws Exception {
+		if (description != null) {
+			if (description.length() < 10) {
+				throw new Exception("Veuillez au moins saisir une phrase pour décrire le projet");
 			}
 		} else {
-			temp = -1;
-			throw new Exception("Merci d'entrer un siret.");
+			throw new Exception("Veuillez décrire le projet avec plus de détail.");
 		}
-		return temp;
 	}
-
-	private int validationCa(String ca) throws Exception {
+	
+	private int validationNombreDev(String nombreDev) throws Exception {
 		int temp;
-		if (ca != null) {
+		if (nombreDev != null) {
 			try {
-				temp = Integer.parseInt(ca);
-				if (temp < 0) {
-					throw new Exception("Le chiffre d'affaire doit être un nombre positif.");
+				temp = Integer.parseInt(nombreDev);
+				if (temp < 1) {
+					throw new Exception("Il faut au moins un développeur pour ce projet.");
 				}
 			} catch (NumberFormatException e) {
 				temp = -1;
-				throw new Exception("Le chiffre d'affaire doit être un nombre.");
+				throw new Exception("Le nombre Max de Développeur doit être un nombre.");
 			}
 		} else {
 			temp = -1;
-			throw new Exception("Merci d'entrer un chiffre d'affaire.");
+			throw new Exception("Merci de définir le nombre de développeur maximum.");
 		}
 		return temp;
 	}
 
-	private int validationDelai(String delai) throws Exception {
-		int temp;
-		if (delai != null) {
-			try {
-				temp = Integer.parseInt(delai);
-				if (temp < 0) {
-					throw new Exception("Le délai doit être un nombre positif.");
-				}
-			} catch (NumberFormatException e) {
-				temp = -1;
-				throw new Exception("Le délai doit être un nombre.");
+	private void validationDeadLineCandidature(String deadLineCandidature) throws Exception {
+		if (! isValidDate(deadLineCandidature)) {
+			throw new Exception("Veuillez saisir une date limite de candidature valide");
 			}
-		} else {
-			temp = -1;
-			throw new Exception("Merci d'entrer un délai.");
-		}
-		return temp;
 	}
+
+	private void validationDeadLineProjet(String deadLineProjet) throws Exception {
+		if (! isValidDate(deadLineProjet)) {
+			throw new Exception("Veuillez saisir une date de cloture du projet valide");
+			}
+	}
+	
+	public static boolean isValidDate(String inDate) {
+		    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		    dateFormat.setLenient(false);
+		    try {
+		      dateFormat.parse(inDate.trim());
+		    } catch (ParseException pe) {
+		      return false;
+		    }
+		    return true;
+		  }
 
 	/*
 	 * Ajoute un message correspondant au champ sp�cifi� � la map des erreurs.

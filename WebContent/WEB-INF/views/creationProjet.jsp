@@ -22,11 +22,11 @@
 							<span class="erreur">${form.erreurs['descriptif du projet']}</span>
 							
 							<label for="deadLineCandidature">Date Limite de candidature<span class="requis">*</span></label>
-							<input type="date" class="form-control" id="deadLineCandidature" name="deadLineCandidature" placeholder="01/01/2000"> 
+							<input type="date" class="form-control" id="deadLineCandidature" name="deadLineCandidature" placeholder="jj/mm/aaaa" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}"> 
 							<span class="erreur">${form.erreurs['date limite de candidature']}</span>
 							
 							<label for="deadLineProjet">Date de cloture du projet<span class="requis">*</span></label>
-							<input type="date" class="form-control" id="deadLineProjet" name="deadLineProjet" placeholder="01/01/2000"> 
+							<input type="date" class="form-control" id="deadLineProjet" name="deadLineProjet" placeholder="jj/mm/aaaa" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}"> 
 							<span class="erreur">${form.erreurs['date de cloture du projet']}</span>
 							
 							<label for="nbMaxCandidatures">Nombre de développeur(s) nécessaire(s)<span class="requis">*</span></label>
