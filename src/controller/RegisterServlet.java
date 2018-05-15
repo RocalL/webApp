@@ -19,6 +19,7 @@ public class RegisterServlet extends HttpServlet {
     public static final String ATT_USER = "utilisateur";
     public static final String ATT_FORM = "form";
     public static final String VUE = "/WEB-INF/views/register.jsp";
+    public static final String CHEMIN = "/WEB-INF/database/utilisateurs.xml";
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Affichage de la page d'inscription */
@@ -26,11 +27,11 @@ public class RegisterServlet extends HttpServlet {
     }
 	
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-        /* Préparation de l'objet formulaire */
+        /* Prï¿½paration de l'objet formulaire */
         RegisterForm form = new RegisterForm();
 		
-        /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
-        Utilisateur utilisateur = form.inscrireUtilisateur( request );
+        /* Appel au traitement et ï¿½ la validation de la requï¿½te, et rï¿½cupï¿½ration du bean en rï¿½sultant */
+        Utilisateur utilisateur = form.inscrireUtilisateur(request, CHEMIN);
 		
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );

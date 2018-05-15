@@ -3,8 +3,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder={"role","email","password","nom","prenom","tel"})
 @XmlRootElement
-public class Utilisateur {
+import java.util.ArrayList;
 
+import services.Candidatures;
+import services.Utilisateurs;
+
+public class Utilisateur {
 	private String role;
 	private String email;
 	private String password;
@@ -133,4 +137,9 @@ public class Utilisateur {
 		return "Utilisateur [role=" + role + ", email=" + email + ", password=" + password + ", nom=" + nom
 				+ ", prenom=" + prenom + ", tel=" + tel + "]";
 	}
+
+	
+	
+
+	
 }

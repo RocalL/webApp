@@ -1,11 +1,14 @@
 package forms;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import model.Utilisateur;
+import services.Utilisateurs;
+import util.JaxParser;
 
 public class RegisterForm {
 	private static final String CHAMP_EMAIL = "email";
@@ -25,7 +28,7 @@ public class RegisterForm {
 		return erreurs;
 	}
 
-	public Utilisateur inscrireUtilisateur(HttpServletRequest request) {
+	public Utilisateur inscrireUtilisateur(HttpServletRequest request, String chemin) {
 		String email = getValeurChamp(request, CHAMP_EMAIL);//toto
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 		String confirmation = getValeurChamp(request, CHAMP_CONF);
@@ -34,7 +37,7 @@ public class RegisterForm {
 		String tel = getValeurChamp(request, CHAMP_TEL);
 
 		Utilisateur utilisateur = new Utilisateur();
-		
+
 		try {
 			validationTel(tel);
 		} catch(Exception e) {
@@ -69,25 +72,42 @@ public class RegisterForm {
 		} else {
 			resultat = "échec de l'inscription.";
 		}
-		
+
 		try {
 			validationPrenom(prenom);
 		} catch (Exception e) {
 			setErreur(CHAMP_PRENOM, e.getMessage());
 			}
 		utilisateur.setPrenom(prenom);
-		
+
 		try {
 			validationTel(tel);
 		} catch (Exception e) {
 			setErreur(CHAMP_TEL, e.getMessage());
 		}
-		
+
 		utilisateur.setTel(tel);
+		System.out.println(request.getServletContext().getRealPath(chemin));
+		try {
+			File file = new File(request.getServletContext().getRealPath(chemin));
+			if(erreurs.isEmpty()){
+				Utilisateurs listeUtilisateur = JaxParser.unmarshal(Utilisateurs.class, file);
+				listeUtilisateur.addUtilisateur(utilisateur);
+				
+				// Write
+				JaxParser.marshal(listeUtilisateur, file);
+				System.out.println(utilisateur);
+				System.out.println("Utilisateur ajouté");
+			}
+		} catch (Exception e) {
+			setErreur("ParserError", e.getMessage());
+			e.printStackTrace();
+		}
+			
 
 		return utilisateur;
 	}
-
+	
 	private void validationTel(String tel) throws Exception {
 		if(tel != null) {
 			if (!tel.matches("^(?:(?:\\+|00)33[\\s.-]{0,3}(?:\\(0\\)[\\s.-]{0,3})?|0)[1-9](?:(?:[\\s.-]?\\d{2}){4}|\\d{2}(?:[\\s.-]?\\d{3}){2})$")) {
@@ -98,7 +118,7 @@ public class RegisterForm {
 		}
 
 	}
-	
+
 	private void validationEmail(String email) throws Exception {
 		if (email != null) {
 			if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
@@ -137,6 +157,7 @@ public class RegisterForm {
 			throw new Exception("Le prénom d'utilisateur doit contenir au moins 3 caractères.");
 		}
 	}
+
 
 	/*
 	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.

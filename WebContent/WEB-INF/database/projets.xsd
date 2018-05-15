@@ -21,6 +21,7 @@
 											<xs:complexType>
 												<xs:sequence>
 													<xs:element type="xs:string" name="dateCandidature" />
+													<xs:element type="xs:string" name="etatCandidature" />		
 													<xs:element name="utilisateur">
 														<xs:complexType>
 															<xs:sequence>
