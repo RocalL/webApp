@@ -13,13 +13,10 @@ import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
 public class JaxParser {
-	private static final RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
-	private static final List<String> arguments = runtimeMxBean.getInputArguments();
-	private static final String CHEMIN = arguments.get(1);
 	
     public static <T> T unmarshal(Class<T> cl, File f) throws JAXBException
     {
-        return unmarshal(cl, new StreamSource(CHEMIN));
+        return unmarshal(cl, new StreamSource(f));
     }
 	  public static <T> T unmarshal(Class<T> cl, Source s) throws JAXBException
 	    {

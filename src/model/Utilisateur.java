@@ -1,13 +1,9 @@
 package model;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
 @XmlType(propOrder={"role","email","password","nom","prenom","tel"})
 @XmlRootElement
-import java.util.ArrayList;
-
-import services.Candidatures;
-import services.Utilisateurs;
-
 public class Utilisateur {
 	private String role;
 	private String email;
