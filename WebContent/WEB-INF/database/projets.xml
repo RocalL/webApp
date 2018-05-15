@@ -11,6 +11,7 @@
 		<candidatures>
 			<candidature>
 				<dateCandidature>09/15/2017</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>user</role>
 					<email>magna.Nam.ligula@quamdignissimpharetra.edu</email>
@@ -33,6 +34,7 @@
 			</candidature>
 			<candidature>
 				<dateCandidature>12/02/2017</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>user</role>
 					<email>ac.nulla.In@senectus.com</email>
@@ -55,6 +57,7 @@
 			</candidature>
 			<candidature>
 				<dateCandidature>11/15/2017</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>user</role>
 					<email>luctus@magna.co.uk</email>
@@ -77,6 +80,7 @@
 			</candidature>
 			<candidature>
 				<dateCandidature>12/01/2017</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>user</role>
 					<email>in.molestie@parturientmontes.edu</email>
@@ -99,6 +103,7 @@
 			</candidature>
 			<candidature>
 				<dateCandidature>03/08/2018</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>user</role>
 					<email>rutrum.justo.Praesent@accumsanlaoreetipsum.co.uk</email>
@@ -131,6 +136,7 @@
 		<candidatures>
 			<candidature>
 				<dateCandidature>12/04/2018</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>admin</role>
 					<email>admin@root.fr</email>
@@ -153,6 +159,7 @@
 			</candidature>
 			<candidature>
 				<dateCandidature>10/19/2018</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>user</role>
 					<email>In.ornare@tortornibh.co.uk</email>
@@ -175,6 +182,7 @@
 			</candidature>
 			<candidature>
 				<dateCandidature>06/03/2017</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>user</role>
 					<email>lorem.tristique.aliquet@risusNuncac.org</email>
@@ -197,6 +205,7 @@
 			</candidature>
 			<candidature>
 				<dateCandidature>02/20/2018</dateCandidature>
+				<etatCandidature>En attente</etatCandidature>
 				<utilisateur>
 					<role>user</role>
 					<email>Donec.est@metus.net</email>
