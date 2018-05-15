@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import model.Candidature;
+import model.Projet;
 import model.RepProjet;
 import model.Structure;
 import model.Utilisateur;
@@ -78,7 +79,7 @@ public class CreationCandidatureForm {
 			setErreur(CHAMP_CA, e.getMessage());
 		}
 		structure.setCa(caInt);
-		
+
 		int delaiInt = -1;
 		try {
 			delaiInt = validationDelai(delai);
@@ -93,10 +94,19 @@ public class CreationCandidatureForm {
 		candidature.setDateCandidature(dateFormat.format(date));
 
 		try {
+			File file = new File(request.getServletContext().getRealPath(chemin));
 			if (erreurs.isEmpty()) {
 				// Read
-				Projets listProjets = JaxParser.unmarshal(Projets.class, new File(request.getServletContext().getRealPath(chemin)));
-				
+				Projets listProjets = JaxParser.unmarshal(Projets.class, file);
+				for (Projet p : listProjets.getProjet()) {
+					if (p.getNom().equals(request.getParameter("projet"))) {
+						p.addCandidature(candidature);
+					}
+				}
+				// Write
+				JaxParser.marshal(listProjets, file);
+				System.out.println(candidature);
+				System.out.println("ajoutée au projet");
 			}
 		} catch (Exception e) {
 			setErreur("ParserError", e.getMessage());
@@ -159,6 +169,7 @@ public class CreationCandidatureForm {
 		}
 		return temp;
 	}
+
 	private int validationDelai(String delai) throws Exception {
 		int temp;
 		if (delai != null) {

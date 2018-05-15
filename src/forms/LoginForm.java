@@ -28,7 +28,7 @@ public final class LoginForm {
 	}
 
 	public Utilisateur connecterUtilisateur(HttpServletRequest request) {
-		/* R�cup�ration des champs du formulaire */
+		/* Récupération des champs du formulaire */
 		String email = getValeurChamp(request, CHAMP_EMAIL);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 
@@ -50,7 +50,7 @@ public final class LoginForm {
 		}
 		utilisateur.setPassword(motDePasse);
 
-		/* Initialisation du r�sultat global de la validation. */
+		/* Initialisation du résultat global de la validation. */
 		if (erreurs.isEmpty()) {
 			try {
 				utilisateur = verifierLogins(email, motDePasse, request);
@@ -75,7 +75,7 @@ public final class LoginForm {
 			if (u.getEmail().equals(email) && u.getPassword().equals(motDePasse))
 				return u;
 		}
-		throw new Exception("Aucun utilisateur n'est enregistr� avec cet email et ce mot de passe");
+		throw new Exception("Aucun utilisateur n'est enregistré avec cet email et ce mot de passe");
 	}
 
 	/**
@@ -93,7 +93,7 @@ public final class LoginForm {
 	private void validationMotDePasse(String motDePasse) throws Exception {
 		if (motDePasse != null) {
 			if (motDePasse.length() < 3) {
-				throw new Exception("Le mot de passe doit contenir au moins 3 caract�res.");
+				throw new Exception("Le mot de passe doit contenir au moins 3 caractères.");
 			}
 		} else {
 			throw new Exception("Merci de saisir votre mot de passe.");

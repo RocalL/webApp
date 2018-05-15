@@ -34,7 +34,7 @@ public class CreationCandidatureServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		/*
 		 * Si l'objet utilisateur n'existe pas dans la session en cours, alors
-		 * l'utilisateur n'est pas connect�.
+		 * l'utilisateur n'est pas connecté.
 		 */
 		if (session.getAttribute(ATT_SESSION_USER) == null) {
 			/* Redirection vers la page publique */

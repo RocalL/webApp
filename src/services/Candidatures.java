@@ -23,4 +23,9 @@ public class Candidatures {
 		return "Candidatures [candidature=" + candidature + "]";
 	}
 
+	public void addCandidature(Candidature candidature) {
+		this.candidature.add(candidature);
+		
+	}
+
 }
