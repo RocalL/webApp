@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import model.Utilisateur;
@@ -7,21 +8,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Utilisateurs {
-	private Utilisateur[] utilisateurs;
+	private ArrayList<Utilisateur> utilisateurs;
 
-	public Utilisateur[] getUtilisateur() {
+	public ArrayList<Utilisateur> getUtilisateur() {
 		return utilisateurs;
 	}
 
-	public void setUtilisateur(Utilisateur[] utilisateur) {
+	public void setUtilisateur(ArrayList<Utilisateur> utilisateur) {
 		this.utilisateurs = utilisateur;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Arrays.hashCode(utilisateurs);
+		result = prime * result + ((utilisateurs == null) ? 0 : utilisateurs.hashCode());
 		return result;
 	}
 
@@ -34,14 +35,23 @@ public class Utilisateurs {
 		if (getClass() != obj.getClass())
 			return false;
 		Utilisateurs other = (Utilisateurs) obj;
-		if (!Arrays.equals(utilisateurs, other.utilisateurs))
+		if (utilisateurs == null) {
+			if (other.utilisateurs != null)
+				return false;
+		} else if (!utilisateurs.equals(other.utilisateurs))
 			return false;
 		return true;
 	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "Utilisateurs [utilisateur=" + Arrays.toString(utilisateurs) + "]";
+		return "Utilisateurs [utilisateurs=" + utilisateurs + "]";
+	}
+
+	public void addUtilisateur(Utilisateur utilisateur) {
+		this.utilisateurs.add(utilisateur);
 	}
 
 }
