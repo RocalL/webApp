@@ -37,9 +37,12 @@
 								<td><c:out value="${candidature.structure.raisonSocial}" /></td>
 								<td><c:out value="${candidature.repProjet.delaisPropose}" /></td>
 								<td>
+								<form action="/validateCandidature" method = "get" class="validateForm">
 									<button onclick='location.href=""' class="btn" title="Valider candidature" >
+									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
 										<i class="fas fa-check"></i>
 									</button>
+								</form>							
 									<button onclick='location.href=""'class="btn" title="Rejetter la candidature">
 										<i class="fas fa-trash"></i>
 									</button>
