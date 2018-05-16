@@ -22,7 +22,7 @@ public class CreationCandidatureServlet extends HttpServlet {
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 	public static final String ATT_CANDIDATURE = "candidature";
 	public static final String ATT_FORM = "form";
-	public static final String CHEMIN = "/WEB-INF/database/projets.xml";
+	public static final String CHEMIN = "/projets.xml";
 
 	public CreationCandidatureServlet() {
 		super();
@@ -51,7 +51,7 @@ public class CreationCandidatureServlet extends HttpServlet {
 			CreationCandidatureForm form = new CreationCandidatureForm();
 
 			/* Traitement de la requête et récupération du bean en résultant */
-			Candidature candidature = form.creerCandidature(request, CHEMIN);
+			Candidature candidature = form.creerCandidature(request, getServletContext().getInitParameter("localDirectoryPath") + CHEMIN);
 			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_CANDIDATURE, candidature);
 

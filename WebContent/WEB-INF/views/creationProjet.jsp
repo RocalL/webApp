@@ -15,23 +15,23 @@
 				<div class="form-group">
 						    <label for="nomProjet">Nom du Projet<span class="requis">*</span></label> 
 							<input type="text" class="form-control" id="nomProjet" name="nomProjet" placeholder="Ex: Création d'une apllication web">
-							<span class="erreur">${form.erreurs['Nom du projet']}</span>
+							<span class="erreur">${form.erreurs['nomProjet']}</span>
 							
 							<label for="descriptifProjet">Descriptif<span class="requis">*</span></label>
 							<input type="text" class="form-control" id="descriptifProjet" name="descriptifProjet" placeholder="détail du projet">
-							<span class="erreur">${form.erreurs['descriptif du projet']}</span>
+							<span class="erreur">${form.erreurs['descriptifProjet']}</span>
 							
 							<label for="deadLineCandidature">Date Limite de candidature<span class="requis">*</span></label>
 							<input type="date" class="form-control" id="deadLineCandidature" name="deadLineCandidature" placeholder="jj/mm/aaaa" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}"> 
-							<span class="erreur">${form.erreurs['date limite de candidature']}</span>
+							<span class="erreur">${form.erreurs['deadLineCandidature']}</span>
 							
 							<label for="deadLineProjet">Date de cloture du projet<span class="requis">*</span></label>
 							<input type="date" class="form-control" id="deadLineProjet" name="deadLineProjet" placeholder="jj/mm/aaaa" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}"> 
-							<span class="erreur">${form.erreurs['date de cloture du projet']}</span>
+							<span class="erreur">${form.erreurs['deadLineProjet']}</span>
 							
-							<label for="nbMaxCandidatures">Nombre de développeur(s) nécessaire(s)<span class="requis">*</span></label>
-							<input type="number" class="form-control" id="deadLineProjet" name="deadLineProjet" placeholder="01"> 
-							<span class="erreur">${form.erreurs['Nombre de développeur']}</span>
+							<label for="nbMaxCandidatures">Nombre de candidats maximum<span class="requis">*</span></label>
+							<input type="number" class="form-control" id="nbMaxCandidatures" name="nbMaxCandidatures" placeholder="01"> 
+							<span class="erreur">${form.erreurs['nbMaxCandidatures']}</span>
 							
 							<label for="ImageProjet">Image d'illustration</label>
 							<div class="input1" id="ImageProjet">

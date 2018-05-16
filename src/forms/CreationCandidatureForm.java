@@ -94,7 +94,7 @@ public class CreationCandidatureForm {
 		candidature.setDateCandidature(dateFormat.format(date));
 
 		try {
-			File file = new File(request.getServletContext().getRealPath(chemin));
+			File file = new File(chemin);
 			if (erreurs.isEmpty()) {
 				// Read
 				Projets listProjets = JaxParser.unmarshal(Projets.class, file);
@@ -105,9 +105,9 @@ public class CreationCandidatureForm {
 				}
 				// Write
 				System.out.println(file);
-				//JaxParser.marshal(listProjets, file);
-				//System.out.println(candidature);
-				//System.out.println("ajoutée au projet");
+				JaxParser.marshal(listProjets, file);
+				System.out.println(candidature);
+				System.out.println("ajoutée au projet");
 			}
 		} catch (Exception e) {
 			setErreur("ParserError", e.getMessage());

@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import forms.CreationCandidatureForm;
+import forms.CreationProjetForm;
+import model.Candidature;
+import model.Projet;
+
 /**
  * Servlet implementation class CreationProjet
  */
@@ -17,7 +22,9 @@ public class CreationProjetServlet extends HttpServlet {
 	public static final String VUE_SUCCES = "/WEB-INF/projets.jsp";
 	public static final String VUE_FORM = "/WEB-INF/views/creationProjet.jsp";
 	public static final String ACCES_LOGIN = "/login";
+	public static final String CHEMIN = "/projets.xml";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
+	public static final String ATT_PROJET = "projet";
 
 	public CreationProjetServlet() {
 		super();
@@ -25,11 +32,11 @@ public class CreationProjetServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/* R�cup�ration de la session depuis la requ�te */
+		/* Récupération de la session depuis la requête */
 		HttpSession session = request.getSession();
 		/*
 		 * Si l'objet utilisateur n'existe pas dans la session en cours, alors
-		 * l'utilisateur n'est pas connect�.
+		 * l'utilisateur n'est pas connect�.
 		 */
 		if (session.getAttribute(ATT_SESSION_USER) == null) {
 			/* Redirection vers la page publique */
@@ -42,7 +49,15 @@ public class CreationProjetServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+			/* Préparation de l'objet formulaire */
+			CreationProjetForm form = new CreationProjetForm();
+
+			/* Traitement de la requête et récupération du bean en résultant */
+			Projet projet = form.creerProjet(request, getServletContext().getInitParameter("localDirectoryPath") + CHEMIN);
+			request.setAttribute(VUE_FORM, form);
+			request.setAttribute(ATT_PROJET, projet);
+
+			this.getServletContext().getRequestDispatcher(VUE_FORM).forward(request, response);
 	}
 
 }

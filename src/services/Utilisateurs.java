@@ -1,8 +1,6 @@
 package services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import model.Utilisateur;
 import javax.xml.bind.annotation.XmlRootElement;
 

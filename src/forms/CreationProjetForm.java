@@ -3,27 +3,22 @@ package forms;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import model.Candidature;
 import model.Projet;
-import model.RepProjet;
-import model.Structure;
-import model.Utilisateur;
 import services.Projets;
 import util.JaxParser;
 
-public class CreationProjet {
+public class CreationProjetForm {
 	private static final String CHAMP_NOM = "nomProjet";
 	private static final String CHAMP_DESCRIPTION = "description";
 	private static final String CHAMP_DEADLINE_CANDIDATURE = "deadLineCandidature";
 	private static final String CHAMP_DEADLINE_PROJET = "deadLineProjet";
-	private static final String CHAMP_NOMBRE_DEV = "nombreDev";
+	private static final String CHAMP_NB_MAX_CANDIDATURE = "nbMaxCandidatures";
 	private static final String CHAMP_IMAGE = "Image";
 
 	
@@ -46,7 +41,7 @@ public class CreationProjet {
 		String description = getValeurChamp(request, CHAMP_DESCRIPTION);
 		String deadLineCandidature = getValeurChamp(request, CHAMP_DEADLINE_CANDIDATURE);
 		String deadLineProjet = getValeurChamp(request, CHAMP_DEADLINE_PROJET);
-		String nombreDev = getValeurChamp(request, CHAMP_NOMBRE_DEV);
+		String nbMaxCandidatures = getValeurChamp(request, CHAMP_NB_MAX_CANDIDATURE);
 		String Image = getValeurChamp(request, CHAMP_IMAGE);
 
 		Projet projet = new Projet();
@@ -81,15 +76,15 @@ public class CreationProjet {
 		projet.setDeadLineProjet(deadLineProjet);
 		
 		try {
-			validationNombreDev(nombreDev);
+			validationNombreDev(nbMaxCandidatures);
 		} catch (Exception e) {
-			setErreur(CHAMP_NOMBRE_DEV, e.getMessage());
+			setErreur(CHAMP_NB_MAX_CANDIDATURE, e.getMessage());
 		}
-		int nbDev = Integer.parseInt(nombreDev);
+		int nbDev = Integer.parseInt(nbMaxCandidatures);
 		projet.setNbMaxCandidatures(nbDev);
-		
+		System.out.println(erreurs);
 		try {
-			File file = new File(request.getServletContext().getRealPath(chemin));
+			File file = new File(chemin);
 			if (erreurs.isEmpty()) {
 				// Read
 				Projets listProjets = JaxParser.unmarshal(Projets.class, file);
@@ -182,14 +177,14 @@ public class CreationProjet {
 		  }
 
 	/*
-	 * Ajoute un message correspondant au champ sp�cifi� � la map des erreurs.
+	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
 	 */
 	private void setErreur(String champ, String message) {
 		erreurs.put(champ, message);
 	}
 
 	/*
-	 * M�thode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * Mêthode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {

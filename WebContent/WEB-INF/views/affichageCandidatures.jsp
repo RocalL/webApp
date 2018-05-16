@@ -37,18 +37,24 @@
 								<td><c:out value="${candidature.structure.raisonSocial}" /></td>
 								<td><c:out value="${candidature.repProjet.delaisPropose}" /></td>
 								<td>
-								<form action="/validateCandidature" method = "get" class="validateForm">
-									<button onclick='location.href=""' class="btn" title="Valider candidature" >
-									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
+								<form action="validateCandidature" method = "get" class="candidatureBtn">
+									<button class="btn" title="Valider candidature">
 										<i class="fas fa-check"></i>
 									</button>
+									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
 								</form>							
-									<button onclick='location.href=""'class="btn" title="Rejetter la candidature">
+								<form action="deleteCandidature" method = "get" class="candidatureBtn">
+									<button class="btn" title="Supprimer candidature">
 										<i class="fas fa-trash"></i>
 									</button>
-									<button onclick='location.href=""'class="btn" title="Consulter la candidature">
-										<i class="far fa-eye"></i>
+									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
+								</form>	
+								<form action="infoCandidature" method = "get" class="candidatureBtn">
+									<button class="btn" title="Détails de la candidature">
+										<i class="fas fa-eye"></i>
 									</button>
+									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
+								</form>	
 								</td>
 							</tr>
 						</c:forEach>
