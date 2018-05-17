@@ -21,6 +21,7 @@ public class CreationProjetServlet extends HttpServlet {
 	public static final String VUE_FORM = "/WEB-INF/views/creationProjet.jsp";
 	public static final String ACCES_LOGIN = "/login";
 	public static final String CHEMIN = "/projets.xml";
+	public static final String ATT_FORM = "form";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 	public static final String ATT_PROJET = "projet";
 
@@ -52,7 +53,7 @@ public class CreationProjetServlet extends HttpServlet {
 
 			/* Traitement de la requête et récupération du bean en résultant */
 			Projet projet = form.creerProjet(request, getServletContext().getInitParameter("localDirectoryPath") + CHEMIN);
-			request.setAttribute(VUE_FORM, form);
+			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_PROJET, projet);
 
 			this.getServletContext().getRequestDispatcher(VUE_FORM).forward(request, response);

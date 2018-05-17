@@ -5,7 +5,7 @@
 <%@include file="./header.jspf"%>
 
 <%@include file="./navigation.jspf"%>
-<%@ page import="services.Projets"%>
+<%@ page import="model.Projets"%>
 <%@ page import="model.Projet"%>
 
 <div class="container">

@@ -31,7 +31,6 @@ public class CreationProjetForm {
 	public String getResultat() {
 		return resultat;
 	}
-
 	public Projet creerProjet(HttpServletRequest request, String chemin) {
 
 		String nomProjet = getValeurChamp(request, CHAMP_NOM);
@@ -43,6 +42,7 @@ public class CreationProjetForm {
 
 		Projet projet = new Projet();
 		Date date = new Date();
+		
 
 		try {
 			validationNomProjet(nomProjet);
