@@ -27,7 +27,7 @@ public class AffichageCandidaturesServlet extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/* Récupération de la session depuis la requ�te */
+		/* Récupération de la session depuis la requête */
 		HttpSession session = request.getSession();
 		/*
 		 * Si l'objet utilisateur n'existe pas dans la session en cours, alors
