@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import services.Candidatures;
+import model.Candidatures;
 @XmlType(propOrder={"image", "nom", "descriptif","deadLineCandidature","deadLineProjet","nbMaxCandidatures","candidatures"})
 @XmlRootElement
 public class Projet {

@@ -9,7 +9,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
 import model.Utilisateur;
-import services.Utilisateurs;
+import model.Utilisateurs;
 
 public final class LoginForm {
 	private static final String CHAMP_EMAIL = "email";

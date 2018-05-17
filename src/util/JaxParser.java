@@ -25,8 +25,9 @@ public class JaxParser {
     {
         JAXBContext ctx = JAXBContext.newInstance(obj.getClass());
         Marshaller m = ctx.createMarshaller();
+        m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        m.marshal(obj, System.out);
+        m.marshal(obj, f);
     }
 
 }

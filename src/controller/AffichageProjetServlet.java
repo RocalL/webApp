@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Projet;
-import services.Projets;
+import model.Projets;
 import util.JaxParser;
 
 @WebServlet(urlPatterns = "/affichageProjet")
@@ -19,7 +19,7 @@ public class AffichageProjetServlet extends HttpServlet {
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ACCES_PROJET = "/WEB-INF/views/affichageProjet.jsp";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String CHEMIN = "/WEB-INF/database/projets.xml";
+	public static final String CHEMIN = "/projets.xml";
 	public static final String ACCES_PROJETS = "/WEB-INF/views/projets.jsp";
 
 	public AffichageProjetServlet() {
@@ -39,7 +39,7 @@ public class AffichageProjetServlet extends HttpServlet {
 		} else {
 			try {
 				Projets listProjets = JaxParser.unmarshal(Projets.class,
-						new File(request.getServletContext().getRealPath(CHEMIN)));
+						new File(getServletContext().getInitParameter("localDirectoryPath") + CHEMIN));
 				Projet p = new Projet();
 				if (listProjets.getProjetByNom(request.getParameter("projet")) != null) {
 					p = listProjets.getProjetByNom(request.getParameter("projet"));

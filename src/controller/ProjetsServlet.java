@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import services.Projets;
+import model.Projets;
 import util.JaxParser;
 
 @WebServlet(urlPatterns = "/projets")
@@ -19,7 +19,7 @@ public class ProjetsServlet extends HttpServlet {
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ACCES_PROJET = "/WEB-INF/views/projets.jsp";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String CHEMIN = "/WEB-INF/database/projets.xml";
+	public static final String CHEMIN = "/projets.xml";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/* Récupération de la session depuis la requête */
@@ -35,7 +35,7 @@ public class ProjetsServlet extends HttpServlet {
 		} else {
 			try {
 				Projets listProjets = JaxParser.unmarshal(Projets.class,
-						new File(request.getServletContext().getRealPath(CHEMIN)));
+						new File(getServletContext().getInitParameter("localDirectoryPath") + CHEMIN));
 				request.setAttribute("projets", listProjets);
 			} catch (Exception e) {
 				e.printStackTrace();

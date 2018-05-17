@@ -8,20 +8,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import model.Projet;
-import services.Projets;
+import model.Candidatures;
+import model.Projets;
 import util.JaxParser;
 
 public class CreationProjetForm {
 	private static final String CHAMP_NOM = "nomProjet";
-	private static final String CHAMP_DESCRIPTION = "description";
+	private static final String CHAMP_DESCRIPTION = "descriptifProjet";
 	private static final String CHAMP_DEADLINE_CANDIDATURE = "deadLineCandidature";
 	private static final String CHAMP_DEADLINE_PROJET = "deadLineProjet";
 	private static final String CHAMP_NB_MAX_CANDIDATURE = "nbMaxCandidatures";
-	private static final String CHAMP_IMAGE = "Image";
+	private static final String CHAMP_IMAGE = "imageProjet";
 
-	
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
 
@@ -34,15 +33,13 @@ public class CreationProjetForm {
 	}
 
 	public Projet creerProjet(HttpServletRequest request, String chemin) {
-		HttpSession session = request.getSession();
-		//Utilisateur utilisateur = (Utilisateur) session.getAttribute(ATT_SESSION_USER);
 
 		String nomProjet = getValeurChamp(request, CHAMP_NOM);
 		String description = getValeurChamp(request, CHAMP_DESCRIPTION);
 		String deadLineCandidature = getValeurChamp(request, CHAMP_DEADLINE_CANDIDATURE);
 		String deadLineProjet = getValeurChamp(request, CHAMP_DEADLINE_PROJET);
 		String nbMaxCandidatures = getValeurChamp(request, CHAMP_NB_MAX_CANDIDATURE);
-		String Image = getValeurChamp(request, CHAMP_IMAGE);
+		String image = getValeurChamp(request, CHAMP_IMAGE);
 
 		Projet projet = new Projet();
 		Date date = new Date();
@@ -67,30 +64,33 @@ public class CreationProjetForm {
 			setErreur(CHAMP_DEADLINE_CANDIDATURE, e.getMessage());
 		}
 		projet.setDeadLineCandidature(deadLineCandidature);
-		
+
 		try {
 			validationDeadLineProjet(deadLineProjet);
 		} catch (Exception e) {
 			setErreur(CHAMP_DEADLINE_PROJET, e.getMessage());
 		}
 		projet.setDeadLineProjet(deadLineProjet);
-		
+
+		int nbMaxCandidatureInt = -1;
 		try {
-			validationNombreDev(nbMaxCandidatures);
+			nbMaxCandidatureInt = validationNbMaxCandidature(nbMaxCandidatures);
 		} catch (Exception e) {
 			setErreur(CHAMP_NB_MAX_CANDIDATURE, e.getMessage());
 		}
-		int nbDev = Integer.parseInt(nbMaxCandidatures);
-		projet.setNbMaxCandidatures(nbDev);
-		System.out.println(erreurs);
+		projet.setNbMaxCandidatures(nbMaxCandidatureInt);
+		projet.setImage("./resources/img/default.jpg");
+		projet.setCandidatures(new Candidatures());
+
 		try {
 			File file = new File(chemin);
 			if (erreurs.isEmpty()) {
 				// Read
 				Projets listProjets = JaxParser.unmarshal(Projets.class, file);
 				for (Projet p : listProjets.getProjet()) {
+					System.out.println(p.getNom() +"_"+ projet.getNom());
 					if (p.getNom().equals(projet.getNom())) {
-						throw new Exception();
+						resultat = "échec de la création de la candidature : un projet portant ce nom existe déjà";
 					}
 				}
 				listProjets.getProjet().add(projet);
@@ -107,17 +107,16 @@ public class CreationProjetForm {
 		if (erreurs.isEmpty()) {
 			resultat = "Succès de la création du projet le " + date.toString();
 		} else {
-			resultat = "échec de la création de la candidature.";
+			resultat = "échec de la création de la projet.";
 		}
 
 		return projet;
 	}
 
-
 	private void validationNomProjet(String nomProjet) throws Exception {
 		if (nomProjet != null) {
 			if (nomProjet.length() < 2) {
-				throw new Exception("Le Nom du projet doit au moins être défini par 2 caract�res.");
+				throw new Exception("Le nom du projet doit au moins être défini par 2 caractères.");
 			}
 		} else {
 			throw new Exception("Merci de donner un nom au projet.");
@@ -133,48 +132,48 @@ public class CreationProjetForm {
 			throw new Exception("Veuillez décrire le projet avec plus de détail.");
 		}
 	}
-	
-	private int validationNombreDev(String nombreDev) throws Exception {
+
+	private int validationNbMaxCandidature(String nbMaxCandidature) throws Exception {
 		int temp;
-		if (nombreDev != null) {
+		if (nbMaxCandidature != null) {
 			try {
-				temp = Integer.parseInt(nombreDev);
+				temp = Integer.parseInt(nbMaxCandidature);
 				if (temp < 1) {
-					throw new Exception("Il faut au moins un développeur pour ce projet.");
+					throw new Exception("Il faut au moins un candidat pour ce projet.");
 				}
 			} catch (NumberFormatException e) {
 				temp = -1;
-				throw new Exception("Le nombre Max de Développeur doit être un nombre.");
+				throw new Exception("La valeur maximum de candidat doit être un nombre.");
 			}
 		} else {
 			temp = -1;
-			throw new Exception("Merci de définir le nombre de développeur maximum.");
+			throw new Exception("Merci de définir le nombre de candidat maximum.");
 		}
 		return temp;
 	}
 
 	private void validationDeadLineCandidature(String deadLineCandidature) throws Exception {
-		if (! isValidDate(deadLineCandidature)) {
+		if (!isValidDate(deadLineCandidature)) {
 			throw new Exception("Veuillez saisir une date limite de candidature valide");
-			}
+		}
 	}
 
 	private void validationDeadLineProjet(String deadLineProjet) throws Exception {
-		if (! isValidDate(deadLineProjet)) {
+		if (!isValidDate(deadLineProjet)) {
 			throw new Exception("Veuillez saisir une date de cloture du projet valide");
-			}
+		}
 	}
-	
+
 	public static boolean isValidDate(String inDate) {
-		    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		    dateFormat.setLenient(false);
-		    try {
-		      dateFormat.parse(inDate.trim());
-		    } catch (ParseException pe) {
-		      return false;
-		    }
-		    return true;
-		  }
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(false);
+		try {
+			dateFormat.parse(inDate.trim());
+		} catch (ParseException pe) {
+			return false;
+		}
+		return true;
+	}
 
 	/*
 	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.

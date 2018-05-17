@@ -13,7 +13,7 @@ import model.Projet;
 import model.RepProjet;
 import model.Structure;
 import model.Utilisateur;
-import services.Projets;
+import model.Projets;
 import util.JaxParser;
 
 public class CreationCandidatureForm {
@@ -100,6 +100,7 @@ public class CreationCandidatureForm {
 				Projets listProjets = JaxParser.unmarshal(Projets.class, file);
 				for (Projet p : listProjets.getProjet()) {
 					if (p.getNom().equals(request.getParameter("projet"))) {
+						// Rajouter check nom candidature
 						p.addCandidature(candidature);
 					}
 				}

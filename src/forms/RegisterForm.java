@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import model.Utilisateur;
-import services.Utilisateurs;
+import model.Utilisateurs;
 import util.JaxParser;
 
 public class RegisterForm {

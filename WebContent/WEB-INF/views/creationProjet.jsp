@@ -34,12 +34,10 @@
 							<span class="erreur">${form.erreurs['nbMaxCandidatures']}</span>
 							
 							<label for="ImageProjet">Image d'illustration</label>
-							<div class="input1" id="ImageProjet">
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="fichiers" name="fichiers">
-									<label class="custom-file-label" for="fichiers">Charger une image</label>															
+									<input type="file" class="custom-file-input" id="imageProjet" name="imageProjet">
+									<label class="custom-file-label" for="imageProjet">Charger une image</label>															
 								</div>
-							</div>
 							<small id="fichierWarn" class="form-text text-muted">veuillez importer une image valide</small>				
 					</div>
 					<div id="sendButton">

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Projet;
-import services.Projets;
+import model.Projets;
 import util.JaxParser;
 
 @WebServlet(urlPatterns = "/affichageCandidatures")
