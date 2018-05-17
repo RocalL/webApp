@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import model.Candidatures;
+import services.Candidatures;
 @XmlType(propOrder={"image", "nom", "descriptif","deadLineCandidature","deadLineProjet","nbMaxCandidatures","candidatures"})
 @XmlRootElement
 public class Projet {
@@ -100,10 +100,12 @@ public class Projet {
 	}
 	
 	
-	public void deleteCandidature(String nom) {
-		/*ArrayList<Candidature> listeCandidature = this.candidatures.getCandidature();
-		if(listeCandidature.contains(candidature)) {
-			this.candidatures.deleteCandidature(candidature);
-		}*/
+	public void deleteCandidature(String mail) {
+		Candidatures listeCandidature = this.getCandidatures();
+		Candidature candidatureToDelete = listeCandidature.getCandidatureByMail(mail);
+		if(candidatureToDelete != null) {
+			this.candidatures.deleteCandidature(candidatureToDelete);	
+		}
+		
 	}
 }
