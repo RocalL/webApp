@@ -1,3 +1,4 @@
+<%@page import="forms.CreationProjetForm"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -7,7 +8,7 @@
 <!-- comment -->
 <div class="container">
 	<div class="row">
-		<h1 class="custom-title">Création d'un Projet</h1>
+		<h1 class="custom-title">Création d'un Projet </h1>
 	</div>
 	<div class="row" id="projet">
 		<div class="col-lg-12" id="form">

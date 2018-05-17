@@ -49,7 +49,7 @@
 									</button>
 									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
 								</form>	
-								<form action="infoCandidature" method = "get" class="candidatureBtn">
+								<form action="affichageCandidat" method = "get" class="candidatureBtn">
 									<button class="btn" title="Détails de la candidature">
 										<i class="fas fa-eye"></i>
 									</button>

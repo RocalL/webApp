@@ -16,19 +16,21 @@ public class CreationProjetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CONF_FACTORY = "localDirectoryPath";
 	public static final String CHEMIN = "localDirectoryPath";
-	public static final String ATT_PROJET = "projet";
+	public static final String VUE_SUCCES = "/WEB-INF/projets.jsp";
+	public static final String VUE_FORM = "/WEB-INF/views/creationProjet.jsp";
+	public static final String ACCES_LOGIN = "/login";
 	public static final String ATT_FORM = "form";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
+	public static final String ATT_PROJET = "projet";
 	public static final String ATT_DB = "/projets.xml";
 
 	public static final String SERVLET_SUCCES = "/projets";
-	public static final String VUE_FORM = "/WEB-INF/views/creationProjet.jsp";
 
 	private ProjetFactory projetFactory;
 
 	public void init() throws ServletException {
-		  /* Récupération d'une instance de projetFactory*/
-        this.projetFactory = new ProjetFactoryImpl();
+		/* Récupération d'une instance de projetFactory */
+		this.projetFactory = new ProjetFactoryImpl();
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,6 +50,8 @@ public class CreationProjetServlet extends HttpServlet {
 
 		/* Traitement de la requête et récupération du bean en résultant */
 		Projet projet = form.creerProjet(request, chemin);
+		request.setAttribute(ATT_FORM, form);
+		request.setAttribute(ATT_PROJET, projet);
 
 		/* Ajout du bean et de l'objet métier à l'objet requête */
 		request.setAttribute(ATT_PROJET, projet);

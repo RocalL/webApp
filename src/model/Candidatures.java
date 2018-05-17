@@ -8,7 +8,7 @@ import model.Candidature;
 
 @XmlRootElement
 public class Candidatures {
-	private ArrayList<Candidature> candidature;
+	private ArrayList<Candidature> candidature = new ArrayList<>();
 
 	public ArrayList<Candidature> getCandidature() {
 		return candidature;
