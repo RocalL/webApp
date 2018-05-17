@@ -13,8 +13,8 @@ import model.Candidature;
 import model.Candidatures;
 import util.JaxParser;
 
-@WebServlet(urlPatterns = "/affichageCandidat")
-public class AffichageCandidatServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/affichageCandidature")
+public class AffichageCandidatureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ACCES_CANDIDAT = "/WEB-INF/views/affichageCandidat.jsp";
@@ -22,7 +22,7 @@ public class AffichageCandidatServlet extends HttpServlet {
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 	public static final String CHEMIN = "/WEB-INF/database/projets.xml";
 
-	public AffichageCandidatServlet() {
+	public AffichageCandidatureServlet() {
 		super();
 	}
 
