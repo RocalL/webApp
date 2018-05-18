@@ -7,35 +7,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import factory.CandidatureFactory;
+import factory.CandidatureFactoryImpl;
+import factory.ProjetFactory;
+import factory.ProjetFactoryImpl;
 import forms.CreationCandidatureForm;
 import model.Candidature;
 
-/**
- * Servlet implementation class CreationCandidature
- */
 @WebServlet(urlPatterns = "/creationCandidature")
 public class CreationCandidatureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String VUE_SUCCES = "/WEB-INF/projets.jsp";
+	public static final String CHEMIN = "localDirectoryPath";
 	public static final String VUE_FORM = "/WEB-INF/views/creationCandidature.jsp";
 	public static final String ACCES_LOGIN = "/login";
+	public static final String ATT_FORM = "form";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 	public static final String ATT_CANDIDATURE = "candidature";
-	public static final String ATT_FORM = "form";
-	public static final String CHEMIN = "/projets.xml";
+	public static final String ATT_DB = "/projets.xml";
 
-	public CreationCandidatureServlet() {
-		super();
+	public static final String SERVLET_SUCCES = "/projets";
+
+	private CandidatureFactory candidatureFactory;
+	private ProjetFactory projetFactory;
+
+	public void init() throws ServletException {
+		/* Récupération d'une instance de projetFactory */
+		this.candidatureFactory = new CandidatureFactoryImpl();
+		this.projetFactory = new ProjetFactoryImpl();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		/* R�cup�ration de la session depuis la requête */
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/* Récupération de la session depuis la requête */
 		HttpSession session = request.getSession();
-		/*
-		 * Si l'objet utilisateur n'existe pas dans la session en cours, alors
-		 * l'utilisateur n'est pas connecté.
-		 */
 		if (session.getAttribute(ATT_SESSION_USER) == null) {
 			/* Redirection vers la page publique */
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
@@ -45,16 +49,29 @@ public class CreationCandidatureServlet extends HttpServlet {
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/* Récupération de la session depuis la requête */
+		HttpSession session = request.getSession();
+		if (session.getAttribute(ATT_SESSION_USER) == null) {
+			/* Redirection vers la page publique */
+			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
+		} else {
+			/*
+			 * Lecture du paramètre 'chemin' passé à la servlet via la déclaration dans le
+			 * web.xml
+			 */
+			String chemin = getServletContext().getInitParameter(CHEMIN) + ATT_DB;
+
 			/* Préparation de l'objet formulaire */
-			CreationCandidatureForm form = new CreationCandidatureForm();
+			CreationCandidatureForm form = new CreationCandidatureForm(candidatureFactory, projetFactory);
 
 			/* Traitement de la requête et récupération du bean en résultant */
-			Candidature candidature = form.creerCandidature(request, getServletContext().getInitParameter("localDirectoryPath") + CHEMIN);
+			Candidature candidature = form.creerCandidature(request, chemin);
 			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_CANDIDATURE, candidature);
 
+			/* ré-affichage du formulaire de création */
 			this.getServletContext().getRequestDispatcher(VUE_FORM).forward(request, response);
+		}
 	}
 }

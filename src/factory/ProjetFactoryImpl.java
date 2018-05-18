@@ -36,8 +36,19 @@ public class ProjetFactoryImpl implements ProjetFactory {
 		}
 	}
 
-	public Projet getOne(String nom) throws FactoryException {
-		return null;
+	public Projet getOne(String nom, String chemin) throws FactoryException {
+		Projet p = new Projet();
+		try {
+			File file = new File(chemin);
+			// Read
+			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
+			if (listProjets.getProjetByNom(nom) != null) {
+				p = listProjets.getProjetByNom(nom);
+			}
+		} catch (FactoryException | JAXBException e) {
+			e.printStackTrace();
+		}
+		return p;
 	}
 
 	public List<Projet> getAll() throws FactoryException {
@@ -48,6 +59,6 @@ public class ProjetFactoryImpl implements ProjetFactory {
 	}
 
 	@Override
-	public void update(Projet projet) throws FactoryException {	
+	public void update(Projet projet) throws FactoryException {
 	}
 }

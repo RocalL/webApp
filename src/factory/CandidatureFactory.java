@@ -4,9 +4,10 @@ import java.util.List;
 
 import exception.FactoryException;
 import model.Candidature;
+import model.Projet;
 
 public interface CandidatureFactory {
-	void create(Candidature candidature, String chemin) throws FactoryException;
+	void create(Candidature candidature, Projet projet, String chemin) throws FactoryException;
 
 	Candidature getOne(String name) throws FactoryException;
 
