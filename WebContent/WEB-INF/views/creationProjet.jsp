@@ -12,7 +12,7 @@
 	</div>
 	<div class="row" id="projet">
 		<div class="col-lg-12" id="form">
-			<form method="post" action="creationProjet">
+			<form method="post" action="creationProjet" enctype='multipart/form-data'>
 				<div class="form-group">
 						    <label for="nomProjet">Nom du Projet<span class="requis">*</span></label> 
 							<input type="text" class="form-control" id="nomProjet" name="nomProjet" placeholder="Ex: Création d'une apllication web">
@@ -36,7 +36,7 @@
 							
 							<label for="ImageProjet">Image d'illustration</label>
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="imageProjet" name="imageProjet">
+									<input type="file" class="custom-file-input" id="imageProjet" name="imageProjet" >
 									<label class="custom-file-label" for="imageProjet">Charger une image</label>															
 								</div>
 							<small id="fichierWarn" class="form-text text-muted">veuillez importer une image valide</small>				

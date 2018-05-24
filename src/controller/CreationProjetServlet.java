@@ -2,7 +2,9 @@ package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +15,8 @@ import factory.ProjetFactoryImpl;
 import forms.CreationProjetForm;
 import model.Projet;
 
-@WebServlet(urlPatterns = "/creationProjet")
+@WebServlet( urlPatterns = { "/creationProjet" }, initParams = @WebInitParam( name = "filesPath", value = "/WEB-INF/files/" ) )
+@MultipartConfig(maxFileSize = 2 * 1024 * 1024, maxRequestSize = 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
 public class CreationProjetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CHEMIN = "localDirectoryPath";
@@ -62,7 +65,7 @@ public class CreationProjetServlet extends HttpServlet {
 			CreationProjetForm form = new CreationProjetForm(projetFactory);
 
 			/* Traitement de la requête et récupération du bean en résultant */
-			Projet projet = form.creerProjet(request, chemin);
+			Projet projet = form.creerProjet(request, chemin, this.getServletConfig().getInitParameter( "filesPath" ));
 			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_PROJET, projet);
 
