@@ -1,84 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<utilisateurs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="utilisateurs.xsd">
-	<utilisateur>
-		<role>user</role>
-		<email>user@root.fr</email>
-		<password>root</password>
-		<nom>Durand</nom>
-		<prenom>Jacques-yves</prenom>
-		<tel>0612345678</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>admin</role>
-		<email>admin@root.fr</email>
-		<password>root</password>
-		<nom>LEVEQUE</nom>
-		<prenom>Matthieu</prenom>
-		<tel>0612345678</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>user</role>
-		<email>In.ornare@tortornibh.co.uk</email>
-		<password>root</password>
-		<nom>Hasad</nom>
-		<prenom>Clements</prenom>
-		<tel>07 42 72 20 77</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>user</role>
-		<email>lorem.tristique.aliquet@risusNuncac.org</email>
-		<password>root</password>
-		<nom>Quentin</nom>
-		<prenom>Roberts</prenom>
-		<tel>02 16 75 26 71</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>user</role>
-		<email>Donec.est@metus.net</email>
-		<password>root</password>
-		<nom>Herrod</nom>
-		<prenom>Aguilar</prenom>
-		<tel>04 84 34 59 17</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>user</role>
-		<email>magna.Nam.ligula@quamdignissimpharetra.edu</email>
-		<password>root</password>
-		<nom>Lionel</nom>
-		<prenom>Flowers</prenom>
-		<tel>09 95 18 37 72</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>user</role>
-		<email>ac.nulla.In@senectus.com</email>
-		<password>root</password>
-		<nom>Jamal</nom>
-		<prenom>Sweet</prenom>
-		<tel>02 19 70 66 70</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>user</role>
-		<email>luctus@magna.co.uk</email>
-		<password>root</password>
-		<nom>Jason</nom>
-		<prenom>Burch</prenom>
-		<tel>04 48 50 92 63</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>user</role>
-		<email>in.molestie@parturientmontes.edu</email>
-		<password>root</password>
-		<nom>Harper</nom>
-		<prenom>Higgins</prenom>
-		<tel>09 06 36 29 07</tel>
-	</utilisateur>
-	<utilisateur>
-		<role>user</role>
-		<email>rutrum.justo.Praesent@accumsanlaoreetipsum.co.uk</email>
-		<password>root</password>
-		<nom>Lyle</nom>
-		<prenom>Rocha</prenom>
-		<tel>09 53 19 34 67</tel>
-	</utilisateur>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<utilisateurs>
+    <utilisateur>
+        <role>user</role>
+        <email>user@root.fr</email>
+        <password>root</password>
+        <nom>Durand</nom>
+        <prenom>Jacques-yves</prenom>
+        <tel>0612345678</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>admin</role>
+        <email>admin@root.fr</email>
+        <password>root</password>
+        <nom>LEVEQUE</nom>
+        <prenom>Matthieu</prenom>
+        <tel>0612345678</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>In.ornare@tortornibh.co.uk</email>
+        <password>root</password>
+        <nom>Hasad</nom>
+        <prenom>Clements</prenom>
+        <tel>07 42 72 20 77</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>lorem.tristique.aliquet@risusNuncac.org</email>
+        <password>root</password>
+        <nom>Quentin</nom>
+        <prenom>Roberts</prenom>
+        <tel>02 16 75 26 71</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>Donec.est@metus.net</email>
+        <password>root</password>
+        <nom>Herrod</nom>
+        <prenom>Aguilar</prenom>
+        <tel>04 84 34 59 17</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>magna.Nam.ligula@quamdignissimpharetra.edu</email>
+        <password>root</password>
+        <nom>Lionel</nom>
+        <prenom>Flowers</prenom>
+        <tel>09 95 18 37 72</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>ac.nulla.In@senectus.com</email>
+        <password>root</password>
+        <nom>Jamal</nom>
+        <prenom>Sweet</prenom>
+        <tel>02 19 70 66 70</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>luctus@magna.co.uk</email>
+        <password>root</password>
+        <nom>Jason</nom>
+        <prenom>Burch</prenom>
+        <tel>04 48 50 92 63</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>in.molestie@parturientmontes.edu</email>
+        <password>root</password>
+        <nom>Harper</nom>
+        <prenom>Higgins</prenom>
+        <tel>09 06 36 29 07</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>rutrum.justo.Praesent@accumsanlaoreetipsum.co.uk</email>
+        <password>root</password>
+        <nom>Lyle</nom>
+        <prenom>Rocha</prenom>
+        <tel>09 53 19 34 67</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>test.test@test.fr</email>
+        <password>test</password>
+        <nom>test</nom>
+        <prenom>Test</prenom>
+        <tel>0626584898</tel>
+    </utilisateur>
 </utilisateurs>
