@@ -92,9 +92,9 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 				}	
 			}
 			System.out.println(candid.toString());
-			System.out.println(listCandidatures.toString());
+			System.out.println(listCandidatures.getCandidature().size());
 			listCandidatures.deleteCandidature(candid);
-			System.out.println(listCandidatures.toString());
+			System.out.println(listCandidatures.getCandidature().size());
 			
 			// Write
 			 JaxParser.marshal(listProjets, file);
