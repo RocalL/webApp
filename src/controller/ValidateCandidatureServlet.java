@@ -7,8 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Candidature;
-import model.Candidatures;
+
+import factory.CandidatureFactory;
+import factory.CandidatureFactoryImpl;
+import factory.ProjetFactory;
+import factory.ProjetFactoryImpl;
+import model.Projet;
+
 
 /**
  * Servlet implementation class ValidateCandidature
@@ -16,10 +21,21 @@ import model.Candidatures;
 @WebServlet(urlPatterns = "/validateCandidature")
 public class ValidateCandidatureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String VUE_SUCCES = "/WEB-INF/projets.jsp";
+	public static final String VUE_SUCCES = "/WEB-INF/views/affichageCandidatures.jsp";
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String CHEMIN = "/WEB-INF/database/projets.xml";
+	public static final String CHEMIN = "localDirectoryPath";
+	public static final String ATT_CANDIDATURE = "candidature";
+	public static final String ATT_DB = "/projets.xml";
+	
+	private CandidatureFactory candidatureFactory;
+	private ProjetFactory projetFactory;
+	
+	public void init() throws ServletException {
+		/* Récupération d'une instance de projetFactory */
+		this.candidatureFactory = new CandidatureFactoryImpl();
+		this.projetFactory = new ProjetFactoryImpl();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -34,23 +50,22 @@ public class ValidateCandidatureServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
 		} else {
 			/* Modification de l'état de la candidature courante */
-			try {
-				Candidatures listCandidatures = new Candidatures();
-				Candidature c = new Candidature();
-				if(listCandidatures.getCandidatureByMail(request.getParameter("candidature")) != null) {
-					c = listCandidatures.getCandidatureByMail(request.getParameter("candidature"));
-				}
-				
-				c.setEtatCandidature("validée");
-				System.out.println("coucou");
-				
-				request.setAttribute("candidature", c);
-				
-				this.getServletContext().getRequestDispatcher(VUE_SUCCES).forward(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-				this.getServletContext().getRequestDispatcher(VUE_SUCCES).forward(request, response);
-			}
+			/*
+			 * Lecture du paramètre 'chemin' passé à la servlet via la déclaration dans le
+			 * web.xml
+			 */
+			String chemin = getServletContext().getInitParameter(CHEMIN) + ATT_DB;
+			
+			candidatureFactory.update(candidatureFactory.getOne(request.getParameter("utilisateur"), request.getParameter("projet"),chemin),projetFactory.getOne(request.getParameter("projet"), chemin),chemin);
+			
+			Projet p = new Projet();
+			p = projetFactory.getOne(request.getParameter("projet"), chemin);
+			
+			
+			
+			request.setAttribute("projet", p);
+			/* ré-affichage des candidatures */
+			this.getServletContext().getRequestDispatcher(VUE_SUCCES).forward(request, response);
 			
 		}
 	}

@@ -9,11 +9,11 @@ import model.Projet;
 public interface CandidatureFactory {
 	void create(Candidature candidature, Projet projet, String chemin) throws FactoryException;
 
-	Candidature getOne(String name) throws FactoryException;
+	Candidature getOne(String userMail, String nomProjet, String chemin) throws FactoryException;
 
 	List<Candidature> getAll() throws FactoryException;
 
-	void delete(Candidature candidature) throws FactoryException;
+	void delete(Candidature candidature,Projet projet, String chemin) throws FactoryException;
 	
-	void update(Candidature candidature) throws FactoryException;
+	void update(Candidature candidature,Projet projet, String chemin) throws FactoryException;
 }

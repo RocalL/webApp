@@ -29,7 +29,9 @@ public class Candidatures {
 	}
 	
 	public void deleteCandidature(Candidature candidature) {
+		//System.out.println(this.candidature.toString());
 		this.candidature.remove(candidature);
+		//System.out.println(this.candidature.toString());
 	}
 	
 	public Candidature getCandidatureByMail(String mail) {
