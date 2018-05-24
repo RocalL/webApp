@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import factory.UtilisateurFactory;
+import model.Projet;
 import model.Utilisateur;
 import model.Utilisateurs;
 import util.JaxParser;
@@ -27,7 +29,12 @@ public class RegisterForm {
 	public Map<String, String> getErreurs() {
 		return erreurs;
 	}
+	private UtilisateurFactory utilisateurFactory;
 
+	public RegisterForm(UtilisateurFactory utilisateurFactory) {
+		this.utilisateurFactory = utilisateurFactory;
+	}
+	
 	public Utilisateur inscrireUtilisateur(HttpServletRequest request, String chemin) {
 		String email = getValeurChamp(request, CHAMP_EMAIL);//toto
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
@@ -91,13 +98,8 @@ public class RegisterForm {
 		try {
 			File file = new File(request.getServletContext().getRealPath(chemin));
 			if(erreurs.isEmpty()){
-				Utilisateurs listeUtilisateur = JaxParser.unmarshal(Utilisateurs.class, file);
-				listeUtilisateur.addUtilisateur(utilisateur);
-				
-				// Write
-				JaxParser.marshal(listeUtilisateur, file);
-				System.out.println(utilisateur);
-				System.out.println("Utilisateur ajouté");
+				utilisateurFactory.create(utilisateur,chemin);
+				resultat = "Succès de la création du nouvel utilisateur";
 			}
 		} catch (Exception e) {
 			setErreur("ParserError", e.getMessage());
