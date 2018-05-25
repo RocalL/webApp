@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<utilisateurs>
-    <utilisateur>
-        <role>user</role>
-        <email>user@root.fr</email>
-        <password>root</password>
-        <nom>Durand</nom>
-        <prenom>Jacques-yves</prenom>
-        <tel>0612345678</tel>
-    </utilisateur>
-    <utilisateur>
-        <role>admin</role>
-        <email>admin@root.fr</email>
-        <password>root</password>
-        <nom>LEVEQUE</nom>
-        <prenom>Matthieu</prenom>
-        <tel>0612345678</tel>
-    </utilisateur>
+<utilisateurs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/Users/stevelegrand/Desktop/Cours/Semmestre8/Semestre8/Webservices/webApp/WebContent/WEB-INF/database/utilisateurs.xsd">
     <utilisateur>
         <role>user</role>
         <email>In.ornare@tortornibh.co.uk</email>
@@ -87,5 +71,29 @@
         <nom>test</nom>
         <prenom>Test</prenom>
         <tel>0626584898</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>poulet@root.fr</email>
+        <password>1000:3988229c97548a7d0b567bf009ffb12a:9a1a3afcb8f2d89b6469c4ca789f23a2417c87429dfdef3a9dee25b37af29841ec0d49f8027ff544a4570f24a0415a80d25300b50bd184fbdcaeb4ca621e4c6f</password>
+        <nom>Frite</nom>
+        <prenom>Poulet</prenom>
+        <tel>0123456789</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>admin@root.fr</email>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
+        <nom>admin</nom>
+        <prenom>admin@root.fr</prenom>
+        <tel>0123456789</tel>
+    </utilisateur>
+    <utilisateur>
+        <role>user</role>
+        <email>user@root.fr</email>
+        <password>1000:75a3add15aa67100c0995e8dad656702:8c782641fcd933db9f11d370367676e03f8434e4a981d369917fd0309b0c787e875bb40c5ef3c40e323b5406b09481859f66c42285786a102ecf14bd717e4962</password>
+        <nom>user</nom>
+        <prenom>user@root.fr</prenom>
+        <tel>0987654321</tel>
     </utilisateur>
 </utilisateurs>
