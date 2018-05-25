@@ -1,6 +1,8 @@
 package forms;
 
 import java.io.File;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +12,7 @@ import factory.UtilisateurFactory;
 import model.Projet;
 import model.Utilisateur;
 import model.Utilisateurs;
+import util.BCrypt;
 import util.JaxParser;
 
 public class RegisterForm {
@@ -35,7 +38,7 @@ public class RegisterForm {
 		this.utilisateurFactory = utilisateurFactory;
 	}
 	
-	public Utilisateur inscrireUtilisateur(HttpServletRequest request, String chemin) {
+	public Utilisateur inscrireUtilisateur(HttpServletRequest request, String chemin) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		String email = getValeurChamp(request, CHAMP_EMAIL);//toto
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 		String confirmation = getValeurChamp(request, CHAMP_CONF);
@@ -65,7 +68,7 @@ public class RegisterForm {
 			setErreur(CHAMP_PASS, e.getMessage());
 			setErreur(CHAMP_CONF, null);
 		}
-		utilisateur.setPassword(motDePasse);
+		utilisateur.setPassword(BCrypt.generateStorngPasswordHash(motDePasse));
 
 		try {
 			validationNom(nom);

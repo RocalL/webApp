@@ -76,7 +76,7 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 						listCandidatures.add(c);
 					}
 					// Retourner la liste des candidatures
-					System.out.println("hello");
+					System.out.println(listCandidatures.toString());
 					return listCandidatures;
 				}
 			}

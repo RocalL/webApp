@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,7 +54,13 @@ public class RegisterServlet extends HttpServlet {
         RegisterForm form = new RegisterForm(utilisateurFactory);
         
         System.out.println("/* Appel au traitement et � la validation de la requ�te, et r�cup�ration du bean en r�sultant */");
-        Utilisateur utilisateur = form.inscrireUtilisateur(request, chemin);
+        Utilisateur utilisateur;
+		try {
+			utilisateur = form.inscrireUtilisateur(request, chemin);
+		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );
