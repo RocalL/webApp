@@ -30,6 +30,7 @@ public class AffichageCandidaturesServlet extends HttpServlet {
 
 	private CandidatureFactory candidatureFactory;
 	private ProjetFactory projetFactory;
+	
 
 	public void init() throws ServletException {
 		/* Récupération d'une instance de candidatureFactory */
@@ -50,7 +51,6 @@ public class AffichageCandidaturesServlet extends HttpServlet {
 		} else {
 			
 			String chemin = getServletContext().getInitParameter(CHEMIN) +ATT_DB;
-			
 			List<Candidature> c = new ArrayList<Candidature>();
 			c =  candidatureFactory.getAll(request.getParameter("projet"), chemin);
 			request.setAttribute("candidature", c);
