@@ -2,7 +2,7 @@ package service;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "com.javacodegeeks.enterprise.ws.WebServiceInterface")
+@WebService(endpointInterface = "service.WebServiceInterface")
 public class WebServiceImpl implements WebServiceInterface{
 
 	@Override

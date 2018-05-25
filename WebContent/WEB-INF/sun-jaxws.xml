@@ -2,6 +2,6 @@
 <endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
 	version="2.0">
 	<endpoint name="WebServiceImpl"
-		implementation="com.javacodegeeks.enterprise.ws.WebServiceImpl"
+		implementation="service.WebServiceImpl"
 		url-pattern="/sayhello" />
 </endpoints>

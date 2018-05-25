@@ -23,12 +23,14 @@ public class JaxParser {
 	
     public static <T> void marshal(T obj, File f, String schemaLocation) throws JAXBException
     {
-    	schemaLocation = changeExtension(schemaLocation,".xsd");
+    	schemaLocation = schemaLocation.substring(schemaLocation.lastIndexOf('/')+1, schemaLocation.length() );
+    	schemaLocation = schemaLocation.substring(0, schemaLocation.lastIndexOf('.')) + ".xsd";
+    	
         JAXBContext ctx = JAXBContext.newInstance(obj.getClass());
         Marshaller m = ctx.createMarshaller();
         m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        //m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, schemaLocation);
+        m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, schemaLocation);
         m.marshal(obj, f);
     }
     public static String changeExtension(String schemaLocation, String newExtension) {
