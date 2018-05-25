@@ -11,7 +11,7 @@ public interface CandidatureFactory {
 
 	Candidature getOne(String userMail, String nomProjet, String chemin) throws FactoryException;
 
-	List<Candidature> getAll() throws FactoryException;
+	List<Candidature> getAll(String nomProjet, String chemin) throws FactoryException;
 
 	void delete(Candidature candidature,Projet projet, String chemin) throws FactoryException;
 	
