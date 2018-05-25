@@ -12,9 +12,9 @@ import util.JaxParser;
 
 public class UtilisateurFactoryImpl implements UtilisateurFactory {
 	public UtilisateurFactoryImpl() {
-		
+
 	}
-	
+
 	@Override
 	public void create(Utilisateur utilisateur, String chemin) throws FactoryException {
 		try {
@@ -24,14 +24,14 @@ public class UtilisateurFactoryImpl implements UtilisateurFactory {
 			for (Utilisateur u : listUtilisateurs.getUtilisateur()) {
 
 				if (u.getEmail().equals(utilisateur.getEmail())) {
-					//On considère le mail comme seul identifiant
+					// On considère le mail comme seul identifiant
 					throw new FactoryException("Un utilisateur ayant votre mail existe déjà");
 				}
 			}
 			utilisateur.setRole("user");
 			listUtilisateurs.getUtilisateur().add(utilisateur);
 			// Write
-			JaxParser.marshal(listUtilisateurs, file);
+			JaxParser.marshal(listUtilisateurs, file, chemin);
 			System.out.println(utilisateur);
 			System.out.println("UtilisateurFactoryImpl écrit: ");
 			System.out.println("ajoutée à la base de donnée");
@@ -55,12 +55,12 @@ public class UtilisateurFactoryImpl implements UtilisateurFactory {
 	@Override
 	public void delete(Utilisateur utilisateur) throws FactoryException {
 		// FAUT METTRE NOTRE CODE ICI
-		
+
 	}
 
 	@Override
 	public void update(Utilisateur utilisateur) throws FactoryException {
 		// FAUT METTRE NOTRE CODE ICI
-		
+
 	}
 }
