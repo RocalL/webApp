@@ -1,6 +1,7 @@
 package factory;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.JAXBException;
@@ -60,8 +61,28 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 	}
 
 	@Override
-	public List<Candidature> getAll() throws FactoryException {
-		// FAUT METTRE NOTRE CODE ICI
+	public List<Candidature> getAll(String nomProjet, String chemin) throws FactoryException {
+		try {
+			File file = new File(chemin);
+			// Read
+			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
+			List<Candidature> listCandidatures = new ArrayList<Candidature>();
+
+			// Parcours des projets
+			for (Projet p : listProjets.getProjet()) {
+				if (p.getNom().equals(nomProjet)) {
+					//Parcours des candidatures
+					for (Candidature c : p.getCandidatures().getCandidature()) {
+						listCandidatures.add(c);
+					}
+					// Retourner la liste des candidatures
+					System.out.println("hello");
+					return listCandidatures;
+				}
+			}
+		} catch (FactoryException | JAXBException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
