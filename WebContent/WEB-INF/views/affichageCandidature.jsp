@@ -53,6 +53,20 @@
 			<p>
 				<c:out value="${candidature.repProjet.fichier}" />
 			</p>
+			<form action="validateCandidature" method = "get" class="candidatureBtn">
+				<button class="btn" title="Valider candidature">
+					<i class="fas fa-check"></i>
+				</button>
+				<input type="hidden" name="utilisateur" value="${candidature.utilisateur.email}">
+				<input type="hidden" name="projet" value="${projet.nom}">
+			</form>							
+			<form action="deleteCandidature" method = "get" class="candidatureBtn">
+				<button class="btn" title="Supprimer candidature">
+					<i class="fas fa-trash"></i>
+				</button>
+				<input type="hidden" name="utilisateur" value="${candidature.utilisateur.email}">
+				<input type="hidden" name="projet" value="${projet.nom}">
+			</form>	
 		</div>
 	</div>
 </div>
