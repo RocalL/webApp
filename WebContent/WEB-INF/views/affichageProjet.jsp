@@ -24,15 +24,15 @@
 				<c:out value="${projet.descriptif}"/>
 			</p>
 			<p>
-				Date de fin des dépôt de candidature :
+				<label>Date de fin des dépôt de candidature :</label>
 				<c:out value="${projet.deadLineCandidature}"/>
 			</p>
 			<p>
-				Date de fin du projet :
+				<label>Date de fin du projet :</label>
 				<c:out value="${projet.deadLineProjet}"/>
 			</p>
 			<p>
-				Nombre de candidat maximum :
+				<label>Nombre de candidat maximum :</label>
 				<c:out value="${projet.nbMaxCandidatures}"/>
 			</p>
 			<form name="postuler" method="get" action="creationCandidature">

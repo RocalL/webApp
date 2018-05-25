@@ -3,7 +3,7 @@ package model;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder={"delaisPropose","devis","website","fichier"})
+@XmlType(propOrder = { "delaisPropose", "devis", "website" })
 @XmlRootElement
 public class RepProjet {
 	private int delaisPropose;
@@ -11,8 +11,6 @@ public class RepProjet {
 	private String website;
 
 	private String devis;
-
-	private String fichier;
 
 	public int getDelaisPropose() {
 		return delaisPropose;
@@ -38,21 +36,12 @@ public class RepProjet {
 		this.devis = devis;
 	}
 
-	public String getFichier() {
-		return fichier;
-	}
-
-	public void setFichier(String fichier) {
-		this.fichier = fichier;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + delaisPropose;
 		result = prime * result + ((devis == null) ? 0 : devis.hashCode());
-		result = prime * result + ((fichier == null) ? 0 : fichier.hashCode());
 		result = prime * result + ((website == null) ? 0 : website.hashCode());
 		return result;
 	}
@@ -73,11 +62,6 @@ public class RepProjet {
 				return false;
 		} else if (!devis.equals(other.devis))
 			return false;
-		if (fichier == null) {
-			if (other.fichier != null)
-				return false;
-		} else if (!fichier.equals(other.fichier))
-			return false;
 		if (website == null) {
 			if (other.website != null)
 				return false;
@@ -88,8 +72,7 @@ public class RepProjet {
 
 	@Override
 	public String toString() {
-		return "RepProjet [delaisPropose=" + delaisPropose + ", website=" + website + ", devis=" + devis + ", fichier="
-				+ fichier + "]";
+		return "RepProjet [delaisPropose=" + delaisPropose + ", website=" + website + ", devis=" + devis + "]";
 	}
 
 }

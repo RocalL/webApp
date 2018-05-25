@@ -121,3 +121,8 @@ h2 {
 .candidatureBtn {
 	display: inline;
 }
+
+.devis{
+	overflow-y: hidden !important;
+	height: auto !important;
+}

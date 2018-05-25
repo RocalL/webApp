@@ -27,31 +27,6 @@ public class AffichageCandidaturesServlet extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/* Récupération de la session depuis la requête */
-		HttpSession session = request.getSession();
-		/*
-		 * Si l'objet utilisateur n'existe pas dans la session en cours, alors
-		 * l'utilisateur n'est pas connect�.
-		 */
-		if (session.getAttribute(ATT_SESSION_USER) == null) {
-			/* Redirection vers la page publique */
-			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
-		} else {
-			try {
-				Projets listProjets = JaxParser.unmarshal(Projets.class,
-						new File(request.getServletContext().getRealPath(CHEMIN)));
-				Projet p = new Projet();
-				if (listProjets.getProjetByNom(request.getParameter("projet")) != null) {
-					p = listProjets.getProjetByNom(request.getParameter("projet"));
-				}
-				request.setAttribute("projet", p);
 
-				/* Affichage de la page restreinte */
-				this.getServletContext().getRequestDispatcher(ACCES_CANDIDATS).forward(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-				this.getServletContext().getRequestDispatcher(ACCES_PROJETS).forward(request, response);
-			}
-		}
 	}
 }

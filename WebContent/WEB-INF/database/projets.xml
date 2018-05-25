@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<projets>
+<projets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projets.xsd">
     <projet>
         <image>1.jpg</image>
         <nom>Gestion d'appel d'offres</nom>
@@ -28,7 +28,6 @@
                     <delaisPropose>288</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.Integer.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
             <candidature>
@@ -51,7 +50,6 @@
                     <delaisPropose>43</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.Magna.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
             <candidature>
@@ -74,7 +72,6 @@
                     <delaisPropose>334</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.Sapien.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
             <candidature>
@@ -97,7 +94,6 @@
                     <delaisPropose>272</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.Mock.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
             <candidature>
@@ -120,7 +116,6 @@
                     <delaisPropose>38</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.Etiam.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
         </candidatures>
@@ -153,7 +148,6 @@
                     <delaisPropose>50</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.JackyBidouille.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
             <candidature>
@@ -176,7 +170,6 @@
                     <delaisPropose>214</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.Ornare.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
             <candidature>
@@ -199,7 +192,6 @@
                     <delaisPropose>79</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.Cras.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
             <candidature>
@@ -222,7 +214,6 @@
                     <delaisPropose>29</delaisPropose>
                     <devis>http://monServeur/devis/1</devis>
                     <website>http://www.Tincidunt.com</website>
-                    <fichier>http://monServeur/fichiers/1-1</fichier>
                 </repProjet>
             </candidature>
         </candidatures>
@@ -253,6 +244,8 @@
                 </structure>
                 <repProjet>
                     <delaisPropose>7</delaisPropose>
+                    <devis>http://monServeur/devis/1</devis>
+                    <website>http://www.Tincidunt.com</website>
                 </repProjet>
             </candidature>
         </candidatures>
