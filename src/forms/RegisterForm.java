@@ -95,7 +95,8 @@ public class RegisterForm {
 				listeUtilisateur.addUtilisateur(utilisateur);
 				
 				// Write
-				JaxParser.marshal(listeUtilisateur, file);
+				JaxParser.marshal(listeUtilisateur, file,chemin);
+				
 				System.out.println(utilisateur);
 				System.out.println("Utilisateur ajouté");
 			}

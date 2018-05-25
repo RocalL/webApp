@@ -28,7 +28,7 @@ public class ProjetFactoryImpl implements ProjetFactory {
 			}
 			listProjets.getProjet().add(projet);
 			// Write
-			JaxParser.marshal(listProjets, file);
+			JaxParser.marshal(listProjets, file,chemin);
 			System.out.println(projet);
 			System.out.println("ajoutée à la base de donnée");
 		} catch (FactoryException | JAXBException e) {

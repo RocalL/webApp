@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-sm">
 			<img class="card-img-top"
-				src="<c:out value='${projet.image}'/>" alt="Card image cap">
+				src="<c:out value="./images/${projet.image}"/>" alt="Card image cap">
 		</div>
 		<div class="col-sm">
 			<h2>Description du projet</h2>

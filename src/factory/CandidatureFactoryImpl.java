@@ -26,7 +26,7 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 				// implémenter une exception pour projet delete en cours de workflow
 			}
 			// Write
-			 JaxParser.marshal(listProjets, file);
+			 JaxParser.marshal(listProjets, file,chemin);
 			 System.out.println(candidature);
 			 System.out.println("ajoutée au projet");
 			 System.out.println(projet);

@@ -2,15 +2,18 @@ package forms;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -48,15 +51,13 @@ public final class CreationProjetForm {
 	public String getResultat() {
 		return resultat;
 	}
-
-	public Projet creerProjet(HttpServletRequest request, String chemin, String filesPath) {
+	public Projet creerProjet(HttpServletRequest request, String chemin, String filesPath) throws IOException, ServletException {
 		String nomProjet = getValeurChamp(request, CHAMP_NOM);
 		String description = getValeurChamp(request, CHAMP_DESCRIPTION);
 		String deadLineCandidature = getValeurChamp(request, CHAMP_DEADLINE_CANDIDATURE);
 		String deadLineProjet = getValeurChamp(request, CHAMP_DEADLINE_PROJET);
 		String nbMaxCandidatures = getValeurChamp(request, CHAMP_NB_MAX_CANDIDATURE);
-		String image = getValeurChamp(request, CHAMP_IMAGE);
-
+		
 		Projet projet = new Projet();
 
 		traiterNomProjet(nomProjet, projet);
@@ -64,13 +65,14 @@ public final class CreationProjetForm {
 		traiterDeadLineCandidature(deadLineCandidature, projet);
 		traiterDeadLineProjet(deadLineProjet, projet);
 		traiterNbMaxCandidatures(nbMaxCandidatures, projet);
-		traiterImage(projet, request, filesPath, nomProjet);
-		// projet.setImage("./resources/img/default.jpg");
+		traiterImage(projet, request, filesPath);
+
+
 		projet.setCandidatures(new Candidatures());
 
 		try {
 			if (erreurs.isEmpty()) {
-				projetFactory.create(projet, chemin);
+				projetFactory.create(projet,chemin);
 				resultat = "Succès de la création du projet.";
 			} else {
 				resultat = "Échec de la création du projet.";
@@ -80,7 +82,6 @@ public final class CreationProjetForm {
 			resultat = "Échec de la création du projet : une erreur imprévue est survenue, merci de réessayer dans quelques instants.";
 			e.printStackTrace();
 		}
-
 		return projet;
 	}
 
@@ -92,7 +93,6 @@ public final class CreationProjetForm {
 		}
 		projet.setNom(nomProjet);
 	}
-
 	private void traiterDescription(String description, Projet projet) {
 		try {
 			validationDescription(description);
@@ -101,7 +101,6 @@ public final class CreationProjetForm {
 		}
 		projet.setDescriptif(description);
 	}
-
 	private void traiterDeadLineCandidature(String deadLineCandidature, Projet projet) {
 		try {
 			validationDeadLineCandidature(deadLineCandidature);
@@ -110,7 +109,6 @@ public final class CreationProjetForm {
 		}
 		projet.setDeadLineCandidature(deadLineCandidature);
 	}
-
 	private void traiterDeadLineProjet(String deadLineProjet, Projet projet) {
 		try {
 			validationDeadLineProjet(deadLineProjet);
@@ -119,7 +117,6 @@ public final class CreationProjetForm {
 		}
 		projet.setDeadLineCandidature(deadLineProjet);
 	}
-
 	private void traiterNbMaxCandidatures(String nbMaxCandidature, Projet projet) {
 		try {
 			validationNbMaxCandidature(nbMaxCandidature);
@@ -128,16 +125,15 @@ public final class CreationProjetForm {
 		}
 		projet.setDeadLineCandidature(nbMaxCandidature);
 	}
-
-	private void traiterImage(Projet projet, HttpServletRequest request, String chemin, String projetName) {
-		String image = null;
-		try {
-			image = validationImage(request, chemin, projetName);
-		} catch (FormValidationException e) {
-			setErreur(CHAMP_IMAGE, e.getMessage());
-		}
-		projet.setImage(image);
-	}
+    private void traiterImage(Projet projet, HttpServletRequest request, String chemin ) {
+        String image = null;
+        try {
+            image = validationImage( request, chemin );
+        } catch ( FormValidationException e ) {
+            setErreur( CHAMP_IMAGE, e.getMessage() );
+        }
+        projet.setImage( image );
+    }
 
 	private void validationNomProjet(String nomProjet) throws FormValidationException {
 		if (nomProjet != null) {
@@ -148,7 +144,6 @@ public final class CreationProjetForm {
 			throw new FormValidationException("Merci de donner un nom au projet.");
 		}
 	}
-
 	private void validationDescription(String description) throws FormValidationException {
 		if (description != null) {
 			if (description.length() < 10) {
@@ -158,7 +153,6 @@ public final class CreationProjetForm {
 			throw new FormValidationException("Veuillez décrire le projet avec plus de détail.");
 		}
 	}
-
 	private void validationDeadLineCandidature(String deadLineCandidature) throws FormValidationException {
 		if (!isValidDate(deadLineCandidature)) {
 			throw new FormValidationException("Veuillez saisir une date limite de candidature valide");
@@ -170,7 +164,6 @@ public final class CreationProjetForm {
 			throw new FormValidationException("Veuillez saisir une date de cloture du projet valide");
 		}
 	}
-
 	private int validationNbMaxCandidature(String nbMaxCandidature) throws FormValidationException {
 		int temp;
 		if (nbMaxCandidature != null) {
@@ -201,8 +194,8 @@ public final class CreationProjetForm {
 		return true;
 	}
 
-	private String validationImage(HttpServletRequest request, String chemin, String nomProjet)
-			throws FormValidationException {
+
+	private String validationImage(HttpServletRequest request, String chemin) throws FormValidationException {
 		/*
 		 * Récupération du contenu du champ image du formulaire. Il faut ici utiliser la
 		 * méthode getPart().
@@ -227,7 +220,7 @@ public final class CreationProjetForm {
 				 * On doit donc faire en sorte de ne sélectionner que le nom et l'extension du
 				 * fichier, et de se débarrasser du superflu.
 				 */
-				nomFichier = nomProjet + "_" + nomFichier.substring(nomFichier.lastIndexOf('/') + 1)
+				nomFichier = nomFichier.substring(nomFichier.lastIndexOf('/') + 1)
 						.substring(nomFichier.lastIndexOf('\\') + 1);
 
 				/* Récupération du contenu du fichier */

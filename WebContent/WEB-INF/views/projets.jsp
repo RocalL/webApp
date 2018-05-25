@@ -28,7 +28,7 @@
 					<div class="col-sm-3">
 						<div class="card">
 							<img class="card-img-top"
-								src="<c:out value="${projet.image}"/>" alt="Card image cap">
+								src="<c:out value="./images/${projet.image}"/>" alt="Card image cap">
 								<c:if test = "${sessionScope.sessionUtilisateur.role == 'admin'}">
 							<form name="details" method="get" action="affichageCandidatures">
 								<input type="hidden" name="projet" value="${projet.nom}"> <input

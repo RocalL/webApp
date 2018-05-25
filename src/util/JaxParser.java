@@ -21,13 +21,20 @@ public class JaxParser {
 	        return u.unmarshal(s, cl).getValue();
 	    }
 	
-    public static <T> void marshal(T obj, File f) throws JAXBException
+    public static <T> void marshal(T obj, File f, String schemaLocation) throws JAXBException
     {
+    	schemaLocation = changeExtension(schemaLocation,".xsd");
         JAXBContext ctx = JAXBContext.newInstance(obj.getClass());
         Marshaller m = ctx.createMarshaller();
         m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, schemaLocation);
         m.marshal(obj, f);
     }
+    public static String changeExtension(String schemaLocation, String newExtension) {
+    	  int i = schemaLocation.lastIndexOf('.');
+    	  String name = schemaLocation.substring(0,i);
+    	  return name + newExtension;
+    	}
 
 }

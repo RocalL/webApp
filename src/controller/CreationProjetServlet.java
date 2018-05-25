@@ -4,7 +4,6 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +14,7 @@ import factory.ProjetFactoryImpl;
 import forms.CreationProjetForm;
 import model.Projet;
 
-@WebServlet( urlPatterns = { "/creationProjet" }, initParams = @WebInitParam( name = "filesPath", value = "/WEB-INF/files/" ) )
+@WebServlet( urlPatterns = { "/creationProjet" } )
 @MultipartConfig(maxFileSize = 2 * 1024 * 1024, maxRequestSize = 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
 public class CreationProjetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +25,7 @@ public class CreationProjetServlet extends HttpServlet {
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 	public static final String ATT_PROJET = "projet";
 	public static final String ATT_DB = "/projets.xml";
+	public static final String ATT_FILESPATH = "/files/";
 
 	public static final String SERVLET_SUCCES = "/projets";
 
@@ -60,12 +60,13 @@ public class CreationProjetServlet extends HttpServlet {
 			 * web.xml
 			 */
 			String chemin = getServletContext().getInitParameter(CHEMIN) + ATT_DB;
+			String filesPath = getServletContext().getInitParameter(CHEMIN) + ATT_FILESPATH;
 
 			/* Préparation de l'objet formulaire */
 			CreationProjetForm form = new CreationProjetForm(projetFactory);
 
 			/* Traitement de la requête et récupération du bean en résultant */
-			Projet projet = form.creerProjet(request, chemin, this.getServletConfig().getInitParameter( "filesPath" ));
+			Projet projet = form.creerProjet(request, chemin, filesPath);
 			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_PROJET, projet);
 

@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		/* Traitement de la requête et récupération du bean en résultant */
 		Utilisateur utilisateur = form.connecterUtilisateur(request);
 
-		/* R�cup�ration de la session depuis la requête */
+		/* Récupération de la session depuis la requête */
 		HttpSession session = request.getSession();
 		/* Stockage du formulaire et du bean dans l'objet request */
 		
