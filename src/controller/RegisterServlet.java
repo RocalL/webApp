@@ -54,7 +54,7 @@ public class RegisterServlet extends HttpServlet {
         RegisterForm form = new RegisterForm(utilisateurFactory);
         
         System.out.println("/* Appel au traitement et � la validation de la requ�te, et r�cup�ration du bean en r�sultant */");
-        Utilisateur utilisateur = null;
+        Utilisateur utilisateur;
 		try {
 			utilisateur = form.inscrireUtilisateur(request, chemin);
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {

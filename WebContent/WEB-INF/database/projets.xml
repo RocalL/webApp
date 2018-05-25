@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<projets>
+<projets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/Users/stevelegrand/Desktop/Cours/Semmestre8/Semestre8/Webservices/webApp/WebContent/WEB-INF/database/projets.xsd">
     <projet>
         <image>1.jpg</image>
         <nom>Gestion d'appel d'offres</nom>
@@ -33,7 +33,7 @@
             </candidature>
             <candidature>
                 <dateCandidature>12/02/2017</dateCandidature>
-                <etatCandidature>En attente</etatCandidature>
+                <etatCandidature>Valide</etatCandidature>
                 <utilisateur>
                     <role>user</role>
                     <email>ac.nulla.In@senectus.com</email>

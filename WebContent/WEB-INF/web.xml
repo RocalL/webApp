@@ -9,6 +9,6 @@
 	</welcome-file-list>
 	<context-param>
 		<param-name>localDirectoryPath</param-name>
-		<param-value>C:\Users\Matthieu\Desktop\Spring\candidatures-workspace\webApp\WebContent\WEB-INF\database</param-value>
+		<param-value>/Users/stevelegrand/Desktop/Cours/Semmestre8/Semestre8/Webservices/webApp/WebContent/WEB-INF/database</param-value>
 	</context-param>
 </web-app>
