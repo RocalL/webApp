@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%        
+    response.setHeader("Pragma", "No-cache");
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setDateHeader("Expires", -1);
+%>
+
 <%@include file="./header.jspf"%>
 
 <%@include file="./navigation.jspf"%>
@@ -41,19 +47,22 @@
 									<button class="btn" title="Valider candidature">
 										<i class="fas fa-check"></i>
 									</button>
-									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
+									<input type="hidden" name="utilisateur" value="${candidature.utilisateur.email}">
+									<input type="hidden" name="projet" value="${projet.nom}">
 								</form>							
 								<form action="deleteCandidature" method = "get" class="candidatureBtn">
 									<button class="btn" title="Supprimer candidature">
 										<i class="fas fa-trash"></i>
 									</button>
-									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
+									<input type="hidden" name="utilisateur" value="${candidature.utilisateur.email}">
+									<input type="hidden" name="projet" value="${projet.nom}">
 								</form>	
 								<form action="affichageCandidature" method = "get" class="candidatureBtn">
 									<button class="btn" title="Détails de la candidature">
 										<i class="fas fa-eye"></i>
 									</button>
-									<input type="hidden" name="candidature" value="${candidature.utilisateur.email}">
+									<input type="hidden" name="utilisateur" value="${candidature.utilisateur.email}">
+									<input type="hidden" name="projet" value="${projet.nom}">
 								</form>	
 								</td>
 							</tr>
