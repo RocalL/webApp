@@ -28,7 +28,7 @@ public class JaxParser {
         Marshaller m = ctx.createMarshaller();
         m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, schemaLocation);
+        //m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, schemaLocation);
         m.marshal(obj, f);
     }
     public static String changeExtension(String schemaLocation, String newExtension) {

@@ -47,9 +47,8 @@
 														<xs:complexType>
 															<xs:sequence>
 																<xs:element type="xs:integer" name="delaisPropose" />
-																<xs:element type="xs:anyURI" name="devis" />
-																<xs:element type="xs:anyURI" name="website" />
-																<xs:element type="xs:anyURI" name="fichier" />
+																<xs:element type="xs:string" name="devis" />
+																<xs:element type="xs:string" name="website" />
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>

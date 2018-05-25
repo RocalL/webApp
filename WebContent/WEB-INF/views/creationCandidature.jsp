@@ -55,22 +55,10 @@
 							<span class="erreur">${form.erreurs['delai']}</span>
 							
 							<label for="devis">Devis <span class="requis">*</span></label> 
-							<div class="input-group mb-2" id="devis">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="devis" name="devis">
+        					<div class="input-field col s12">
+          						<textarea id="devis" name="devis" class="devis materialize-textarea" rows="10" cols="50"></textarea>
 									<span class="erreur">${form.erreurs['devis']}</span>
-									<label class="custom-file-label" for="devis">Importer votre devis</label>
-								</div>
 							</div>
-							<label for="fichierComplementaires">Fichiers
-								complémentaires</label>
-							<div class="input-group mb-2" id="fichierComplementaires">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="fichiers" name="fichiers">
-									<label class="custom-file-label" for="fichiers">Fichiers</label>															
-								</div>
-							</div>
-							<small id="fichierWarn" class="form-text text-muted">Utilisez le format .zip pour importer plusieurs fichiers</small>
 						</div>
 						<input type="hidden" name="projet" value="${param.projet}">
 					</div>
