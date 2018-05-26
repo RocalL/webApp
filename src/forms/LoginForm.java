@@ -10,7 +10,7 @@ import javax.xml.bind.Unmarshaller;
 
 import model.Utilisateur;
 import model.Utilisateurs;
-import util.BCrypt;
+import util.Pbkdf2;
 
 public final class LoginForm {
 	private static final String CHAMP_EMAIL = "email";
@@ -73,7 +73,7 @@ public final class LoginForm {
 		Utilisateurs listUtilisateur = (Utilisateurs) jaxbUnmarshaller
 				.unmarshal(new File(request.getServletContext().getRealPath(USERS_PATH)));
 		for (Utilisateur u : listUtilisateur.getUtilisateur()) {
-			if (u.getEmail().equals(email) && BCrypt.validatePassword(motDePasse,u.getPassword()))
+			if (u.getEmail().equals(email) && Pbkdf2.validatePassword(motDePasse,u.getPassword()))
 				return u;
 		}
 		throw new Exception("Aucun utilisateur n'est enregistré avec cet email et ce mot de passe");

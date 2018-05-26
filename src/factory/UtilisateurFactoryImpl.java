@@ -6,9 +6,12 @@ import java.util.List;
 import javax.xml.bind.JAXBException;
 
 import exception.FactoryException;
+import model.Projet;
+import model.Projets;
 import model.Utilisateur;
 import model.Utilisateurs;
 import util.JaxParser;
+import util.Pbkdf2;
 
 public class UtilisateurFactoryImpl implements UtilisateurFactory {
 	public UtilisateurFactoryImpl() {
@@ -41,26 +44,33 @@ public class UtilisateurFactoryImpl implements UtilisateurFactory {
 	}
 
 	@Override
-	public Utilisateur getOne(String name) throws FactoryException {
-		// FAUT METTRE NOTRE CODE ICI
-		return null;
+	public Utilisateur getOne(String email, String chemin) throws FactoryException {
+		Utilisateur utilisateur = new Utilisateur();
+		try {
+			File file = new File(chemin);
+			// Read
+			Utilisateurs listUsers = JaxParser.unmarshal(Utilisateurs.class, file);
+			for (Utilisateur u : listUsers.getUtilisateur()) {
+				if (u.getEmail().equals(email))
+					return u;
+			}
+		} catch (FactoryException | JAXBException e) {
+			e.printStackTrace();
+		}
+		return utilisateur;
 	}
 
 	@Override
 	public List<Utilisateur> getAll() throws FactoryException {
-		// FAUT METTRE NOTRE CODE ICI
 		return null;
 	}
 
 	@Override
 	public void delete(Utilisateur utilisateur) throws FactoryException {
-		// FAUT METTRE NOTRE CODE ICI
 
 	}
 
 	@Override
 	public void update(Utilisateur utilisateur) throws FactoryException {
-		// FAUT METTRE NOTRE CODE ICI
-
 	}
 }

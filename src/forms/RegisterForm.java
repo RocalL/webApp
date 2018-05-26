@@ -1,6 +1,5 @@
 package forms;
 
-import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
@@ -9,11 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import factory.UtilisateurFactory;
-import model.Projet;
 import model.Utilisateur;
-import model.Utilisateurs;
-import util.BCrypt;
-import util.JaxParser;
+import util.Pbkdf2;
 
 public class RegisterForm {
 	private static final String CHAMP_EMAIL = "email";
@@ -68,7 +64,7 @@ public class RegisterForm {
 			setErreur(CHAMP_PASS, e.getMessage());
 			setErreur(CHAMP_CONF, null);
 		}
-		utilisateur.setPassword(BCrypt.generateStorngPasswordHash(motDePasse));
+		utilisateur.setPassword(Pbkdf2.generateStorngPasswordHash(motDePasse));
 
 		try {
 			validationNom(nom);

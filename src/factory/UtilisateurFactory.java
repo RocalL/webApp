@@ -8,7 +8,7 @@ import model.Utilisateur;
 public interface UtilisateurFactory {
 	void create(Utilisateur utilisateur, String chemin) throws FactoryException;
 
-	Utilisateur getOne(String name) throws FactoryException;
+	Utilisateur getOne(String name, String chemin) throws FactoryException;
 
 	List<Utilisateur> getAll() throws FactoryException;
 

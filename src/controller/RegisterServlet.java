@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import factory.ProjetFactoryImpl;
 import factory.UtilisateurFactory;
 import factory.UtilisateurFactoryImpl;
 import forms.RegisterForm;
-import model.Projet;
 import model.Utilisateur;
 
 /**
@@ -54,7 +52,7 @@ public class RegisterServlet extends HttpServlet {
         RegisterForm form = new RegisterForm(utilisateurFactory);
         
         System.out.println("/* Appel au traitement et � la validation de la requ�te, et r�cup�ration du bean en r�sultant */");
-        Utilisateur utilisateur;
+        Utilisateur utilisateur = null;
 		try {
 			utilisateur = form.inscrireUtilisateur(request, chemin);
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
