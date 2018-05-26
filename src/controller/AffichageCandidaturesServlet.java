@@ -25,12 +25,9 @@ public class AffichageCandidaturesServlet extends HttpServlet {
 	public static final String ACCES_CANDIDATS = "/WEB-INF/views/affichageCandidatures.jsp";
 	public static final String ACCES_PROJETS = "/WEB-INF/views/projets.jsp";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String CHEMIN = "localDirectoryPath";
-	public static final String ATT_DB = "/projets.xml";
 
 	private CandidatureFactory candidatureFactory;
 	private ProjetFactory projetFactory;
-	
 
 	public void init() throws ServletException {
 		/* Récupération d'une instance de candidatureFactory */
@@ -49,16 +46,15 @@ public class AffichageCandidaturesServlet extends HttpServlet {
 			/* Redirection vers la page publique */
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
 		} else {
-			
-			String chemin = getServletContext().getInitParameter(CHEMIN) +ATT_DB;
+
 			List<Candidature> c = new ArrayList<Candidature>();
-			c =  candidatureFactory.getAll(request.getParameter("projet"), chemin);
+			c = candidatureFactory.getAll(request.getParameter("projet"));
 			request.setAttribute("candidature", c);
-			
+
 			Projet p = new Projet();
-			p = projetFactory.getOne(request.getParameter("projet"), chemin);
+			p = projetFactory.getOne(request.getParameter("projet"));
 			request.setAttribute("projet", p);
-			
+
 			this.getServletContext().getRequestDispatcher(ACCES_CANDIDATS).forward(request, response);
 		}
 	}

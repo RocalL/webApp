@@ -22,11 +22,9 @@ import model.Utilisateur;
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String VUE_FORM = "/WEB-INF/views/register.jsp";
-	public static final String CHEMIN = "localDirectoryPath";
     public static final String ATT_USER = "utilisateur";
     public static final String ATT_FORM = "form";
     public static final String VUE = "/WEB-INF/views/register.jsp";
-	public static final String ATT_DB = "/utilisateurs.xml";
 	
 	public static final String SERVLET_SUCCES = "/register";
 	
@@ -46,15 +44,13 @@ public class RegisterServlet extends HttpServlet {
 	
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
     	
-		String chemin = getServletContext().getInitParameter(CHEMIN) + ATT_DB;
-    	
-    	System.out.println("/* Pr�paration de l'objet formulaire */");
+    	System.out.println("/* Preparation de l'objet formulaire */");
         RegisterForm form = new RegisterForm(utilisateurFactory);
         
-        System.out.println("/* Appel au traitement et � la validation de la requ�te, et r�cup�ration du bean en r�sultant */");
+        System.out.println("/* Appel au traitement et a la validation de la requete, et recuperation du bean en resultant */");
         Utilisateur utilisateur = null;
 		try {
-			utilisateur = form.inscrireUtilisateur(request, chemin);
+			utilisateur = form.inscrireUtilisateur(request);
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

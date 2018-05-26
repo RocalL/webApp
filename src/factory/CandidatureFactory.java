@@ -7,13 +7,13 @@ import model.Candidature;
 import model.Projet;
 
 public interface CandidatureFactory {
-	void create(Candidature candidature, Projet projet, String chemin) throws FactoryException;
+	void create(Candidature candidature, Projet projet) throws FactoryException;
 
-	Candidature getOne(String userMail, String nomProjet, String chemin) throws FactoryException;
+	Candidature getOne(String userMail, String nomProjet) throws FactoryException;
 
-	List<Candidature> getAll(String nomProjet, String chemin) throws FactoryException;
+	List<Candidature> getAll(String nomProjet) throws FactoryException;
 
-	void delete(Candidature candidature,Projet projet, String chemin) throws FactoryException;
+	void delete(Candidature candidature,Projet projet) throws FactoryException;
 	
-	void update(Candidature candidature,Projet projet, String chemin) throws FactoryException;
+	void update(Candidature candidature,Projet projet) throws FactoryException;
 }

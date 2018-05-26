@@ -5,13 +5,11 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
+import controller.InitializationServlet;
 import exception.FactoryException;
-import model.Projet;
-import model.Projets;
 import model.Utilisateur;
 import model.Utilisateurs;
 import util.JaxParser;
-import util.Pbkdf2;
 
 public class UtilisateurFactoryImpl implements UtilisateurFactory {
 	public UtilisateurFactoryImpl() {
@@ -19,9 +17,9 @@ public class UtilisateurFactoryImpl implements UtilisateurFactory {
 	}
 
 	@Override
-	public void create(Utilisateur utilisateur, String chemin) throws FactoryException {
+	public void create(Utilisateur utilisateur) throws FactoryException {
 		try {
-			File file = new File(chemin);
+			File file = new File(InitializationServlet.ATT_UTILISATEURS_XML);
 			// Read
 			Utilisateurs listUtilisateurs = JaxParser.unmarshal(Utilisateurs.class, file);
 			for (Utilisateur u : listUtilisateurs.getUtilisateur()) {
@@ -34,7 +32,7 @@ public class UtilisateurFactoryImpl implements UtilisateurFactory {
 			utilisateur.setRole("user");
 			listUtilisateurs.getUtilisateur().add(utilisateur);
 			// Write
-			JaxParser.marshal(listUtilisateurs, file, chemin);
+			JaxParser.marshal(listUtilisateurs, file, InitializationServlet.ATT_UTILISATEURS_XML);
 			System.out.println(utilisateur);
 			System.out.println("UtilisateurFactoryImpl écrit: ");
 			System.out.println("ajoutée à la base de donnée");
@@ -44,10 +42,10 @@ public class UtilisateurFactoryImpl implements UtilisateurFactory {
 	}
 
 	@Override
-	public Utilisateur getOne(String email, String chemin) throws FactoryException {
+	public Utilisateur getOne(String email) throws FactoryException {
 		Utilisateur utilisateur = new Utilisateur();
 		try {
-			File file = new File(chemin);
+			File file = new File(InitializationServlet.ATT_UTILISATEURS_XML);
 			// Read
 			Utilisateurs listUsers = JaxParser.unmarshal(Utilisateurs.class, file);
 			for (Utilisateur u : listUsers.getUtilisateur()) {

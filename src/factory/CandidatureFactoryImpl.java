@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
+import controller.InitializationServlet;
 import exception.FactoryException;
 import model.Candidature;
 import model.Candidatures;
@@ -16,9 +17,9 @@ import util.JaxParser;
 public class CandidatureFactoryImpl implements CandidatureFactory {
 
 	@Override
-	public void create(Candidature candidature, Projet projet, String chemin) throws FactoryException {
+	public void create(Candidature candidature, Projet projet) throws FactoryException {
 		try {
-			File file = new File(chemin);
+			File file = new File(InitializationServlet.ATT_PROJETS_XML);
 			// Read
 			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
 			for (Projet p : listProjets.getProjet()) {
@@ -28,7 +29,7 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 				// implémenter une exception pour projet delete en cours de workflow
 			}
 			// Write
-			JaxParser.marshal(listProjets, file, chemin);
+			JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
 			System.out.println(candidature);
 			System.out.println("ajoutée au projet");
 			System.out.println(projet);
@@ -38,9 +39,9 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 	}
 
 	@Override
-	public Candidature getOne(String userMail, String nomProjet, String chemin) throws FactoryException {
+	public Candidature getOne(String userMail, String nomProjet) throws FactoryException {
 		try {
-			File file = new File(chemin);
+			File file = new File(InitializationServlet.ATT_PROJETS_XML);
 			// Read
 			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
 
@@ -61,9 +62,9 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 	}
 
 	@Override
-	public List<Candidature> getAll(String nomProjet, String chemin) throws FactoryException {
+	public List<Candidature> getAll(String nomProjet) throws FactoryException {
 		try {
-			File file = new File(chemin);
+			File file = new File(InitializationServlet.ATT_PROJETS_XML);
 			// Read
 			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
 			List<Candidature> listCandidatures = new ArrayList<Candidature>();
@@ -71,7 +72,7 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 			// Parcours des projets
 			for (Projet p : listProjets.getProjet()) {
 				if (p.getNom().equals(nomProjet)) {
-					//Parcours des candidatures
+					// Parcours des candidatures
 					for (Candidature c : p.getCandidatures().getCandidature()) {
 						listCandidatures.add(c);
 					}
@@ -87,9 +88,9 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 	}
 
 	@Override
-	public void delete(Candidature candidature, Projet projet, String chemin) throws FactoryException {
+	public void delete(Candidature candidature, Projet projet) throws FactoryException {
 		try {
-			File file = new File(chemin);
+			File file = new File(InitializationServlet.ATT_PROJETS_XML);
 			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
 			Candidatures listCandidatures = new Candidatures();// JaxParser.unmarshal(Candidatures.class, file);
 
@@ -114,7 +115,7 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 			System.out.println(listCandidatures.getCandidature().size());
 
 			// Write
-			JaxParser.marshal(listProjets, file, chemin);
+			JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
 
 			System.out.println("Candidature supprimée");
 		} catch (FactoryException | JAXBException e) {
@@ -124,9 +125,9 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 	}
 
 	@Override
-	public void update(Candidature candidature, Projet projet, String chemin) throws FactoryException {
+	public void update(Candidature candidature, Projet projet) throws FactoryException {
 		try {
-			File file = new File(chemin);
+			File file = new File(InitializationServlet.ATT_PROJETS_XML);
 			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
 
 			for (Projet p : listProjets.getProjet()) {
@@ -140,7 +141,7 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 			}
 
 			// Write
-			JaxParser.marshal(listProjets, file, chemin);
+			JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
 			System.out.println(listProjets);
 			System.out.println("Candidature validée");
 		} catch (FactoryException | JAXBException e) {

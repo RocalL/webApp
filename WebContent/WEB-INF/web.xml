@@ -11,22 +11,26 @@
 		<param-name>localDirectoryPath</param-name>
 		<param-value>C:\Users\Matthieu\Desktop\Spring\candidatures-workspace\webApp\WebContent\WEB-INF\database</param-value>
 	</context-param>
-	
-		<listener>
+
+	<listener>
 		<listener-class>
-			com.sun.xml.ws.transport.http.servlet.WSServletContextListener
-		</listener-class>
+			com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
 	</listener>
+
 	<servlet>
-		<servlet-name>sayhello</servlet-name>
-		<servlet-class>
-			com.sun.xml.ws.transport.http.servlet.WSServlet
-		</servlet-class>
+		<servlet-name>Initialization</servlet-name>
+		<servlet-class>controller.InitializationServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>projetService</servlet-name>
+		<servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>sayhello</servlet-name>
-		<url-pattern>/sayhello</url-pattern>
+		<servlet-name>projetService</servlet-name>
+		<url-pattern>/projetService</url-pattern>
 	</servlet-mapping>
 	<session-config>
 		<session-timeout>30</session-timeout>

@@ -81,7 +81,7 @@
         <tel>0123456789</tel>
     </utilisateur>
     <utilisateur>
-        <role>user</role>
+        <role>admin</role>
         <email>admin@root.fr</email>
         <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>admin</nom>

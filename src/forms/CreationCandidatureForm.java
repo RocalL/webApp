@@ -44,7 +44,7 @@ public final class CreationCandidatureForm {
 		return resultat;
 	}
 
-	public Candidature creerCandidature(HttpServletRequest request, String chemin) {
+	public Candidature creerCandidature(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String raisonSociale = getValeurChamp(request, CHAMP_RAISONSOCIALE);
 		String siret = getValeurChamp(request, CHAMP_SIRET);
@@ -75,8 +75,8 @@ public final class CreationCandidatureForm {
 
 		try {
 			if (erreurs.isEmpty()) {
-				Projet projet = projetFactory.getOne(request.getParameter("projet"), chemin);
-				candidatureFactory.create(candidature, projet, chemin);
+				Projet projet = projetFactory.getOne(request.getParameter("projet"));
+				candidatureFactory.create(candidature, projet);
 				resultat = "Succès de la création de la candidature.";
 			} else {
 				resultat = "Échec de la création de la candidature.";

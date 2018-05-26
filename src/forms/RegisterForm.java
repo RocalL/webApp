@@ -28,14 +28,16 @@ public class RegisterForm {
 	public Map<String, String> getErreurs() {
 		return erreurs;
 	}
+
 	private UtilisateurFactory utilisateurFactory;
 
 	public RegisterForm(UtilisateurFactory utilisateurFactory) {
 		this.utilisateurFactory = utilisateurFactory;
 	}
-	
-	public Utilisateur inscrireUtilisateur(HttpServletRequest request, String chemin) throws NoSuchAlgorithmException, InvalidKeySpecException {
-		String email = getValeurChamp(request, CHAMP_EMAIL);//toto
+
+	public Utilisateur inscrireUtilisateur(HttpServletRequest request)
+			throws NoSuchAlgorithmException, InvalidKeySpecException {
+		String email = getValeurChamp(request, CHAMP_EMAIL);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 		String confirmation = getValeurChamp(request, CHAMP_CONF);
 		String nom = getValeurChamp(request, CHAMP_NOM);
@@ -46,7 +48,7 @@ public class RegisterForm {
 
 		try {
 			validationTel(tel);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			setErreur(CHAMP_TEL, e.getMessage());
 		}
 		utilisateur.setTel(tel);
@@ -83,7 +85,7 @@ public class RegisterForm {
 			validationPrenom(prenom);
 		} catch (Exception e) {
 			setErreur(CHAMP_PRENOM, e.getMessage());
-			}
+		}
 		utilisateur.setPrenom(prenom);
 
 		try {
@@ -93,24 +95,23 @@ public class RegisterForm {
 		}
 
 		utilisateur.setTel(tel);
-		System.out.println(request.getServletContext().getRealPath(chemin));
 		try {
-			if(erreurs.isEmpty()){
-				utilisateurFactory.create(utilisateur,chemin);
+			if (erreurs.isEmpty()) {
+				utilisateurFactory.create(utilisateur);
 				resultat = "Succès de la création du nouvel utilisateur";
 			}
 		} catch (Exception e) {
 			setErreur("ParserError", e.getMessage());
 			e.printStackTrace();
 		}
-			
 
 		return utilisateur;
 	}
-	
+
 	private void validationTel(String tel) throws Exception {
-		if(tel != null) {
-			if (!tel.matches("^(?:(?:\\+|00)33[\\s.-]{0,3}(?:\\(0\\)[\\s.-]{0,3})?|0)[1-9](?:(?:[\\s.-]?\\d{2}){4}|\\d{2}(?:[\\s.-]?\\d{3}){2})$")) {
+		if (tel != null) {
+			if (!tel.matches(
+					"^(?:(?:\\+|00)33[\\s.-]{0,3}(?:\\(0\\)[\\s.-]{0,3})?|0)[1-9](?:(?:[\\s.-]?\\d{2}){4}|\\d{2}(?:[\\s.-]?\\d{3}){2})$")) {
 				throw new Exception("Veuillez saisir un numéro de téléphone valide");
 			}
 		} else {
@@ -144,20 +145,18 @@ public class RegisterForm {
 	private void validationNom(String nom) throws Exception {
 		if (nom == null) {
 			throw new Exception("Veuillez saisir un nom");
-		}
-		else if(nom.length() < 3) {
+		} else if (nom.length() < 3) {
 			throw new Exception("Le nom d'utilisateur doit contenir au moins 3 caractères.");
 		}
 	}
+
 	private void validationPrenom(String prenom) throws Exception {
 		if (prenom == null) {
 			throw new Exception("Veuillez saisir un prénom");
-		}
-		else if(prenom.length() < 3) {
+		} else if (prenom.length() < 3) {
 			throw new Exception("Le prénom d'utilisateur doit contenir au moins 3 caractères.");
 		}
 	}
-
 
 	/*
 	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.

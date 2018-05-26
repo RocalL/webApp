@@ -6,9 +6,9 @@ import exception.FactoryException;
 import model.Projet;
 
 public interface ProjetFactory {
-	void create(Projet projet, String chemin) throws FactoryException;
+	void create(Projet projet) throws FactoryException;
 
-	Projet getOne(String name,String chemin) throws FactoryException;
+	Projet getOne(String name) throws FactoryException;
 
 	List<Projet> getAll() throws FactoryException;
 

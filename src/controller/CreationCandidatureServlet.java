@@ -18,13 +18,11 @@ import model.Candidature;
 @WebServlet(urlPatterns = "/creationCandidature")
 public class CreationCandidatureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String CHEMIN = "localDirectoryPath";
 	public static final String VUE_FORM = "/WEB-INF/views/creationCandidature.jsp";
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ATT_FORM = "form";
-	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 	public static final String ATT_CANDIDATURE = "candidature";
-	public static final String ATT_DB = "/projets.xml";
+	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 
 	public static final String SERVLET_SUCCES = "/projets";
 
@@ -56,17 +54,11 @@ public class CreationCandidatureServlet extends HttpServlet {
 			/* Redirection vers la page publique */
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
 		} else {
-			/*
-			 * Lecture du paramètre 'chemin' passé à la servlet via la déclaration dans le
-			 * web.xml
-			 */
-			String chemin = getServletContext().getInitParameter(CHEMIN) + ATT_DB;
-
 			/* Préparation de l'objet formulaire */
 			CreationCandidatureForm form = new CreationCandidatureForm(candidatureFactory, projetFactory);
 
 			/* Traitement de la requête et récupération du bean en résultant */
-			Candidature candidature = form.creerCandidature(request, chemin);
+			Candidature candidature = form.creerCandidature(request);
 			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_CANDIDATURE, candidature);
 

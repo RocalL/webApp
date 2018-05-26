@@ -22,8 +22,6 @@ public class AffichageCandidatureServlet extends HttpServlet {
 	public static final String ACCES_CANDIDAT = "/WEB-INF/views/affichageCandidature.jsp";
 	public static final String ACCES_CANDIDATS = "/WEB-INF/views/affichageCandidatures.jsp";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String CHEMIN = "localDirectoryPath";
-	public static final String ATT_DB = "/projets.xml";
 	
 	private CandidatureFactory candidatureFactory;
 	private ProjetFactory projetFactory;
@@ -44,17 +42,14 @@ public class AffichageCandidatureServlet extends HttpServlet {
 		if (session.getAttribute(ATT_SESSION_USER) == null) {
 			/* Redirection vers la page publique */
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
-		} else {
-			
-			String chemin = getServletContext().getInitParameter(CHEMIN) +ATT_DB;
-			
+		} else {	
 			
 			Candidature c = new Candidature();
-			c = candidatureFactory.getOne(request.getParameter("utilisateur"), request.getParameter("projet"), chemin);
+			c = candidatureFactory.getOne(request.getParameter("utilisateur"), request.getParameter("projet"));
 			request.setAttribute("candidature", c);
 			
 			Projet p = new Projet();
-			p = projetFactory.getOne(request.getParameter("projet"), chemin);
+			p = projetFactory.getOne(request.getParameter("projet"));
 			request.setAttribute("projet", p);
 			
 			

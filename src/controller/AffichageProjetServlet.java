@@ -18,8 +18,6 @@ public class AffichageProjetServlet extends HttpServlet {
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ACCES_PROJET = "/WEB-INF/views/affichageProjet.jsp";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String CHEMIN = "localDirectoryPath";
-	public static final String ATT_DB = "/projets.xml";
 	public static final String ACCES_PROJETS = "/WEB-INF/views/projets.jsp";
 
 	private ProjetFactory projetFactory;
@@ -41,9 +39,8 @@ public class AffichageProjetServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
 		} else {
 
-			String chemin = getServletContext().getInitParameter(CHEMIN) + ATT_DB;
 			Projet p = new Projet();
-			p = projetFactory.getOne(request.getParameter("projet"), chemin);
+			p = projetFactory.getOne(request.getParameter("projet"));
 			request.setAttribute("projet", p);
 
 			/* Affichage de la page restreinte */

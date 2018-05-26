@@ -14,24 +14,21 @@ import factory.ProjetFactory;
 import factory.ProjetFactoryImpl;
 import model.Projet;
 
-
 /**
  * Servlet implementation class DeleteProjectFromList
  */
 @WebServlet("/deleteCandidature")
 public class DeleteCandidatureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final String VUE_SUCCES = "/WEB-INF/views/affichageCandidatures.jsp";
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String CHEMIN = "localDirectoryPath";
 	public static final String ATT_CANDIDATURE = "candidature";
-	public static final String ATT_DB = "/projets.xml";
-	
+
 	private CandidatureFactory candidatureFactory;
 	private ProjetFactory projetFactory;
-	
+
 	public void init() throws ServletException {
 		/* Récupération d'une instance de projetFactory */
 		this.candidatureFactory = new CandidatureFactoryImpl();
@@ -55,19 +52,18 @@ public class DeleteCandidatureServlet extends HttpServlet {
 			 * Lecture du paramètre 'chemin' passé à la servlet via la déclaration dans le
 			 * web.xml
 			 */
-			String chemin = getServletContext().getInitParameter(CHEMIN) + ATT_DB;
-			
-			candidatureFactory.delete(candidatureFactory.getOne(request.getParameter("utilisateur"), request.getParameter("projet"),chemin),projetFactory.getOne(request.getParameter("projet"), chemin),chemin);
-			
+
+			candidatureFactory.delete(
+					candidatureFactory.getOne(request.getParameter("utilisateur"), request.getParameter("projet")),
+					projetFactory.getOne(request.getParameter("projet")));
+
 			Projet p = new Projet();
-			p = projetFactory.getOne(request.getParameter("projet"), chemin);
-			
-			
-			
+			p = projetFactory.getOne(request.getParameter("projet"));
+
 			request.setAttribute("projet", p);
 			/* ré-affichage des candidatures */
 			this.getServletContext().getRequestDispatcher(VUE_SUCCES).forward(request, response);
-			
+
 		}
 	}
 }

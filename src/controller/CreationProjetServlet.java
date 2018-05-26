@@ -18,13 +18,11 @@ import model.Projet;
 @MultipartConfig(maxFileSize = 2 * 1024 * 1024, maxRequestSize = 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
 public class CreationProjetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String CHEMIN = "localDirectoryPath";
 	public static final String VUE_FORM = "/WEB-INF/views/creationProjet.jsp";
 	public static final String ACCES_LOGIN = "/login";
 	public static final String ATT_FORM = "form";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
 	public static final String ATT_PROJET = "projet";
-	public static final String ATT_DB = "/projets.xml";
 	public static final String ATT_FILESPATH = "/files/";
 
 	public static final String SERVLET_SUCCES = "/projets";
@@ -55,18 +53,13 @@ public class CreationProjetServlet extends HttpServlet {
 			/* Redirection vers la page publique */
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
 		} else {
-			/*
-			 * Lecture du paramètre 'chemin' passé à la servlet via la déclaration dans le
-			 * web.xml
-			 */
-			String chemin = getServletContext().getInitParameter(CHEMIN) + ATT_DB;
-			String filesPath = getServletContext().getInitParameter(CHEMIN) + ATT_FILESPATH;
+			String filesPath = InitializationServlet.CHEMIN + ATT_FILESPATH;
 
 			/* Préparation de l'objet formulaire */
 			CreationProjetForm form = new CreationProjetForm(projetFactory);
 
 			/* Traitement de la requête et récupération du bean en résultant */
-			Projet projet = form.creerProjet(request, chemin, filesPath);
+			Projet projet = form.creerProjet(request, filesPath);
 			request.setAttribute(ATT_FORM, form);
 			request.setAttribute(ATT_PROJET, projet);
 

@@ -51,7 +51,7 @@ public final class CreationProjetForm {
 	public String getResultat() {
 		return resultat;
 	}
-	public Projet creerProjet(HttpServletRequest request, String chemin, String filesPath) throws IOException, ServletException {
+	public Projet creerProjet(HttpServletRequest request, String filesPath) throws IOException, ServletException {
 		String nomProjet = getValeurChamp(request, CHAMP_NOM);
 		String description = getValeurChamp(request, CHAMP_DESCRIPTION);
 		String deadLineCandidature = getValeurChamp(request, CHAMP_DEADLINE_CANDIDATURE);
@@ -72,7 +72,7 @@ public final class CreationProjetForm {
 
 		try {
 			if (erreurs.isEmpty()) {
-				projetFactory.create(projet,chemin);
+				projetFactory.create(projet);
 				resultat = "Succès de la création du projet.";
 			} else {
 				resultat = "Échec de la création du projet.";

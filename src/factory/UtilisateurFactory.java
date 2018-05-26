@@ -6,9 +6,9 @@ import exception.FactoryException;
 import model.Utilisateur;
 
 public interface UtilisateurFactory {
-	void create(Utilisateur utilisateur, String chemin) throws FactoryException;
+	void create(Utilisateur utilisateur) throws FactoryException;
 
-	Utilisateur getOne(String name, String chemin) throws FactoryException;
+	Utilisateur getOne(String name) throws FactoryException;
 
 	List<Utilisateur> getAll() throws FactoryException;
 
