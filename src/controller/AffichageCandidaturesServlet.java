@@ -48,7 +48,7 @@ public class AffichageCandidaturesServlet extends HttpServlet {
 		} else {
 
 			List<Candidature> c = new ArrayList<Candidature>();
-			c = candidatureFactory.getAll(request.getParameter("projet"));
+			c = candidatureFactory.getCandidaturesAsList(request.getParameter("projet"));
 			request.setAttribute("candidature", c);
 
 			Projet p = new Projet();

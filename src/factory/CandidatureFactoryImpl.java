@@ -1,7 +1,6 @@
 package factory;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.JAXBException;
@@ -62,29 +61,26 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 	}
 
 	@Override
-	public List<Candidature> getAll(String nomProjet) throws FactoryException {
+	public Candidatures getCandidatures(String nomProjet) throws FactoryException {
 		try {
 			File file = new File(InitializationServlet.ATT_PROJETS_XML);
 			// Read
 			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
-			List<Candidature> listCandidatures = new ArrayList<Candidature>();
 
 			// Parcours des projets
 			for (Projet p : listProjets.getProjet()) {
 				if (p.getNom().equals(nomProjet)) {
 					// Parcours des candidatures
-					for (Candidature c : p.getCandidatures().getCandidature()) {
-						listCandidatures.add(c);
-					}
-					// Retourner la liste des candidatures
-					System.out.println(listCandidatures.toString());
-					return listCandidatures;
+					return  p.getCandidatures();
 				}
 			}
 		} catch (FactoryException | JAXBException e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	public List<Candidature> getCandidaturesAsList(String nomProjet) throws FactoryException {
+		return getCandidatures(nomProjet).getCandidature();
 	}
 
 	@Override

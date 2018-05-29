@@ -46,13 +46,20 @@ public class ProjetFactoryImpl implements ProjetFactory {
 			if (listProjets.getProjetByNom(nom) != null) {
 				p = listProjets.getProjetByNom(nom);
 			}
+			else {
+				throw new FactoryException("Aucun projet n'existe avec ce nom");
+			}
 		} catch (FactoryException | JAXBException e) {
 			e.printStackTrace();
 		}
 		return p;
 	}
 
-	public List<Projet> getAll() throws FactoryException {
+	public List<Projet> getProjetsAsList() throws FactoryException {
+		return getProjets().getProjet();
+	}
+	
+	public Projets getProjets() {
 		Projets listProjets = null;
 		try {
 			File file = new File(InitializationServlet.ATT_PROJETS_XML);
@@ -60,13 +67,18 @@ public class ProjetFactoryImpl implements ProjetFactory {
 		} catch (FactoryException | JAXBException e) {
 			e.printStackTrace();
 		}
-		return listProjets.getProjet();
+		return listProjets;
 	}
 
+	@Override
 	public void delete(Projet projet) throws FactoryException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void update(Projet projet) throws FactoryException {
+		// TODO Auto-generated method stub
+		
 	}
 }
