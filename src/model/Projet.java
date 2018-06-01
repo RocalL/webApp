@@ -108,4 +108,13 @@ public class Projet {
 		}
 		
 	}
+
+	public boolean isUserAlreadyCandidate(String email) {
+		for (Candidature c : this.getCandidatures().getCandidature()) {
+			if (c.getUtilisateur().getEmail().equals(email)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

@@ -75,7 +75,7 @@ public final class CreationProjetForm {
 			}
 		} catch (FactoryException e) {
 			setErreur("imprévu", "Erreur imprévue lors de la création.");
-			resultat = "Échec de la création du projet : une erreur imprévue est survenue, merci de réessayer dans quelques instants.";
+			resultat = "Échec de la création du projet :" + e.getMessage();
 			e.printStackTrace();
 		}
 		return projet;

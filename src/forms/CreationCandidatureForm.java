@@ -83,7 +83,7 @@ public final class CreationCandidatureForm {
 			}
 		} catch (FactoryException e) {
 			setErreur("imprévu", "Erreur imprévue lors de la création.");
-			resultat = "Échec de la création de la candidature : une erreur imprévue est survenue, merci de réessayer dans quelques instants.";
+			resultat = "Échec de la création de la candidature : "+ e.getMessage();
 			e.printStackTrace();
 		}
 

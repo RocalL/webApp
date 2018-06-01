@@ -6,7 +6,7 @@
         <descriptif>Projet web service M1 MIAGE Bordeaux</descriptif>
         <deadLineCandidature>22/01/2018</deadLineCandidature>
         <deadLineProjet>10/07/2018</deadLineProjet>
-        <nbMaxCandidatures>2</nbMaxCandidatures>
+        <nbMaxCandidatures>3</nbMaxCandidatures>
         <candidatures>
             <candidature>
                 <dateCandidature>09/15/2017</dateCandidature>
@@ -54,7 +54,7 @@
             </candidature>
             <candidature>
                 <dateCandidature>11/15/2017</dateCandidature>
-                <etatCandidature>En attente</etatCandidature>
+                <etatCandidature>Valide</etatCandidature>
                 <utilisateur>
                     <role>user</role>
                     <email>luctus@magna.co.uk</email>
@@ -152,7 +152,7 @@
             </candidature>
             <candidature>
                 <dateCandidature>10/19/2018</dateCandidature>
-                <etatCandidature>En attente</etatCandidature>
+                <etatCandidature>Valide</etatCandidature>
                 <utilisateur>
                     <role>user</role>
                     <email>In.ornare@tortornibh.co.uk</email>
@@ -174,7 +174,7 @@
             </candidature>
             <candidature>
                 <dateCandidature>06/03/2017</dateCandidature>
-                <etatCandidature>En attente</etatCandidature>
+                <etatCandidature>Valide</etatCandidature>
                 <utilisateur>
                     <role>user</role>
                     <email>lorem.tristique.aliquet@risusNuncac.org</email>
@@ -196,7 +196,7 @@
             </candidature>
             <candidature>
                 <dateCandidature>02/20/2018</dateCandidature>
-                <etatCandidature>En attente</etatCandidature>
+                <etatCandidature>Valide</etatCandidature>
                 <utilisateur>
                     <role>user</role>
                     <email>Donec.est@metus.net</email>

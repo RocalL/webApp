@@ -43,9 +43,7 @@ public class AffichageCandidatureServlet extends HttpServlet {
 			/* Redirection vers la page publique */
 			response.sendRedirect(request.getContextPath() + ACCES_LOGIN);
 		} else {	
-			
-			Candidature c = new Candidature();
-			c = candidatureFactory.getOne(request.getParameter("utilisateur"), request.getParameter("projet"));
+			Candidature c = candidatureFactory.getOne(request.getParameter("utilisateur"), request.getParameter("projet"));
 			request.setAttribute("candidature", c);
 			
 			Projet p = new Projet();
