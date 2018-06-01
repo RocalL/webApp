@@ -62,12 +62,11 @@ public class RegisterForm {
 
 		try {
 			validationMotsDePasse(motDePasse, confirmation);
+			utilisateur.setPassword(Pbkdf2.generateStorngPasswordHash(motDePasse));
 		} catch (Exception e) {
 			setErreur(CHAMP_PASS, e.getMessage());
 			setErreur(CHAMP_CONF, null);
 		}
-		utilisateur.setPassword(Pbkdf2.generateStorngPasswordHash(motDePasse));
-
 		try {
 			validationNom(nom);
 		} catch (Exception e) {

@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm">
-			<h2>Bonjour et bienvenue sur de mise en concurrence d'offre et de candidature</h2>
+			<h2>Bonjour et bienvenue sur notre service de mise en concurrence d'offre et de candidature</h2>
 		</div>
 	</div>
 
