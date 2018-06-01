@@ -1,5 +1,9 @@
 package exception;
 
+/**
+ * Ce sont les exceptions liées à la factory et à l'accès à la base de données xml
+ *
+ */
 public class FactoryException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 

@@ -11,7 +11,10 @@ import javax.xml.bind.Unmarshaller;
 import model.Utilisateur;
 import model.Utilisateurs;
 import util.Pbkdf2;
-
+/**
+ * <b>Classe qui récupère les informations envoyés par le formulaire, les vérifies et construit utilisateur avec la UtilisateurFactory pour un usage en session</b>
+ *
+ */
 public final class LoginForm {
 	private static final String CHAMP_EMAIL = "email";
 	private static final String CHAMP_PASS = "motdepasse";

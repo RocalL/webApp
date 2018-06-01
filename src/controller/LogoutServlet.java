@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * <b>Ce servlet gère la déconnexion d'un utilisateur</b>
+ *
+ */
 @WebServlet(urlPatterns = "/logout")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

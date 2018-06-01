@@ -14,6 +14,10 @@ import factory.ProjetFactoryImpl;
 import forms.CreationProjetForm;
 import model.Projet;
 
+/**
+ * <b>Ce servlet gère le mécanisme de création d'un projet</b>
+ *
+ */
 @WebServlet( urlPatterns = { "/creationProjet" } )
 @MultipartConfig(maxFileSize = 2 * 1024 * 1024, maxRequestSize = 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
 public class CreationProjetServlet extends HttpServlet {

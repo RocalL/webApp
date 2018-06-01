@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * <b>Ce servlet gère l'obtention des images</b>
+ *
+ */
 @WebServlet( urlPatterns = { "/images/*" } )
 public class ImageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

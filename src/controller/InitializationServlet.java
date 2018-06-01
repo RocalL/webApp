@@ -3,6 +3,10 @@ package controller;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+/**
+ * <b>Ce servlet initalise la configuration du projet, dont le chemin vers la base de données</b>
+ *
+ */
 public class InitializationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String LOCALDIRECTORY = "localDirectoryPath";

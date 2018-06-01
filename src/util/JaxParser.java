@@ -8,19 +8,41 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
+/**
+ * <b>Classe générique pour lire et écrire sur le fichier XML
+ *
+ */
 public class JaxParser {
 	
+    /**
+     * @param Classe de l'objet root
+     * @param Fichier de la base de données
+     * @return une instance de l'objet construit à partir du parsing
+     * @throws JAXBException
+     */
     public static <T> T unmarshal(Class<T> cl, File f) throws JAXBException
     {
         return unmarshal(cl, new StreamSource(f));
     }
-	  public static <T> T unmarshal(Class<T> cl, Source s) throws JAXBException
+	  /**
+     * @param Classe de l'objet root
+     * @param Source du fichier de la base de données
+     * @return une instance de l'objet construit à partir du parsing
+     * @throws JAXBException
+	 */
+	public static <T> T unmarshal(Class<T> cl, Source s) throws JAXBException
 	    {
 	        JAXBContext ctx = JAXBContext.newInstance(cl);
 	        Unmarshaller u = ctx.createUnmarshaller();
 	        return u.unmarshal(s, cl).getValue();
 	    }
 	
+    /**
+     * @param Instance de l'objet à écrire
+     * @param Fichier de la base de données
+     * @param schemaLocation Chemin du XSD pour écrire le lien dans le XML
+     * @throws JAXBException
+     */
     public static <T> void marshal(T obj, File f, String schemaLocation) throws JAXBException
     {
     	schemaLocation = schemaLocation.substring(schemaLocation.lastIndexOf('/')+1, schemaLocation.length() );
@@ -33,10 +55,4 @@ public class JaxParser {
         m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, schemaLocation);
         m.marshal(obj, f);
     }
-    public static String changeExtension(String schemaLocation, String newExtension) {
-    	  int i = schemaLocation.lastIndexOf('.');
-    	  String name = schemaLocation.substring(0,i);
-    	  return name + newExtension;
-    	}
-
 }

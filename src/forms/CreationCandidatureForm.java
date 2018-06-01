@@ -17,6 +17,10 @@ import model.RepProjet;
 import model.Structure;
 import model.Utilisateur;
 
+/**
+ * <b>Classe qui récupère les informations envoyés par le formulaire, les vérifies et construit l'objet Candidature avec la CandidatureFactory</b>
+ *
+ */
 public final class CreationCandidatureForm {
 	private static final String CHAMP_RAISONSOCIALE = "raisonSociale";
 	private static final String CHAMP_SIRET = "siret";

@@ -1,5 +1,9 @@
 package exception;
 
+/**
+ * Ce sont les exceptions liées à des erreurs de saisies sur les champs de formulaire
+ *
+ */
 public class FormValidationException extends Exception {
 	private static final long serialVersionUID = 1L;
 

@@ -3,7 +3,7 @@
     <utilisateur>
         <role>user</role>
         <email>In.ornare@tortornibh.co.uk</email>
-        <password>root</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>Hasad</nom>
         <prenom>Clements</prenom>
         <tel>07 42 72 20 77</tel>
@@ -11,7 +11,7 @@
     <utilisateur>
         <role>user</role>
         <email>lorem.tristique.aliquet@risusNuncac.org</email>
-        <password>root</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>Quentin</nom>
         <prenom>Roberts</prenom>
         <tel>02 16 75 26 71</tel>
@@ -19,7 +19,7 @@
     <utilisateur>
         <role>user</role>
         <email>Donec.est@metus.net</email>
-        <password>root</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>Herrod</nom>
         <prenom>Aguilar</prenom>
         <tel>04 84 34 59 17</tel>
@@ -27,7 +27,7 @@
     <utilisateur>
         <role>user</role>
         <email>magna.Nam.ligula@quamdignissimpharetra.edu</email>
-        <password>root</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>Lionel</nom>
         <prenom>Flowers</prenom>
         <tel>09 95 18 37 72</tel>
@@ -35,7 +35,7 @@
     <utilisateur>
         <role>user</role>
         <email>ac.nulla.In@senectus.com</email>
-        <password>root</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>Jamal</nom>
         <prenom>Sweet</prenom>
         <tel>02 19 70 66 70</tel>
@@ -43,7 +43,7 @@
     <utilisateur>
         <role>user</role>
         <email>luctus@magna.co.uk</email>
-        <password>root</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>Jason</nom>
         <prenom>Burch</prenom>
         <tel>04 48 50 92 63</tel>
@@ -51,7 +51,7 @@
     <utilisateur>
         <role>user</role>
         <email>in.molestie@parturientmontes.edu</email>
-        <password>root</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>Harper</nom>
         <prenom>Higgins</prenom>
         <tel>09 06 36 29 07</tel>
@@ -59,7 +59,7 @@
     <utilisateur>
         <role>user</role>
         <email>rutrum.justo.Praesent@accumsanlaoreetipsum.co.uk</email>
-        <password>root</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>Lyle</nom>
         <prenom>Rocha</prenom>
         <tel>09 53 19 34 67</tel>
@@ -67,33 +67,25 @@
     <utilisateur>
         <role>user</role>
         <email>test.test@test.fr</email>
-        <password>test</password>
+        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
         <nom>test</nom>
         <prenom>Test</prenom>
         <tel>0626584898</tel>
     </utilisateur>
     <utilisateur>
-        <role>user</role>
-        <email>poulet@root.fr</email>
-        <password>1000:3988229c97548a7d0b567bf009ffb12a:9a1a3afcb8f2d89b6469c4ca789f23a2417c87429dfdef3a9dee25b37af29841ec0d49f8027ff544a4570f24a0415a80d25300b50bd184fbdcaeb4ca621e4c6f</password>
-        <nom>Frite</nom>
-        <prenom>Poulet</prenom>
-        <tel>0123456789</tel>
-    </utilisateur>
-    <utilisateur>
         <role>admin</role>
         <email>admin@root.fr</email>
-        <password>1000:73a2498bc000e71bc48f7280d220d8f8:c5c2de7dc0904cc82ba2da0aff44369d77d403223cd142598088b161eadcd58809a9e863e91623f002b396eaf280e6dd72e14e514e6cbb02a89447c08e7be602</password>
-        <nom>admin</nom>
-        <prenom>admin@root.fr</prenom>
-        <tel>0123456789</tel>
+        <password>1000:5ab1baa59ba813de5c6602ada71f7fca:bdf4a127fd4a203d9b43cca77141480fc747c5fcb9e85feac1f71516ac8d91929a346868231a20aab6fb87a16577e8f9670a4d9961a60c888e3055a3dc3d99ca</password>
+        <nom>Admin</nom>
+        <prenom>Admin</prenom>
+        <tel>0623635452</tel>
     </utilisateur>
     <utilisateur>
         <role>user</role>
         <email>user@root.fr</email>
-        <password>1000:75a3add15aa67100c0995e8dad656702:8c782641fcd933db9f11d370367676e03f8434e4a981d369917fd0309b0c787e875bb40c5ef3c40e323b5406b09481859f66c42285786a102ecf14bd717e4962</password>
-        <nom>user</nom>
-        <prenom>user@root.fr</prenom>
-        <tel>0987654321</tel>
+        <password>1000:900f967d4206453119b4a6bcbf0de613:a982626da8fe73c4996b98248a129c8216b85f5b7959119ed3d052658003b04d9b8b7e4eb1f7e907f796cde96b102f9fe7191cd22a7355f728981c5b756d3d2d</password>
+        <nom>User</nom>
+        <prenom>User</prenom>
+        <tel>0256365425</tel>
     </utilisateur>
 </utilisateurs>

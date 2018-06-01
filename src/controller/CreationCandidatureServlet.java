@@ -15,6 +15,10 @@ import factory.ProjetFactoryImpl;
 import forms.CreationCandidatureForm;
 import model.Candidature;
 
+/**
+ * <b>Ce servlet gère le mécanisme de création d'une candidature </b>
+ *
+ */
 @WebServlet(urlPatterns = "/creationCandidature")
 public class CreationCandidatureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

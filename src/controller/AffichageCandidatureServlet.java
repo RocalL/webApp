@@ -15,6 +15,10 @@ import factory.CandidatureFactoryImpl;
 import factory.ProjetFactory;
 import factory.ProjetFactoryImpl;
 
+/**
+ * <b>Ce servlet gère l'affichage d'une candidature</b>
+ *
+ */
 @WebServlet(urlPatterns = "/affichageCandidature")
 public class AffichageCandidatureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

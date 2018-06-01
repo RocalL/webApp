@@ -16,7 +16,7 @@ import forms.RegisterForm;
 import model.Utilisateur;
 
 /**
- * Servlet implementation class Register
+ * <b>Ce servlet gère l'enregistrement d'un utilisateur</b>
  */
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
@@ -26,7 +26,7 @@ public class RegisterServlet extends HttpServlet {
     public static final String ATT_FORM = "form";
     public static final String VUE = "/WEB-INF/views/register.jsp";
 	
-	public static final String SERVLET_SUCCES = "/register";
+	public static final String SERVLET_SUCCES = "/projets";
 	
     private UtilisateurFactory utilisateurFactory;
     

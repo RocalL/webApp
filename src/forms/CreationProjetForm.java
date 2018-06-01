@@ -22,6 +22,10 @@ import model.Candidatures;
 import model.Projet;
 import eu.medsea.mimeutil.MimeUtil;
 
+/**
+ * <b>Classe qui récupère les informations envoyés par le formulaire, les vérifies et construit l'objet Projet avec la ProjetFactory</b>
+ *
+ */
 public final class CreationProjetForm {
 	private static final String CHAMP_NOM = "nomProjet";
 	private static final String CHAMP_DESCRIPTION = "descriptifProjet";

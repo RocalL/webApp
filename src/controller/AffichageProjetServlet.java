@@ -12,6 +12,10 @@ import factory.ProjetFactory;
 import factory.ProjetFactoryImpl;
 import model.Projet;
 
+/**
+ * <b>Ce servlet gère l'affichage d'un projet en détail </b>
+ *
+ */
 @WebServlet(urlPatterns = "/affichageProjet")
 public class AffichageProjetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

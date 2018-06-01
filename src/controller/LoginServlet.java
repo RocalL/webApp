@@ -11,6 +11,10 @@ import javax.servlet.http.HttpSession;
 import forms.LoginForm;
 import model.Utilisateur;
 
+/**
+ * <b>Ce servlet gère la connexion d'un utilisateur</b>
+ *
+ */
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

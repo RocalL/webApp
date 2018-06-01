@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import factory.UtilisateurFactory;
 import model.Utilisateur;
 import util.Pbkdf2;
-
+/**
+ * <b>Classe qui récupère les informations envoyés par le formulaire, les vérifies et construit utilisateur avec la UtilisateurFactory</b>
+ *
+ */
 public class RegisterForm {
 	private static final String CHAMP_EMAIL = "email";
 	private static final String CHAMP_PASS = "motdepasse";

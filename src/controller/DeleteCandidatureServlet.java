@@ -15,7 +15,7 @@ import factory.ProjetFactoryImpl;
 import model.Projet;
 
 /**
- * Servlet implementation class DeleteProjectFromList
+ * <b>Ce servlet gère la supression d'une candidature</b>
  */
 @WebServlet("/deleteCandidature")
 public class DeleteCandidatureServlet extends HttpServlet {

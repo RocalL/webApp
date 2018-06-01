@@ -15,7 +15,7 @@ import factory.ProjetFactoryImpl;
 import model.Projet;
 
 /**
- * Servlet implementation class ValidateCandidature
+ * <b>Ce servlet gère le changement de l'état d'une candidature en "Valide"</b>
  */
 @WebServlet(urlPatterns = "/validateCandidature")
 public class ValidateCandidatureServlet extends HttpServlet {

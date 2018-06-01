@@ -13,6 +13,10 @@ import javax.servlet.http.HttpSession;
 import model.Projets;
 import util.JaxParser;
 
+/**
+ * <b>Ce servlet gère l'affichage de la liste des projets</b>
+ *
+ */
 @WebServlet(urlPatterns = "/projets")
 public class ProjetsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
