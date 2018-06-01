@@ -9,6 +9,8 @@ import model.Projet;
 
 public interface CandidatureFactory {
 	void create(Candidature candidature, Projet projet) throws FactoryException;
+	
+	void create(Candidature candidature, String projetName) throws FactoryException;
 
 	Candidature getOne(String userMail, String nomProjet) throws FactoryException;
 

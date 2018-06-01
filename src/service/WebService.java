@@ -14,4 +14,6 @@ public interface WebService {
 	Candidatures getCandidatures(String nomProjet);
 
 	Candidature getOneCandidature(String mail, String nomProjet);
+	
+	void addCandidature(Candidature candidature,String projetName);
 }

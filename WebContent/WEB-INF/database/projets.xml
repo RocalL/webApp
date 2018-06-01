@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
 <projets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projets.xsd">
     <projet>
         <image>1.jpg</image>
@@ -7,11 +6,11 @@
         <descriptif>Projet web service M1 MIAGE Bordeaux</descriptif>
         <deadLineCandidature>22/01/2018</deadLineCandidature>
         <deadLineProjet>10/07/2018</deadLineProjet>
-        <nbMaxCandidatures>4</nbMaxCandidatures>
+        <nbMaxCandidatures>2</nbMaxCandidatures>
         <candidatures>
             <candidature>
                 <dateCandidature>09/15/2017</dateCandidature>
-                <etatCandidature>En attente</etatCandidature>
+                <etatCandidature>Valide</etatCandidature>
                 <utilisateur>
                     <role>user</role>
                     <email>magna.Nam.ligula@quamdignissimpharetra.edu</email>
@@ -131,7 +130,7 @@
         <candidatures>
             <candidature>
                 <dateCandidature>12/04/2018</dateCandidature>
-                <etatCandidature>En attente</etatCandidature>
+                <etatCandidature>Valide</etatCandidature>
                 <utilisateur>
                     <role>admin</role>
                     <email>admin@root.fr</email>
@@ -258,7 +257,30 @@
         <deadLineCandidature>30/04/2018</deadLineCandidature>
         <deadLineProjet>30/05/2018</deadLineProjet>
         <nbMaxCandidatures>2</nbMaxCandidatures>
-        <candidatures/>
+        <candidatures>
+            <candidature>
+                <dateCandidature>31/05/2018</dateCandidature>
+                <etatCandidature>Valide</etatCandidature>
+                <utilisateur>
+                    <role>admin</role>
+                    <email>red@blue.fr</email>
+                    <password>root</password>
+                    <nom>Red</nom>
+                    <prenom>Blue</prenom>
+                    <tel>0623214123</tel>
+                </utilisateur>
+                <structure>
+                    <raisonSocial>SA Blue</raisonSocial>
+                    <siret>12363254123654</siret>
+                    <ca>500000</ca>
+                </structure>
+                <repProjet>
+                    <delaisPropose>50</delaisPropose>
+                    <devis>Pas de devis</devis>
+                    <website>Pas de site web</website>
+                </repProjet>
+            </candidature>
+        </candidatures>
     </projet>
     <projet>
         <image>default.jpg</image>

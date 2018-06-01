@@ -44,4 +44,10 @@ public class WebServiceImpl implements service.WebService {
 		return candidatureFactory.getOne(mail, nomProjet);
 	}
 
+	@Override
+	public void addCandidature(@WebParam(name = "Candidature") @XmlElement(required = true) Candidature candidature,
+			@WebParam(name = "ProjetName") @XmlElement(required = true) String projetName) {
+		candidatureFactory.create(candidature, projetName);
+	}
+
 }

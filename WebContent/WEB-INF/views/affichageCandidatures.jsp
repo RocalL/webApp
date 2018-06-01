@@ -44,9 +44,18 @@
 								<td><c:out value="${candidature.repProjet.delaisPropose}" /></td>
 								<td>
 								<form action="validateCandidature" method = "get" class="candidatureBtn">
-									<button class="btn" title="Valider candidature">
-										<i class="fas fa-check"></i>
-									</button>
+								<c:choose>
+									<c:when test="${candidature.etatCandidature=='Valide'}">
+										<button class="btn disabled" title="Valider candidature">
+											<i class="fas fa-check"></i>
+										</button>
+									</c:when>   
+									<c:otherwise>
+										<button class="btn" title="Valider candidature">
+											<i class="fas fa-check"></i>
+										</button>
+									</c:otherwise>
+								</c:choose>
 									<input type="hidden" name="utilisateur" value="${candidature.utilisateur.email}">
 									<input type="hidden" name="projet" value="${projet.nom}">
 								</form>							

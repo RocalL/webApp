@@ -18,4 +18,6 @@ public interface ProjetFactory {
 	void delete(Projet projet) throws FactoryException;
 	
 	void update(Projet projet) throws FactoryException;
+	
+	boolean stillCandidaturePlace(String projetName) throws FactoryException;
 }

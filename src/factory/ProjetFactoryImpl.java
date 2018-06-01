@@ -7,6 +7,7 @@ import javax.xml.bind.JAXBException;
 
 import controller.InitializationServlet;
 import exception.FactoryException;
+import model.Candidature;
 import model.Projet;
 import model.Projets;
 import util.JaxParser;
@@ -80,5 +81,32 @@ public class ProjetFactoryImpl implements ProjetFactory {
 	public void update(Projet projet) throws FactoryException {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public boolean stillCandidaturePlace(String projetName) throws FactoryException {
+		try {
+			File file = new File(InitializationServlet.ATT_PROJETS_XML);
+			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
+			int count = 0;
+			for (Projet p : listProjets.getProjet()) {
+				if (p.getNom().equals(projetName)) {
+					for (Candidature c : p.getCandidatures().getCandidature()) {
+						if (c.getEtatCandidature().equals("Valide")) {
+							count++;
+						}
+					}
+					if (count >= p.getNbMaxCandidatures()) {
+						return false;
+					}
+					else {
+						return true;
+					}
+				}
+			}
+			throw new FactoryException("Aucun projet n'existe avec ce nom");
+		} catch (FactoryException | JAXBException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

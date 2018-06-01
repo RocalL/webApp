@@ -139,11 +139,8 @@ public final class CreationCandidatureForm {
 	}
 
 	private void traiterWebsite(String website, RepProjet repProjet) {
-		try {
-			validationWebsite(website);
-		} catch (FormValidationException e) {
-			website = "Aucun";
-			setErreur(CHAMP_RAISONSOCIALE, e.getMessage());
+		if (website == null) {
+			website = "Aucun site web";
 		}
 		repProjet.setWebsite(website);
 	}
@@ -222,16 +219,6 @@ public final class CreationCandidatureForm {
 			}
 		} else {
 			throw new FormValidationException("Merci d'entrer un devis.");
-		}
-	}
-
-	private void validationWebsite(String website) throws FormValidationException {
-		if (website != null) {
-			if (website.length() < 2) {
-				throw new FormValidationException("Le champ website doit contenir au moins 2 caractères.");
-			}
-		} else {
-			throw new FormValidationException("Merci d'entrer une raison sociale.");
 		}
 	}
 

@@ -24,14 +24,38 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 			for (Projet p : listProjets.getProjet()) {
 				if (p.getNom().equals(projet.getNom())) {
 					p.addCandidature(candidature);
+					// Write
+					JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
+					System.out.println(candidature);
+					System.out.println("ajoutée au projet");
+					System.out.println(projet);
+					return;
 				}
-				// implémenter une exception pour projet delete en cours de workflow
 			}
-			// Write
-			JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
-			System.out.println(candidature);
-			System.out.println("ajoutée au projet");
-			System.out.println(projet);
+			throw new FactoryException("Ce projet n'existe pas ou plus");
+		} catch (FactoryException | JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void create(Candidature candidature, String projetName) throws FactoryException {
+		try {
+			File file = new File(InitializationServlet.ATT_PROJETS_XML);
+			// Read
+			Projets listProjets = JaxParser.unmarshal(Projets.class, file);
+			for (Projet p : listProjets.getProjet()) {
+				if (p.getNom().equals(projetName)) {
+					p.addCandidature(candidature);
+					// Write
+					JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
+					System.out.println(candidature);
+					System.out.println("ajoutée au projet");
+					System.out.println(projetName);
+					return;
+				}
+			}
+			throw new FactoryException("Ce projet n'existe pas ou plus");
 		} catch (FactoryException | JAXBException e) {
 			e.printStackTrace();
 		}
@@ -54,6 +78,7 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 					return c.getCandidatureByMail(userMail);
 				}
 			}
+			throw new FactoryException("Aucun projet n'existe avec ce nom");
 		} catch (FactoryException | JAXBException e) {
 			e.printStackTrace();
 		}
@@ -71,14 +96,16 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 			for (Projet p : listProjets.getProjet()) {
 				if (p.getNom().equals(nomProjet)) {
 					// Parcours des candidatures
-					return  p.getCandidatures();
+					return p.getCandidatures();
 				}
 			}
+			throw new FactoryException("Aucun projet n'existe avec ce nom");
 		} catch (FactoryException | JAXBException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
 	public List<Candidature> getCandidaturesAsList(String nomProjet) throws FactoryException {
 		return getCandidatures(nomProjet).getCandidature();
 	}
@@ -99,21 +126,22 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 							System.out.println(c.toString());
 							listCandidatures = p.getCandidatures();
 							candid = c;
+							System.out.println(candid.toString());
+							System.out.println(listCandidatures.getCandidature().size());
+							listCandidatures.deleteCandidature(candid);
+							System.out.println(listCandidatures.getCandidature().size());
 
+							// Write
+							JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
+
+							System.out.println("Candidature supprimée");
+							return;
 						}
 
 					}
 				}
 			}
-			System.out.println(candid.toString());
-			System.out.println(listCandidatures.getCandidature().size());
-			listCandidatures.deleteCandidature(candid);
-			System.out.println(listCandidatures.getCandidature().size());
-
-			// Write
-			JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
-
-			System.out.println("Candidature supprimée");
+			throw new FactoryException("Ce projet n'existe pas ou plus");
 		} catch (FactoryException | JAXBException e) {
 			e.printStackTrace();
 		}
@@ -131,19 +159,19 @@ public class CandidatureFactoryImpl implements CandidatureFactory {
 					for (Candidature c : p.getCandidatures().getCandidature()) {
 						if (c.getUtilisateur().getEmail().equals(candidature.getUtilisateur().getEmail()))
 							c.setEtatCandidature("Valide");
+						// Write
+						JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
+						System.out.println(listProjets);
+						System.out.println("Candidature validée");
+						return;
 					}
 
 				}
 			}
-
-			// Write
-			JaxParser.marshal(listProjets, file, InitializationServlet.ATT_PROJETS_XML);
-			System.out.println(listProjets);
-			System.out.println("Candidature validée");
+			throw new FactoryException("Ce projet n'existe pas ou plus");
 		} catch (FactoryException | JAXBException e) {
 			e.printStackTrace();
 		}
 
 	}
-
 }
